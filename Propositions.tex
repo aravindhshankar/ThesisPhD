@@ -1,0 +1,119 @@
+\documentclass[pdftex,a5paper]{dissertation}
+\pdfpagewidth=\paperwidth
+\pdfpageheight=\paperheight
+
+
+%% Turn off page numbering for the propositions and make the margins on both
+%% sides equal and symmetrical.
+\geometry{twoside=false}
+\pagestyle{empty}
+\geometry{a5paper,margin=10mm}
+
+
+
+\begin{document}
+
+
+
+%% Specify the title and author of the thesis. This information will be used on
+%% both the English and Dutch side and in the metadata of the final PDF.
+\title{Numerical Exploration of Statistical Physics \\}
+\author{Aleksandar}{Bukva}
+
+\begin{center}
+
+{\Large\titlefont\bfseries Stellingen\\}
+
+\vspace{2mm}
+Behorende bij het proefschrift
+
+\medskip
+
+
+
+\bigskip
+
+%% Print the title.
+{\makeatletter
+\titlestyle\bfseries\large\@title
+\makeatother}
+
+%% Print the optional subtitle.
+{\makeatletter
+\ifx\@subtitle\undefined\else
+    \titlefont\titleshape\@subtitle
+\fi
+\makeatother}
+
+%\bigskip
+%
+%by
+%
+%\bigskip
+
+% Print the full name of the author.
+%\makeatletter
+%{\large\titlefont\bfseries\@firstname\ {\titleshape\@lastname}}
+%\makeatother
+
+\end{center}
+
+\smallskip
+
+{\small
+\begin{enumerate}[leftmargin=*]
+\setlength\itemsep{0.8em}
+
+\item Integrable theories can have operators that thermalize.
+\vspace{-10pt}
+\begin{flushright}
+    [\emph{Chapter 2}]
+\end{flushright}
+
+\item Multiple matter fields gauged with the same $Z_2$ field exhibit ``registry'' order parameter in the Higgs phase.  
+\vspace{-10pt}
+\begin{flushright}
+    [\emph{Chapter 3}]
+\end{flushright}
+
+
+\item Entanglement entropy of the lattice gauge theories with matter fields at criticality does not grow with the number of additional matter fields. 
+\vspace{-10pt}
+\begin{flushright}
+    [\emph{Chapter 4}]
+\end{flushright}
+
+\item Initialization along the edge of chaos is a necessary but not sufficient condition for optimal trainability. 
+\vspace{-10pt}
+\begin{flushright}
+	[\emph{Chapter 5}]
+\end{flushright}
+
+\item Generative models can be used to improve calculation of entanglement entropy in lattice gauge field models.
+\vspace{-2pt}
+\begin{flushright}
+	M. Medvidovic, J. Carrasquilla, L. E. Hayward, B. Kulchytskyy, \emph{Generative models for sampling of lattice field theories
+	} arXiv:cond-mat/2012.01442
+\end{flushright}
+
+\item The recent development of machine learning techniques can significantly improve our current optimization algorithms. But caution must be applied and methods understood rather than mindlessly used.
+
+\item Advancements in computational physics would be vastly accelerated by making codes of research papers publicly available. 
+
+\item The accuracy of the ground-state energy is not sufficient evidence of the proper representation of a ground state in gapless systems.
+
+\item Considering machine learning beyond being merely a profoundly intricate minimization challenge is fruitless. 
+
+\end{enumerate}
+
+\vspace{10pt}
+
+\begin{flushright}
+
+Aleksandar Bukva\\
+Leiden, 10$^{\text{th}}$ October 2023
+
+\end{flushright}
+}
+
+\end{document}

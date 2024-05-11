@@ -1,0 +1,220 @@
+\documentclass[print]{dissertation}
+\usepackage{graphicx}
+\usepackage{cleveref}
+\usepackage{afterpage}
+%\usepackage{tabu}\label{key}
+\usepackage{bm}
+\usepackage{caption}
+\captionsetup[subfigure]{justification=centering}
+\usepackage{subcaption}
+\usepackage{geometry}
+\usepackage{lettrine}
+\usepackage{braket}
+\usepackage{fixltx2e}
+\usepackage[version=3]{mhchem}
+\usepackage{floatrow}
+\usepackage{hyphenat}
+\usepackage{eso-pic}
+\usepackage{amsfonts}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{mathrsfs}
+\usepackage{mleftright}
+\usepackage{multirow}
+\usepackage{soul}
+\usepackage{mathtools}
+\usepackage{comment}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage[thinlines]{easytable}
+\usepackage{minitoc}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+%\usepackage{subfigure}
+\usepackage{placeins}
+\usepackage{csquotes}
+\usepackage{commath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{multirow}
+\usepackage{physics}
+\usepackage{mathdots}
+\usepackage{slashed}
+\usepackage{url}
+\usepackage{pgfplots}
+\usepackage{tocloft}
+\pgfplotsset{width=7cm,compat=1.8}
+
+\definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
+\renewcommand{\baselinestretch}{1.1}
+
+\renewcommand\cftchapafterpnum{\vskip3pt}
+\renewcommand\cftsecafterpnum{\vskip5pt}
+
+\hyphenation{wij-ze}
+
+	\usepackage{caption}
+	\usepackage{booktabs}
+	\usepackage{varwidth}
+	
+	\usepackage[utf8]{inputenc}
+	\usepackage[english]{babel}
+	%\setlength{\parindent}{4em}
+	%\setlength{\parskip}{1em}
+	
+	
+	\newcommand{\etal}{\textit{et al}. }
+	\newcommand{\ie}{\textit{i}.\textit{e}. }
+	\newcommand{\eg}{\textit{e}.\textit{g}. }
+	
+	\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+	\newcolumntype{N}{@{}m{0pt}@{}}
+	
+	\makeatletter
+	\newcommand{\thickhline}{%
+		\noalign {\ifnum 0=`}\fi \hrule height 2pt
+		\futurelet \reserved@a \@xhline
+	}
+	\newcolumntype{"}{@{\hskip\tabcolsep\vrule width 1pt\hskip\tabcolsep}}
+	\makeatother
+	
+	\newcommand\blankpage{
+		\null
+		\thispagestyle{empty}
+		\addtocounter{page}{-1}
+		\newpage}
+	
+	
+	\def\H{\pazocal{H}}
+	\def\DT{\Delta_\varphi}
+	\def\C{\pazocal{C}}
+	\def\A{\pazocal{A}}
+	\def\E{\pazocal{E}}
+	\def\S{\pazocal{S}}
+	\def\L{\pazocal{L}}
+	\def\T{\pazocal{T}}
+	\def\G{\pazocal{G}}
+	\def\K{\pazocal{K}}
+	\def\R{\pazocal{R}}
+	\def\F{\pazocal{F}}
+	\def\N{\pazocal{N}}
+	\def\P{\pazocal{P}}
+	\def\D{\pazocal{D}}
+	\def\O{\pazocal{O}}
+	\def\U{\Upsilon}
+	\def\dhg{\delta \hat g}
+	
+	\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+	
+	\def\lcdm{$\Lambda$CDM}
+	\def\omegao{$\Omega_0$}
+	\def\gammatwo{$\gamma_2^0$}
+	
+	\def\edu{{\color{white}{]}}_{\large{|} \omega^{2},\, \omega^{1}}}
+	\def\ed{{\color{white}{]}}_{\large{|} \omega^{2}}}
+	\def\eu{{\color{white}{]}}_{\large{|} \omega^{1}}}
+	
+	\newcommand{\ag}[1]{\textcolor{blue}{#1}}
+	\newcommand{\red}[1]{\textcolor{red}{#1}}
+	
+	\newcommand{\s}{\sigma}
+	\newcommand{\g}{\gamma}
+	\newcommand{\oo}{\mathcal{O}}
+	\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+	\newcommand{\vbtheta}{\boldsymbol{\theta}}
+	\newcommand{\vbomega}{\boldsymbol{\omega}}
+	\newcommand{\vbx}{\boldsymbol{x}}
+	\newcommand{\loss}{\mathcal{L}}
+	\newcommand{\one}{1\!\!1}
+	\newcommand{\non}{\nonumber\\}
+	%\newcommand{\rm}[1]{\text{#1}}
+	\newcommand{\rmd} {{\rm d}}
+	\newcommand{\rme} {{\rm e}}
+	\newcommand{\rmi} {{\rm i}}
+	\newcommand{\mathperiod}{\  .}
+	\newcommand{\mathcomma}{\  ,}
+	
+	\definecolor{z1}{HTML}{11b9a5}
+	\definecolor{z2}{HTML}{d4a816}
+	\definecolor{z3}{HTML}{20a1c5}
+	\definecolor{z4}{HTML}{b1111e}
+	
+	\definecolor{myred}{RGB}{180, 38, 38}
+	\definecolor{myblue}{RGB}{25, 145, 198}
+
+	\usepackage{calrsfs}
+	\usepackage[pages=some,scale=1,angle=0,opacity=0.7]{background}
+	%\newcommand\BackImage[2][scale=1]{%
+	%	\BgThispage
+	%	\backgroundsetup{
+	%		contents={\includegraphics[#1]{#2}}
+	%	}
+	%}
+	
+	
+	\begin{document}
+		\sloppy
+		
+		%% Specify the title and author of the thesis. This information will be used on
+		%% the title page (in title/title.tex) and in the metadata of the final PDF.
+		\title[]{Proefschrift Aleksandar Bukva} %use for title
+		\author{Aleksandar}{Bukva}
+		
+		%% Use Roman numerals for the page numbers of the title pages and table of
+		%% contents.
+		\frontmatter
+		
+		\include{ExtraPages/Title} %this is the file now called 'title page'
+		
+		%% The (optional) dedication can be used to thank someone or display a
+		%% significant quotation.
+		
+		\dedication{\epigraph{
+				To myself and my family.}
+			{}}
+		
+		%%%%%%%%%%%          TABLE OF CONTENTS               ###############
+		\tableofcontents
+		
+		% Disable indentation
+		\setlength{\parindent}{0pt}
+		\setlength{\parskip}{1em}
+		
+		%\include{preface} %I did not use this one
+		
+		%% Use Arabic numerals for the page numbers of the chapters.
+		\mainmatter
+		
+		%% Turn on thumb indices.
+		
+		\newgeometry{
+			top=1in,
+			bottom=1in,
+			outer=1in,
+			inner=1in,
+		}
+		\thumbtrue
+		
+		
+		\include{introduction.tex}
+		\include{chapter1.tex}
+		\include{chapter2.tex}
+		\include{chapter3.tex}
+		\include{chapter4.tex}
+		
+		\thumbfalse
+		
+		\addcontentsline{toc}{part}{References}
+		\setheader{References}
+		
+		
+		\bibliographystyle{JHEP}
+		{\bibliography{library}}
+		
+		
+		\include{ExtraPages/Samenvatting.tex}
+		\include{ExtraPages/Summary.tex}
+		\include{ExtraPages/Publications.tex}
+		\include{ExtraPages/Biography.tex}
+		\include{ExtraPages/Acknowledgements}
+		
+	\end{document}
