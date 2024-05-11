@@ -43,6 +43,21 @@
 \usepackage{pgfplots}
 \usepackage{tocloft}
 \pgfplotsset{width=7cm,compat=1.8}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{amsmath,mathtools}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage[normalem]{ulem}
+\usepackage{adjustbox}
+\usepackage{nicefrac,physics}
+\usepackage{stackengine}
+\usepackage{lipsum}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{feynmp-auto}
+\usepackage{comment}
 
 \definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
 \renewcommand{\baselinestretch}{1.1}
@@ -103,6 +118,9 @@
 	\def\U{\Upsilon}
 	\def\dhg{\delta \hat g}
 	
+	\newcommand{\FIXME}[1]{\textbf{FIXME: #1}}
+	\newcommand{\sgn}{\rm{sgn}}
+	
 	\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
 	
 	\def\lcdm{$\Lambda$CDM}
@@ -132,6 +150,8 @@
 	\newcommand{\rmi} {{\rm i}}
 	\newcommand{\mathperiod}{\  .}
 	\newcommand{\mathcomma}{\  ,}
+	\renewcommand{\i}{{\imath}}
+	
 	
 	\definecolor{z1}{HTML}{11b9a5}
 	\definecolor{z2}{HTML}{d4a816}
@@ -195,8 +215,8 @@
 		\thumbtrue
 		
 		
-		\include{introduction.tex}
-		%\include{chapter1.tex}
+		%\include{introduction.tex}
+		\include{chapter1.tex}
 		%\include{chapter2.tex}
 		%\include{chapter3.tex}
 		%\include{chapter4.tex}
