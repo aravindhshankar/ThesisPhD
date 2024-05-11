@@ -1,392 +1,516 @@
-\chapter{Replicating Higgs Fields in Ising Gauge Theory: the Registry Order}
-\label{ch:higgs}
+\chapter{Kondo effect in Twisted Bilyaer graphene}
+\label{ch:KondoTBG}
 
 \section*{Attribution}
 This paper has been previously published as a preprint on arXiv and has been submitted to Physical Review E for publications, and it is currently under the editorial review, under the title \textbf{\textit{Replicating Higgs fields in Ising gauge theory: the registry order}}, together with Koenraad Schalm and Jan Zaanen.\cite{Bukva:Registry}
 
 \section*{Abstract}
-We consider $Z_2$ gauge field theory coupled to ``Higgs'' matter fields invoking several copies of such matter, interacting entirely through the gauge fields, the 
-$Z_2 \times Z_2 \times Z_2\cdots / Z_2$ and the $O(N) \times O(N) \times O(N) \cdots / Z_2$ families of theories. We discover that the Higgs phase of such theories is characterized by a hitherto unidentified ``registry'' order parameter. This is characterized by a gauge invariant $p = 2^{N_{\text{rep}}}/2$  Potts type symmetry  where $N_{\text{rep}}$ is the number of matter copies. The meaning of this registry is that the different matter copies align their vectors locally in strictly parallel or anti-parallel fashion, even dealing with the continuous $O(2)$ symmetry.  Supported by Monte-Carlo simulations, we identify the origin of this registry order in terms of the gauge interactions mediated by the fluxes (``visons'') associated with the $Z_2$ gauge fields, indirectly imposing the discrete symmetry in the gauge invariant global symmetry controlled effective order parameter theory. In addition, it appears that our simulations reveal a hitherto unidentified ``pseudo-universality'' associated with the very similar form of the overall phase diagrams of the various theories suggesting a remarkable ``governance'' by the gauge field part of the dynamics.  
+\noindent The emergence of flat bands in twisted bilayer graphene at the magic angle can be understood in terms of a vanishing Fermi velocity of the Dirac cone. This is associated with van Hove singularities approaching the Fermi energy and becoming higher-order. In the density of states this is reflected by flanking logarithmic van Hove divergences pinching off the central Dirac cone in energy space. The low-energy pseudogap of the Dirac cone away from the magic angle is replaced by a power-law divergence due to the higher-order van Hove singularity at the magic angle.
+This plays an important role in the exotic phenomena observed in this material, such as superconductivity and magnetism, by amplifying electronic correlation effects.
+Here we investigate one such correlation effect -- the Kondo effect due to a magnetic impurity embedded in twisted bilayer graphene. We use the Bistritzer-MacDonald model to extract the low-energy density of states of the material as a function of twist angle, and study the resulting quantum impurity physics using perturbative and numerical renormalization group methods. Although at zero temperature the impurity is only Kondo screened precisely at the magic angle, we find highly nontrivial behavior at finite temperatures relevant to experiment, due to the complex interplay between Dirac, van Hove, and Kondo physics.
 
 \section{Introduction}
-\label{intro}
 
-The physics of gauge fields has its special traits and arguably the simplest incarnation of such an interacting theory, controlled by Ising ($Z_2$) local symmetry, has played a historical role in the subject, comparable to the (global) Ising model itself  in revealing generic principle. Early on, the pure $Z_2$ gauge theory was introduced by Wegner \cite{Wegner,Kogut}, revealing in a minimal setting the fundamentals in the form of the confining and deconfining phases. Much later it was gradually realized that, different from the confining phase, the deconfining phase is characterized by {\em topological} order \cite{Wen,Bais,Sondhi,visons,stripefrac,stripefracdemler}. Kitaev rediscovered this in the context of topological quantum computation in the form of his toric code \cite{Kitaev} demonstrating the non-Abelian braiding associated with its fluxes. This insight into the Ising deconfining state acquired in a recent era plays a central role in various guises in the modern topological order portfolio of condensed matter physics. 
+The properties of two-dimensional monolayer systems are strongly modified by stacking two layers with a relative twist, the so-called moir\'e effect in twisted bilayer systems~\cite{LopesdosSantos2007PRL}. In particular, twisted bilayer graphene (TBG) exhibits peculiar properties at specific `magic' twist angles~\cite{Suarez2011,Bistritzer2011,Kim2017,Liu2019,Yuan2019,Song2019,Tarnopolsky2019,Cao2018,Caocorrelated2018,Lu2019}. One characteristic of the system at these magic angles is that the non-interacting band structure contains almost-flat bands. This leads to a dramatic enhancement of the density of states (DoS). Consequently, electronic interaction effects are boosted, favoring the appearance of magnetism and other correlated phases, for example superconductivity~\cite{Cao2018,Caocorrelated2018,Lu2019,Ojajarvi2018,Isobe2018,Wu2018,Peltonen2018,Kozii2019,Yankowitz2019,Hazra2019,Hu2019,Xie2020,Julku2020}. 
+Away from the magic angle in TBG, the slightly modified Dirac cones of the single layers persist~\cite{LopesdosSantos2007PRL}, giving a low-energy linear pseudogap DoS. However, pronounced van Hove singularities~\cite{vanHove1953} (vHs's) dominate the band structure at higher energies, leading to logarithmic divergences in the DoS. Experimentally, it was recently shown~\cite{Li2010} that as the magic angle is approached, the vHs divergences in the DoS move to lower energy, pinching off the Dirac cone from either side in energy space. At the magic angle, the vHs divergences in the DoS merge, and a single higher-order vHs \cite{Yuan2019} (HO-vHs) emerges, yielding a stronger, power-law divergent DoS. This is a characteristic feature of the emergent flat bands in this system. The enhanced effect of electron correlations due to the HO-vHs in the bulk TBG material has been studied theoretically~\cite{Caocorrelated2018,Lu2019,Isobe2018,Classen2020PRB} and confirmed in scanning tunnelling spectroscopy (STS) experiments~\cite{Kerelsky2019,Choi2019}.
 
-In a next step one can couple in Higgs fields (``matter'') and generically a Higgs phase is formed besides the (de)confining phases.  Next to the role it played in quantum condensed matter (e.g. \cite{Sondhi,visons}), this flourished particularly in the context of liquid crystals. It was early on realized that the Higgs-confinement transition of $O(3)$ matter $Z_2$ gauge ($O(3)/Z_2$) is equivalent to the (uniaxial) nematic to isotropic transition \cite{toner95} (see also \cite{stripefrac,stripefracdemler}). Recently this was exploited to study ``generalized'' nematics characterized by the breaking of the non-abelian point groups in 3D \cite{nonabnematic}. 
+Detailed information on the electronic structure of new materials can also be obtained by exploiting defects or impurities as \textit{in-situ} probes \cite{crommie1993imaging}. The nature of the electronic scattering from impurities in a system is strongly dependent on the band structure and DoS of the clean host material, and can be probed either locally at the impurity site by STS \cite{jamneala2000scanning,madhavan2001local}, or by collecting momentum-space information through quasiparticle interference (QPI) measurements \cite{hoffman2002imaging}. For quantum impurities such as magnetic adatoms \cite{costi2009kondo,ternes2008spectroscopic} or single-molecule magnets \cite{bogani2008molecular}, the impurity spin degree of freedom generates additional spin-flip scattering, which is boosted at low temperatures by the Kondo effect in standard metallic hosts \cite{Hewson}. The Kondo effect itself depends sensitively on the local spin-resolved DoS of the host material, and hence such `Kondo probes' can provide additional electronic structure information \cite{derry2015quasiparticle,*mitchell2015multiple} or be utilized for quantum metrology \cite{mihailescu2022thermometry}. Aside from the spectroscopic and QPI signatures of Kondo physics in metals \cite{ternes2008spectroscopic}, the Kondo effect has been studied in a range of other unconventional materials, including monolayer graphene \cite{chen2011tunable,vojta2010gate,Fritz2013,mitchell2013kondo}, topological insulators \cite{mitchell2013TI}, Dirac and Weyl semimetals \cite{mitchell2015kondo}, ferromagnets \cite{martinek2003kondo,calvo2009kondo}, superconductors \cite{muller1971kondo,polkovnikov2001impurity}, and spin liquids \cite{kolezhuk2006theory,vojta2016kondo,he2022magnetic} -- each giving its own distinctive response. In particular, for Dirac systems with a low-energy pseudogap, the depleted conduction electron DoS is known to suppress the Kondo effect \cite{Fritz2013,mitchell2013TI,mitchell2015kondo} (although it can be revived upon doping \cite{May2018PRB-Kondo-graphene}).
 
-In fact, this started with the pioneering work by Fradkin and Shenker \cite{Fradkinshenker} that focused in on the minimal case where matter is ``in the fundamental'', e.g. the Higgs field is governed by $Z_2$ symmetry as the gauge fields. They found that the ``maximally ordered'' Higgs phase and ``maximally disordered'' confining phase actually become {\em indistinguishable}. This confused the community for a long while and perhaps this got resolved for the first time by Huse and Leibler  \cite{HuseLeibler} invoking an analogy with amphiphilic phases as of relevance in e.g. biology. We will review this in more detail underneath since this motif will play an important role in the remainder. 
+By contrast, in the case of TBG, one might expect Kondo correlations to be strongly enhanced by the flat bands and diverging DoS close to the magic angle. The study of Kondo physics in TBG, and how it evolves with twist angle, is the topic of this article. We find that magnetic impurities are sensitive probes of the nontrivial band structure of the material, and we uncover rich thermodynamic and spectroscopic signatures that rapidly change on approaching the magic angle.
 
-We stumbled on a natural extension of this discrete gauge theory portfolio. Although we have not managed to identify any circumstance where this could be of empirical relevance, as a theoretical construct it is entertaining. It adds some new general motifs, while shedding also an unexpected light on the basic physics of discrete gauge systems.   We call this ``discrete gauge theory with \textit{replicated} Higgs fields'', where various matter fields couple to the same gauge field. This defines a vast landscape of theories, and we will focus on the most elementary examples. We will limit ourselves to three (overall) dimensional systems characterized  by a single $Z_2$ gauge field coupling to ``replicated'' $Z_2$ and $O(2)$ Higgs fields.
-
-Let us first define this ``replicated'' theory. Discrete gauge symmetry can only be handled departing from a UV lattice. Let us consider the Euclidean action that may be interpreted as a thermal problem in $D = d + 1$ dimensions, or either as the action of the quantum incarnation in $d$ space dimensions after Wick rotation. Consider a hyper-cubic lattice in $D$ overall dimensions and assign matter (Higgs) fields $\va{\phi}_i^a$  to the site $i$ with a symmetry that will be specified in a moment. The novelty is in the $a = [1,N_{\text{rep}}]$ different ``flavor'' copies of the matter fields. Next, assign gauge group matrices $U_{ij}$ to the \textit{links} between nearest-neighbor lattice sites. The action is then in full generality of the form,
-\begin{equation}
-	\begin{split}
-	S[\{\phi^a,U_{ij}\}] = K &\sum_{\square} \Tr [U_{12}U_{23}U_{34}U_{41}] + \sum_{a=1}^{N_{\text{rep}}} J_a \sum_{\langle ij \rangle} U_{ij} \va{\phi}_i^a \cdot \va{\phi}_j^a \\ + &\sum_{ab} J^L_{ab} \sum_i \va{\phi}_i^a \cdot \va{\phi}_i^b
-\end{split}
-\end{equation}
-in the usual guise of defining the gauge curvature in terms of the Wilson plaquette action (first term), coupling minimally to matter (second term). Once again, the only novelty is in the consideration of the $N_{\text{rep}}>1$ matter field copies. The last term corresponds with the minimal, gauge invariant couplings between the Higgs field ``replicas''. A crucial ingredient is that all replica’s are subjected to coupling to the same gauge field.
-
-We will be focused on the minimal $Z_2$ gauge field incarnation in a thermal setting, addressing its statistical physics in 3 overall space dimensions. In terms of Ising spins $\pm 1$ with Pauli matrices  living on the bonds with operator $\tau_{ij}^z$,
-
-\begin{equation}
-	\label{eq:z2action}
-	\begin{split}
-		S_{Z_2}[\{\phi^a,U_{ij}\}] = -K&\sum_{\square}\tau^z_{12}\tau^z_{23}\tau^z_{34}\tau^z_{41} - \sum_{a=1}^{N_{\text{rep}}}J_a\sum_{\langle ij \rangle}\tau^z_{ij} \va{\phi}_i^a \cdot \va{\phi}_j^a \\ - &\sum_{ab}J^L_{ab}\sum_i \va{\phi}_i^a \cdot \va{\phi}_i^b \mathperiod
-	\end{split}
-\end{equation}
-For a single Higgs field this is just the thoroughly studied $O(\cdots)/Z_2$ action, where $O(\cdots)$ refers to the symmetry group of the matter field. We will concentrate on the elementary cases of the matter fields in the fundamental $O(\cdots) \rightarrow Z_2$ as well as the case of $O(2)$ matter.  
-
-We repeat, different from the single copy versions, we have not managed to identify circumstances where these replicated theories become of relevance to experiment.  Perhaps the closest approach are the multi-component superconductors identified and analyzed by Babaev and coworkers \cite{Babaev1,Babaev2,Babaev3}. These would correspond with two $U(1)$ matter fields sharing the $U(1)$ gauging by electromagnetism. However, the latter is supposedly to be {\em non-compact} lacking magnetic monopoles: as will become clear, the analogous ``gauge fluxes'' (or ``visons'') of the $Z_2$ version are crucial to the physics we wish to discuss.
-
-Not knowing quite what to expect, we explored this theoretical landscape in first instance through
-Monte-Carlo simulations with a focus on establishing the nature of the phase diagrams. To establish the location and nature of the phase transition we employ standard methodology (thermodynamics, Binder criterium): details can be found in the appendix. 
-
-This revealed surprises that we deem of sufficient interest to report here. These are already revealed by the simplest replicated $Z_2 \times Z_2 \times Z_2 \cdots / Z_2$ version. 
-We first consider the limit where the local couplings between the matter fields (the $J^L_{ab}=0$ in Eq. (\ref{eq:z2action})) are absent for identical Higgs couplings $J_a=J~\forall~a$.  Although there are no direct couplings between the replicated matter fields, we identify a new, gauge invariant global symmetry. We call this the ``registry'' order parameter, associated with the {\em relative} orientation  of the local matter fields. As we will explain in Section \ref{replZ2}, for $N_\text{rep}$ replicated fields this is governed by a $p = 2^{N_{\text{rep}}} /2$ state Potts model. This symmetry  is automatically broken in the Higgs phase, while it restores in the confining phase. The consequence is that, different from the single copy version, this renders the Higgs and confining phase to be distinguishable as they are now
-separated by a second order phase transition. The local couplings $J^L_{ab}$ break this symmetry explicitly turning these transitions into cross-overs, while  the onset of the ``registry'' phase transition in the gauge coupling ($K$) and matter coupling ($J_a=J$) can be manipulated by choosing matter couplings that are different for the copies $J_a\neq J_{b\neq a}$. 
-
-We will then turn to the $O(2) \times O(2) \times \cdots/Z_2$ case (Section \ref{replO2}). For a single matter copy the Higgs phase is distinguishable from the confining phase since the former breaks symmetry spontaneously in the form of a (``spin'') nematic order parameter, involving for $O(2)$ a second order phase transition. However, invoking more than one copy we find that  this is characterized by the same registry order parameter as the $Z_2$ case for vanishing local couplings. The ramification turns out to be that the  confinement-to-Higgs (or isotropic-to-nematic) transition is lifted to a first order one for the reason that {\em two} global symmetries (registry and nematic) are simultaneously spontaneously broken at this transition.
-
-Last but not least, it sheds further light on a peculiarity associated with the $Z_2$ gauge systems that we find to be more generic than anticipated. This departs from the structure of the phase diagram of the $Z_2/Z_2$ problem,  as function of gauge ($K$) and matter ($J$) coupling, Fig.\ref{Z2Z2phasediagram}. As pointed out already by Fradkin and Shenker \cite{Fradkinshenker}, by following the large $J$ (top side) and small $K$ (left side) evolution of the couplings no phase transition is encountered between the confining and Higgs ``phases'', stressing the indistinguishability. However, departing from the tricritical point associated with the deconfining phase one finds a strand of first order transition terminating at a critical endpoint. This was elucidated in full by Huse and Leibler \cite{HuseLeibler}, employing a dual language involving both the matter and gauge topological defects, that we will review first  to set the stage (Section \ref{Z2Z2review}). This is associated with a peculiar ``amplitude dynamics''  and we find that it is remarkably robust, being actually rather insensitive to the presence of gauge invariant global symmetries. This can already be seen in the elementary $O(2)/Z_2$ system where it appears to have been overlooked (see Fig. \ref{O2Z2phasediagram}) -- we are aware of only one publication where the first order ``strand'' was mentioned without further analysis \cite{Senthil}. We will end with a short discussion of our findings (section \ref{discussion}). 
-
-
-
-\begin{figure*}[!h]
-	\centering	\includegraphics[width=.42\textwidth]{figures/chapter2/Z2Z2phasedia.pdf}%
-	\raisebox{-.13in}{
-		\includegraphics[width=.45\textwidth]{figures/chapter2/Z2Z2.pdf}}
-	\caption{The quantitative phase diagram as established by Monte-Carlo of the $Z_2 / Z_2$ theory as function of the gauge coupling $K$ and matter coupling $J$, see appendix \ref{app:mc-details} for details. The left panel gives the overview, further illustrated by  the outcomes for the specific heat in the right panel. The dashed- and drawn lines represent second- and first order transitions respectively, that we confirmed by a detailed analysis of the Binder cumulants. This is well understood (see main text): for small $J$ the matter sector is disordered and can be ignored, and one is just dealing with the pure gauge Wegner Ising gauge theory revealing the deconfining- and confining phases separated by a continuous phase transition, where the latter can be viewed as a condensate of gauge fluxes (``visons''). Upon increasing $J$ at  large $K$ one enters the ``Higgs-like'' phase that is famously indistinguishable from the confining phase -- a transition is absent as function of $J$ for small $K$. A peculiarity is the first order line emanating at the tricritical point anchored at the deconfinement transition. This reflects a van der Waals density driven liquid-vapor transition associated with the density of ``featureless'' domain walls, terminating at a critical end point.}
-	\label{Z2Z2phasediagram}
+\begin{figure*}[t!]
+	\begin{subfigure}[b]{0.275\linewidth}
+		\centering
+		\includegraphics[width=1.1\linewidth]{figures/chapter2/Kondo_impurity_on_twisted_bilayer_3.pdf}
+		\caption{\label{fig:schematic}}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.400\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/chapter2/BiggerFontHistogramDOS.pdf}
+		\caption{{\label{fig:HistogramDOS}}}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.300\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/chapter2/ShowHigherOrder.pdf}
+		\caption{{\label{fig:ShowHigherOrder}}}
+	\end{subfigure}
+	\caption{ %\justifying
+		\small (a) Schematic representation of a magnetic impurity on the surface of the twisted bilayer graphene host material, with inter-layer twist angle $\theta$.   (b) Evolution of the clean TBG density of states for different twist angles near the magic angle at $\theta = 1.05^{\circ}$. Vertical dashed lines indicate the energy of the dispersion saddle points $E_v$, which determine the van Hove singularity locations. (c) Vanishing vHs saddle point scale $E_v$ (top) and determinant of the saddle point Hessian (bottom) as the magic angle is approached, showing how two vHs's coalesce into a single HO-vHs. }
+	\label{fig:joinedfig}
 \end{figure*}
 
-\section{ A short review of $Z_2$ gauge theory with matter.}
-\label{Z2Z2review} 
 
-Let us first remind the reader of the thorough understanding of Wegner Ising gauge theory, both for matter in the fundamental ($Z_2$) and the  case of matter fields with a larger symmetry than the fundamental. The pure gauge theory played a decisive role in the very early days of Yang-Mills theory by demonstrating the existence of confining/deconfining phase transitions \cite{Wegner} in 3 and higher (overall) dimensions, highlighted by the famous lecture notes  by Kogut \cite{Kogut}. Among others, the pure $Z_2$ gauge is dual to global Ising, while the deconfining phase was much later understood as being characterized by topological order. For a particularly appealing physical interpretation see the ``stripe fractionalization'' \cite{stripefrac,stripefracdemler}. 
+Specifically, we consider a single, interacting Anderson impurity embedded in the TBG host -- see Fig.~\ref{fig:schematic}. The clean TBG material is modelled using the Bistritzer-MacDonald (BM) model~\cite{Bistritzer2011}, which we discuss in Sec.~\ref{sec:BM-model}. We focus on the role of the vHs's and their evolution with twist angle. The model shows an intricate interplay between different DoS elements: metallic, Dirac pseudogap, vHs log-divergence, and HO-vHs power-law divergence. In Sec.~\ref{sec:Kondo} we review the physics of the Kondo model, emphasizing the different limiting behaviors arising in the metallic, pseudogap, and log-diverging or power-law diverging DoS needed to understand the compound DoS structure in TBG. Finally, in Sec.~\ref{sec:Kondo-BM} we present full numerical renormalization group (NRG) results for an Anderson impurity in TBG in the vicinity of, and at, the magic angle. We focus on thermodynamic quantities such as the impurity entropy as a clear means of identifying the different fixed points and emergent energy scales. We furthermore study the energy-dependence of the local impurity spectral function, which is relevant to STS experiments. We conclude in Sec.~\ref{sec:conclusions}, commenting on the suitability of magnetic impurities as \textit{in-situ} probes for the physics of TBG near the magic angle, and an outlook for experiments. Technical material is given for reference in the Appendices. 
 
-The essence is the invariance of the theory Eq. \eqref{eq:z2action}  under the local gauge transformations at each site $i$, 
-\begin{eqnarray}
-	\ket{\text{state}} &\rightarrow  &\prod_j \sigma_{ij}^x \ket{\text{state}} \nonumber \\
-	\phi_i^a &\rightarrow  & -\phi_i^a \mathperiod
-	\label{gaugetrans}	
+We note that the Kondo model we consider in this work is completely different from recent studies of TBG as a heavy fermion problem~\cite{song2022magic,hu2023kondo,hu2023symmetric,zhou2023kondo}, where the quenched kinetic energy of the flat band lends itself to being treated as an immobile lattice of impurities. In those works, the correlated local moments are a part of the TBG lattice itself, whereas here we consider additional adatom impurities coupled to the TBG host. The effective impurity models and corresponding electronic hybridization functions are rather different in these two cases.
+
+
+%##########################
+%##########################
+
+
+\section{Van Hove singularities in the Bistritzer-MacDonald model} \label{sec:BM-model}
+
+Before considering a Kondo impurity in TBG, we first analyze the clean host material, focusing on how the vHs's affect the band structure and local DoS. In the first part of this section we briefly recall the details of the Bistritzer-MacDonald (BM) model of TBG and its particle-hole symmetric limit. The original derivations were performed in Refs.~\cite{Bistritzer2011,Suarez2011,Bernevig2019PRL-TBG}; further details are provided in the Appendices. In the second part, we analyze the formation of flat bands from saddle points and discuss the detailed structure of the lowest energy bands.
+
+%################
+
+\subsection{Particle-hole symmetric\\Bistritzer-MacDonald model}
+
+To describe TBG with a small twist angle  $\theta$, it is necessary to take into account both the intralayer hopping parameter $t$ for each of the individual graphene layers, as well as the interlayer tunneling $w$. In the following we take these to be $t\approx 2.87 \,\text{eV}$ and $w\approx 0.11 \,\text{eV}$, as used in Ref.~\cite{Bistritzer2011}. The twist angle between the layers generates a Moir\'{e} pattern with an emergent superlattice structure. For small twist angles $\theta$, the characteristic Moir\'{e} length scale $L_{\theta}$ is given by $L_{\theta}=\sqrt{3} a /[2 \sin (\theta / 2)]$ with $a=1.42\text{\AA}$ being the interatomic distance in monolayer graphene. The corresponding effective low-energy Hamiltonian near the $K$ point of the Moir\'{e} Brillouin zone (MBZ) has the form \cite{Bistritzer2011,Bernevig2019PRL-TBG},
+\begin{align}
+	\label{eq:H-TBG-full}
+	&H(\vec{k})=\nn
+	&\hspace{-0.3cm}\left(\begin{array}{cccc}
+		h_{\frac{\theta}{2}}^{K}(\vec{k}) & w T_1 & w T_2 & w T_3 \\
+		w T_1^{\dagger} & h_{-\frac{\theta}{2}}^{K}(\vec{k}-\mathbf{q}_1) & 0 & 0 \\
+		w T_2^{\dagger} & 0 & h_{-\frac{\theta}{2}}^{K}(\vec{k}-\mathbf{q}_2) & 0 \\
+		w T_3^{\dagger} & 0 & 0 & h_{-\frac{\theta}{2}}^{K}(\vec{k}-\mathbf{q}_3)
+	\end{array}\right).
+\end{align}
+The wave vector $\vec{k}$ is measured relative to the $K$ point, and the Hamiltonian acts on 8-component wavefunctions $\Psi=\left(\psi_{0, \vec{k}}, \psi_{1, \vec{k}}, \psi_{2, \vec{k}}, \psi_{3, \vec{k}}\right)^T$, where $\psi_{0, \vec{k}}$ is a two-component spinor in the A-B sublattice basis in the top layer, and $\psi_{1(2,3), \vec{k}}$ are spinors in bottom layer at wave vectors $\vec{k}-\vec{q}_{1(2,3)}$.
+Here $h_{\phi}^{K}(\vec{k})$ is the effective low-energy Hamiltonian of single layer graphene near the $K$ point, in a coordinate frame rotated by angle $\phi$,
+\begin{align}
+	h_{\phi}^K(\vec{k})=k v_F \left[\begin{array}{cc}
+		0 & e^{i\left(\theta_{\vec{k}}-\phi\right)} \\
+		e^{-i\left(\theta_{\vec{k}}-\phi\right)} & 0
+	\end{array}\right]\;.
+	\label{eq:hKtheta}
+\end{align}
+Here, the angle $\theta_k$ measures the orientation of the momentum relative to
+the $x$-axis, $k=|\vec{k}|$, and the Fermi velocity is $v_F=9.3 \times 10^7 \mathrm{~cm} / \mathrm{s}$. The wave vectors $\vec{q}_{1,2,3}$ connecting $K$-points of the top and bottom layers are,
+\begin{subequations}
+	\begin{align}
+		&\mathbf{q}_1=k_\theta\{0,-1\}, \\
+		&\mathbf{q}_2=k_\theta\left\{\frac{\sqrt{3}}{2}, \frac{1}{2}\right\}, \\
+		&\mathbf{q}_3=k_\theta\left\{-\frac{\sqrt{3}}{2}, \frac{1}{2}\right\},
+	\end{align} 
+\end{subequations}
+with Moir\'{e} wave number, $k_\theta \equiv |\mathbf{q}_j|=\frac{8 \pi}{3 \sqrt{3} a} \sin \left(\frac{\theta}{2}\right)$.
+
+Finally, the interlayer tunneling matrices $T_{1(2,3)}$ are expressed in terms of Pauli matrices, viz:
+\begin{subequations}
+	\begin{align}
+		&T_1=1+\sigma_x \;,\\
+		&T_2=1-\frac{\sigma_x}{2}-\frac{\sqrt{3}\sigma_y}{2} \;,\\
+		&T_3=1-\frac{\sigma_x}{2} +\frac{\sqrt{3}\sigma_y}{2}  \;.
+	\end{align}
+\end{subequations}
+
+The Hamiltonian Eq.~\eqref{eq:H-TBG-full} captures the essential physics of TBG and correctly predicts the first magic angle at $\theta\simeq 1.05^{\circ}$. At the $K$ point of the MBZ one finds that the lowest energy bands have a Dirac cone dispersion with an effective Fermi velocity,
+\begin{align}
+	v_F^{\star}=\frac{1-3 w^2 /\left(\hbar v_F k_\theta\right)^2}{1+6 w^2 /\left(\hbar v_F k_\theta\right)^2}
+\end{align}
+which vanishes exactly at the magic angle, where $\hbar v_F k_\theta=\sqrt{3} w$.
+
+In the following, we will use the particle-hole symmetric version of the BM model. This form is obtained from Eq.~\eqref{eq:H-TBG-full} by eliminating subleading (second-order) corrections in the diagonal elements coming from the effect of the twist on the single layer Hamiltonian \cite{Bernevig2019PRL-TBG}. This is simply achieved by setting $\phi=0$ in Eq.~\eqref{eq:hKtheta},
+\begin{align}
+	\label{eq:H-TBG-symmetric}
+	H(\vec{k})=\left(\begin{array}{cccc}
+		h_0^{K}(\vec{k}) & w T_1 & w T_2 & w T_3 \\
+		w T_1^{\dagger} & h_0^{K}(\vec{k}-\mathbf{q}_1) & 0 & 0 \\
+		w T_2^{\dagger} & 0 & h_0^{K}(\vec{k}-\mathbf{q}_2) & 0 \\
+		w T_3^{\dagger} & 0 & 0 & h_0^{K}(\vec{k}-\mathbf{q}_3)
+	\end{array}\right)\;.
+\end{align}
+
+The low-energy TBG DoS $\rho(\omega)$, obtained by diagonalizing this Hamiltonian is shown in Fig.~\ref{fig:HistogramDOS}, for different twist angles in the vicinity of the magic angle at $\theta=1.05^{\circ}$. When precisely at the magic angle, we see a single divergence in the DoS at the Fermi energy. We measure energies relative to the Fermi energy and set $E_F=0$, such that $\rho(\omega)=\rho(-\omega)$, embodying the particle-hole symmetry of Eq.~\eqref{eq:H-TBG-symmetric}. However, moving away from the magic angle, we have a Dirac cone feature, with pseudogap vanishing DoS $\rho(\omega)\sim |\omega|$ below an emergent scale $|\omega|\ll E_v$. We also see two vHs points with diverging DoS at $\omega=\pm E_v$. Below we analyze the low-energy bands and vHs structure of the model, extracting the angle dependence of the vHs scale $E_v$.
+
+%######################
+
+\subsection{Characterization of van Hove singularities in the particle-hole symmetric BM model}
+
+We start our analysis of vHs properties in TBG by recalling the classification recently introduced in Refs.~\cite{Yuan2019,Chamon2020PRR,Yuan2020PRB-classification}, which expands the definition from the usual vHs with logarithmically diverging DoS  \cite{vanHove1953} to include HO-vHs with power-law diverging DoS. For a band dispersion $\epsilon(\vec{k})$, which is a function of the 2D momentum vector $\vec{k}$, we calculate the first derivatives $\nabla_{\vec{k}}\epsilon(\vec{k})$, and the Hessian matrix of second derivatives $\mathcal{D}_{i j}(\vec{k}) \equiv \frac{1}{2} \partial_{k_i} \partial_{k_j} \varepsilon(\vec{k})$. The Hellman-Feynman theorem allows to carry this out with high numerical accuracy (see Appendix A). 
+A logarithmic vHs arises at a point $\vec{k}_0$ in the dispersion corresponding to a saddle point when:
+\begin{align}\label{eq:logvhs}
+	\text{log vHs:}\quad \nabla_{\vec{k}}  \varepsilon(\vec{k}_0)=\mathbf{0} \text {~~~and~~} \operatorname{det} \mathcal{D}(\vec{k}_0)<0 \;.
+\end{align}
+The negative Hessian determinant means that we have both a maximum and a minimum in each of the principal directions of the saddle point. A higher-order saddle point, corresponding to a HO-vHs, is instead characterized by zero determinant of Hessian matrix:
+\begin{align}\label{eq:hovhs}
+	\text{HO-vHs:}\quad \nabla_{\vec{k}}  \varepsilon(\vec{k}_0)=\mathbf{0} \text {~~~and~~} \operatorname{det} \mathcal{D}(\vec{k}_0)=0 \;.
+\end{align}
+In addition, higher-order saddle points can be classified according to the leading polynomial terms in an expansion of the dispersion $\epsilon(\vec{k})$ around the saddle point $\vec{k}_0$ \cite{Chamon2020PRR,Yuan2020PRB-classification}. These leading terms in the expansion correspond directly to the numerical exponent of the power-law divergence in the DoS.
+
+
+\begin{figure*}
+	\centering
+	\begin{subfigure}[b]{0.475\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/chapter2/ContoursLog.pdf}
+		\caption[ContoursLog]%
+		{{\small Conventional  vHs}\label{fig:contourslog}}  
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.475\linewidth}   
+		\centering 
+		\includegraphics[width=\linewidth]{figures/chapter2/ContoursMagic.pdf}
+		\caption[]%
+		{{\small Higher Order vHs at the magic angle}\label{fig:Magic_Heatmap}}    
+	\end{subfigure}
+	\caption[ FermiSurfacePlots ]
+	{%\justifying
+		\small  Low-energy features of the particle-hole symmetric BM model of pristine TBG, showing energy contours of the dispersion $\varepsilon(\boldsymbol{k})$ as a function of momentum $\boldsymbol{k}$ in the extended MBZ. Red points show the saddle points of the dispersion, corresponding to the van Hove singularities. Dashed lines show the contours at energy $E_v$, on which the van Hove points sit.} 
+	\label{fig:Spinners}
+\end{figure*}
+
+
+With the help of this classification, we proceed to investigate the structure of the lowest band in the BM model Hamiltonian given by Eq.~\eqref{eq:H-TBG-symmetric}. Using particle-hole symmetry in conjunction with the transformation $k_x\to -k_x$ allows us to concentrate only on the lowest positive energy band for our analysis. Technical details of our numerical implementation are presented in  Appendix A. In Fig.~\ref{fig:ShowHigherOrder} we show the numerically-computed $E_v$ scale (top panel) and the determinant of the saddle-point Hessian $\operatorname{det} \mathcal{D}(\vec{k}_0)$ (bottom panel) as a function of twist angle. Both are seen to vanish at the magic angle, heralding the emergence of the HO-vHs at this point. This behavior is further analyzed below.
+
+In Fig.~\ref{fig:Spinners} we plot the momentum-resolved spectrum of the BM model for twist angles $\theta=1.2^{\circ}$ (panel a) and $\theta=1.05^{\circ}$ (panel b). We compute $\nabla_{\vec{k}} \varepsilon(\vec{k})$ throughout the MBZ and search for the vHs points for which $\nabla_{\vec{k}} \varepsilon(\vec{k})=\vec{0}$. These are indicated in both panels as the red circle points. 
+
+Having located the vHs points in the MBZ for a given twist angle, we can classify them and study their neighborhood in momentum space. Away from the magic angle (e.g.~for $\theta=1.2^{\circ}$ shown in Fig.~\ref{fig:Spinners}a), we indeed find a negative determinant of the Hessian $\operatorname{det} \mathcal{D}(\vec{k}_0)<0$, and the vHs's have a local hyperbolic geometry in momentum space. The dispersion is found to have the leading form,
+\begin{equation}
+	\epsilon_{\mathbf{p}} = E_v + \alpha p_x^2 - \beta p_y^2 \;, 
+	\label{eq:Logdispersion}
+\end{equation}
+where the coefficients are obtained from the eigenvalues of the Hessian, and the labels $p_x$ and $p_y$ are measured in the principal directions of the saddle point, with $\mathbf{p}=0$ defining the saddle point itself. The corresponding leading correction to the DoS then takes the form,
+\begin{equation}
+	\rho(\omega) = \frac{1}{4\pi^2}\frac{1}{\sqrt{\alpha\beta}}\ln \abs{\frac{D}{\omega-E_v}} \;,
+	\label{eq:logDOS}
+\end{equation}
+where $D$ is a high-energy cutoff, taken to be the conduction electron bandwidth. In this way, we may extract the vHs scale $E_v$.
+
+As we begin twisting toward the magic angle, the vHs energy scale $E_v$ starts to decrease, and the two logarithmic singularities at $\omega=\pm E_v$ therefore move closer together. Furthermore, the magnitude of the Hessian at the vHs, $|\operatorname{det} \mathcal{D}(\vec{k}_0)|$, also decreases. The two vHs points merge at $\omega=0$ precisely at the magic angle $\theta = 1.05^\circ$ \cite{Li2010}, at which point the Hessian also vanishes, $\operatorname{det} \mathcal{D}(\vec{k}_0)=0$. This transition is shown in Fig.~\ref{fig:ShowHigherOrder}. As the magic angle is approached and the HO-vHs is formed, we see a further flattening of the dispersion in the $p_y$ direction. The fittingly-named higher-order singularity requires a higher-order polynomial to faithfully capture its dispersion. The lowest polynomial which correctly captures all the symmetries is given by,
+\begin{equation}
+	\epsilon_{\mathbf{p}} = \alpha p_x^2 + \gamma p_x p_y^2 + \kappa p_y^4 \;.
+\end{equation}
+This comes hand-in-hand with a sharper, power-law divergence in the DoS, 
+\begin{equation}\label{eq:HOdos}
+	\rho(\omega) = (2\pi)^{-\frac{5}{2}} \Gamma(\tfrac{1}{4})^2 (4\alpha\Tilde{\Gamma}^2)^{-1/4}~ |\omega|^{-\nicefrac{1}{4}} \;, 
+\end{equation}
+with $\Tilde{\Gamma}^2=\gamma^2 - 4\alpha\kappa $ and $\Gamma(x)$ the usual gamma function. 
+
+The low-energy DoS at different angles can be computed numerically by binning histograms of energies for the lowest band of the BM model, as shown in Fig.\ref{fig:HistogramDOS}. Away from the magic angle, the numerical calculation indicates a linear DoS around the Fermi energy, coming from the Dirac cone in the spectrum. Around $\omega=\pm E_v$ we see the vHs log-divergences. At the magic angle, the HO-vHs around the Fermi energy `eat up' the Dirac cone, and we have instead a large DoS at low energies, diverging as $\rho(\omega)\sim |\omega|^{-1/4}$.
+
+
+%#####################
+%#####################
+
+
+\section{The Kondo problem}\label{sec:Kondo}
+
+The Kondo effect is a classic paradigm in many-body quantum physics \cite{Hewson}. The corresponding Kondo model features a single quantum spin-$\tfrac{1}{2}$ magnetic impurity coupled by antiferromagnetic exchange to a single channel of non-interacting conduction electrons. Originally, the Kondo model was formulated to describe dilute magnetic impurities such as iron, in bulk metals such as gold \cite{Kondo1970,costi2009kondo}. In these metallic systems, an impurity local moment becomes strongly entangled with its surrounding conduction electrons at low temperatures, and is dynamically screened \cite{bayat2010negativity,mitchell2011real,v2020observation}. This leads to dramatically enhanced spin-flip scattering in the host metal, which can be detected spectroscopically \cite{ternes2008spectroscopic}. 
+
+A more microscopic starting point is provided by the single impurity Anderson model \cite{Hewson}, which describes the impurity as a single quantum orbital with strong electron interactions,
+\begin{eqnarray}\label{eq:AM}
+	H_{\rm AM} = H_{\rm host} &+ \epsilon_d \sum_{\sigma} d_{\sigma}^{\dagger}d_{\sigma}^{\phantom{\dagger}} + U_d d_{\uparrow}^{\dagger}d_{\uparrow}^{\phantom{\dagger}}d_{\downarrow}^{\dagger}d_{\downarrow}^{\phantom{\dagger}} \nonumber \\ &+ g\sum_{\sigma}\left ( d_{\sigma}^{\dagger} c_{0,\sigma}^{\phantom{\dagger}} + c_{0,\sigma}^{\dagger}d_{\sigma}^{\phantom{\dagger}} \right) \;,
 \end{eqnarray}
-The bond variables are Ising valued $(\pm1)$ and the action is invariant under flipping the signs of all bonds emanating from any site $i$ when simultaneously the matter (vector) fields living on the site revers their signs. For vanishing (and by extension small) matter couplings $J_a$ one is in the realms of the pure gauge theory (see Fig.\ref{Z2Z2phasediagram}). This is best understood in terms of the topological excitations, the ``gauge fluxes'' \cite{Kogut} also called ``visons'' in the condensed matter literature \cite{visons}. The gauge invariant object is the $Z_2$ valued Wilson plaquette variable $\tau^z_{12}\tau^z_{23}\tau^z_{34}\tau^z_{41}$: for an even or uneven number of positive bond variables $\tau^z_{ij}$ this takes a positive or negative value, the latter representing gapped excitations when $K$ is large. 
+where $d_{\sigma}^{(\dagger)}$ is an annihilation (creation) operator for an impurity electron with spin $\sigma=\uparrow$/$\downarrow$, and $H_{\rm host}=\sum_{k,\sigma} \epsilon_k c_{k,\sigma}^{\dagger}c_{k,\sigma}^{\phantom{\dagger}}$ describes the clean host. Here $c_{k,\sigma}^{(\dagger)}$ annihilates (creates) a conduction electron of the host material with momentum $k$ and spin $\sigma$. We do not employ band indices in this expression. The impurity couples locally in real-space to the effective host orbital $c_{0,\sigma}=\sum_k \xi_k c_{k,\sigma}$, where $\xi_k$ is the weight of state $k$ at the impurity location (taken to be at the origin).
 
-\begin{figure*}[!h]
-	\centering
-	\includegraphics[scale=.5]{figures/chapter2/Looptopil.pdf}
-	\caption{An example of a closed $Z_2$ gauge flux (``vison'') loop as these occur in the deconfining (and Higgs ``like'') phase representing the topological excitation of the gauge theory. The plaquettes indicated by blue represent a gauge invariant  flux $\tau^z_{12}\tau^z_{23}\tau^z_{34}\tau^z_{41} = -1$ immersed in a background of positive plaquette values. These have to form a connected line in three dimensions, the dashed line in this illustration. } 
-	\label{loopexample}
-\end{figure*} 
+For small host-impurity hybridization $g$, repulsive Coulomb interaction $U_d>0$, and suitably-chosen impurity potential $-U_d<\epsilon_d<0$, a spin-$\tfrac{1}{2}$ local moment can be trapped on the impurity. Projecting onto this doubly-degenerate spin-$\tfrac{1}{2}$ manifold of impurity states by eliminating virtual excitations to empty or doubly-occupied impurity configurations by means of a Schrieffer-Wolff (SW) transformation \cite{Hewson,schrieffer1966relation} yields the simpler Kondo model,
+\begin{eqnarray}\label{eq:KM}
+	H_{\rm KM} = H_{\rm host} &+ J \vec{S} \cdot \vec{s}_0 + V\sum_{\sigma}c_{0,\sigma}^{\dagger}c_{0,\sigma}^{\phantom{\dagger}}  \;,
+\end{eqnarray}
+where $J>0$ is the antiferromagnetic exchange interaction between the impurity spin-$\tfrac{1}{2}$ degree of freedom $\vec{S}$, and the \emph{spin density} of the host conduction electrons at the impurity position $\vec{s}_0=\tfrac{1}{2}\sum_{\alpha,\beta}c^{\dagger}_{0,\alpha} \vec{\sigma}_{\alpha\beta} c^{\phantom{\dagger}}_{0,\beta}$, where $\vec{\sigma}$ is the vector of Pauli matrices. The third term describes potential scattering of the host conduction electrons induced by the impurity (since $c_{0,\sigma}^{\dagger}c_{0,\sigma}^{\phantom{\dagger}}=\sum_{k,k'}\xi_k\xi_{k'}c_{k,\sigma}^{\dagger}c_{k',\sigma}^{\phantom{\dagger}}$). 
 
+The standard Schrieffer-Wolff result \cite{Hewson,schrieffer1966relation}, which becomes exact in the limit $U_d/g^2\to \infty$, yields $J=2g^2[(U_d+\epsilon_d)^{-1} - (\epsilon_d)^{-1}]$ and $V=-g^2[(U_d+\epsilon_d)^{-1} + (\epsilon_d)^{-1}]$. At the particle-hole symmetric point of the model $\epsilon_d=-U_d/2$, we therefore obtain $J=8g^2/U_d$ and $V=0$ (the latter result can be viewed as a many-body quantum destructive interference effect between particle and hole processes). Although the Kondo model Eq.~\eqref{eq:KM} correctly captures the low-energy physics of Eq.~\eqref{eq:AM}, it should be noted that for realistic values of $U_d$, $\epsilon_d$, and $g$ outside of the strict perturbative regime, the values of the effective parameters $J$ and $V$ must be obtained by more sophisticated means that take into account renormalization from the conduction electrons and the specific conduction electron DoS \cite{rigo2020machine}. We also emphasize that $J$ and $V$ are not independent parameters in Eq.~\eqref{eq:KM}, being both derived from the same microscopic parameters of the underlying Anderson model.
 
-These visons have a similar status as the monopoles of compact QED \cite{PolyakovQED}, the difference being that these fluxes have co-dimension $d-2$: in 3 dimensions these correspond with ``world lines'' (see Fig. \ref{loopexample}). It is easy to see that a Dirac seam emanates from the line (forming a surface) and for large $K$ these form small closed loops protecting the topological order. As for global $U(1)$ in 3D, upon reducing $K$ these loops grow in size to ``blow out'' at the transition to the confining phase that can be viewed as a condensate of the ``vison particles''. It is easy to demonstrate \cite{Kogut} that the (gauge invariant) Wilson loop exhibits a perimeter law when the visons are expelled from the vacuum (deconfinement), turning into an area law in the confining phase (vison condensate). This explains the small $J$ regime of all phase diagrams that we will present. 
+The physics of the impurity problem is controlled by the local (free) conduction electron DoS seen by the impurity, $\rho_{\sigma}(\omega)=-\tfrac{1}{\pi}{\rm Im}~\langle\langle c_{0,\sigma}^{\phantom{\dagger}} ; c_{0,\sigma}^{\dagger}\rangle\rangle^{0}$, where $\langle\langle c_{0,\sigma}^{\phantom{\dagger}} ; c_{0,\sigma}^{\dagger}\rangle\rangle$ is the retarded, real-frequency local host Green's function at the impurity position, and the $0$ superscript denotes that it is calculated for the clean host.
 
-\begin{figure*}[!h]
-	\centering
-	\includegraphics[scale=.4]{figures/chapter2/Z2Z2domainWall.pdf}
-	\caption{The featureless nature of the Higgs ``phase'' of the $Z_2/Z_2$ theory explained by inspecting the domain walls in the large $J,K$ regime. Depart from the unitary gauge (upper row) and construct a domain wall costing an energy $J$/unit cell. Restore the gauge invariance implying that on every site an up spin cannot be distinguished from a down spin. This shows that  the domain wall has the gauge invariant meaning of an object carrying energy but nothing else. This is the crucial insight behind the indistinguishability of the Higgs and confining phases.}
-	\label{Z2Z2domainwall}
-\end{figure*} 
+In this work we consider a single magnetic impurity (the `dilute limit') embedded in an otherwise clean host TBG system modelled by the BM model. $SU(2)$ spin symmetry is taken to be unbroken. We also assume that the impurity couples equally to all BM bands independently of the impurity position ($\xi_k$ is constant for all momenta and band indices), such that $\rho_{\sigma}(\omega)\equiv \rho(\omega)$ is the TBG DoS, whose low-energy form is described by Eqs.~\eqref{eq:logDOS} or \eqref{eq:HOdos}. \rev{This is certainly a simplification, since details of the impurity-TBG hybridization will naturally affect details of the impurity response. The specific form of the impurity hybridization function will in practice depend on the impurity location within the moir\'e unit cell and how the impurity couples in real-space to the constituent TBG carbon atoms. We leave such \textit{ab initio} studies for future work. However, the rich physics uncovered below will remain qualitatively unaltered provided the impurity hybridization function still features  van Hove divergences flanking a central pseudogap Dirac cone. Since the origin of these features is rooted deeply in the symmetry and topology of the TBG material, we expect the idealized Kondo physics described here to be rather generic. On the other hand, insights from monolayer graphene \cite{mitchell2013kondo} indicate that the physics of vacancies in TBG or substitutional dopants may drastically differ, since the local DoS in these cases is strongly modified.}
 
+In the rest of this section we review the methods that we use to attack the problem as well as the quantities to be analyzed. 
 
-Let us now turn on the matter couplings $J^a$ to focus in on the case of minimal $Z_2$ matter ``in the fundamental''. As we already emphasized, the demonstration by Fradkin and Shenker \cite{Fradkinshenker} that the ``maximally orderly'' and ``maximally disorderly'' Higgs and confining phases are actually indistinguishable caused initially confusion. But in hindsight it is obvious, for the simple reason that a phase transition requires a {\em global}, gauge invariant symmetry to be broken. But in the presence of single $Z_2$ matter, global symmetry is erased. Consider the large $K,J$ limit; the visons are completely expelled and one can choose a unitary gauge fix taking all bond variables to be positive and the matter field living on the sites form an ordered Ising state with the spins, say, pointing up. However, according  the gauge transformation Eq. (\ref{gaugetrans}) on every site this can be swapped to a down spin. This sense of Ising order has no gauge invariant meaning and a global symmetry that is broken cannot be identified, and thereby there is no distinction from the confining phase. 
+%################+
 
-From tracking parameters along the large $J$ limit varying $K$ followed by descending along $J$ for small K one finds no phase transition proving the indistinguishability of the Higgs and confining phases. The oddity is however in the form of a ``strand'' of first order transitions emanating from the tricritical point anchored at the pure gauge confining-deconfining transition; the deconfining phase keeps of course its identity characterized by the expelled visons. This will be an important motif in the remainder: it is a peculiarity of the ``amplitude sector'' of  these gauge theories, that was elucidated by Huse and Leibler in a particularly appealing physical setting \cite{HuseLeibler}. 
+\subsection{Poor man's scaling approach}\label{subsec:poorman}
 
+The Kondo model as defined by Eq.~\eqref{eq:KM} is a nontrivial strong correlation problem. For metallic host systems, the first insights were provided by Kondo's calculation of the scattering T-matrix \cite{Kondo1970}, which is related to the impurity spectral function. Kondo found a low-temperature divergence in perturbation theory: even when the bare $J$ is small, straight perturbation theory does not give a good description of the low-temperature physics or a proper understanding of the many-body ground state of the system. This divergence was better understood by Anderson's self-coined `poor-man's scaling' approach \cite{anderson1970poor} -- a precursor to the renormalization group (RG). It identified an emergent low-energy scale $T_K$ -- the Kondo temperature -- below which perturbation theory breaks down, and the problem becomes a strong coupling problem. We briefly introduce the method here, since we will employ it in the next section to understand analytically the scaling properties of an impurity in the TBG host. 
 
-Although there is no manifest global symmetry, there is a ``material dynamics'' at work that becomes obvious considering the topological excitations, see Fig. \ref{Z2Z2domainwall}.  It is instructive to depart from the large $K,J$ limit. Consider the unitary gauge fix where one is dealing with a standard Ising model, characterized by domain walls as topological excitation costing an energy  $E \sim J$/unit cell. However, upon restoring gauge invariance it ``looses the symmetry'': for instance one can swap all spins to the left of the domain wall from up to down and the other way around to the right. Although the matter spins ``disappear'', the presence of the domain wall as en energetic excitation is a gauge invariant notion. This is the simple clue; upon reducing $J$ such featureless domain walls will start to proliferate.  
+Conventionally in the poor man's scaling approach, one uses dimensionless couplings $j=\rho_0 J$ and $v=\rho_0 V$ with $\rho_0=\rho(\omega=0)$ the Fermi level DoS. However, for consideration of Dirac systems where $\rho_0$ may in fact vanish, a different choice is required. Here we simply use the original dimensionful couplings $J$ and $V$. Furthermore, we assume that the host DoS is particle-hole symmetric, meaning $\rho(\omega)=\rho(-\omega)$, a property satisfied by Eq.~\eqref{eq:H-TBG-symmetric}; and is defined within a band of halfwidth $D$, meaning $\rho(\omega)\propto \theta(D-|\omega|)$.
 
-Let us now decrease $K$ such that (closed) vison loops start to form. It is easy to find out that the $Z_2/Z_2$ domain walls and visons relate to each other in the same way as the (Abrikosov) flux lines and magnetic monopoles of the compact $U(1)/U(1)$ theory, where the monopole ``cuts open'' the flux line. The vison loop ``cuts open'' the domain wall surface. For small $J$ and large $K$  in the ``Higgs like'' phase one finds accordingly large domain wall surfaces  with here and there a small hole (``vesicles'' \cite{HuseLeibler} ). However, for small $K$ and finite $J$ (``confinement like'') there are many visons  and accordingly the domain walls are ``cut in small pieces'' (``platelets''  \cite{HuseLeibler}).  
+Anderson's scaling procedure goes as follows \cite{anderson1970poor}: (i) integrate out high energy conduction electron states $D-\delta D<|\omega|<D$ close to the band edges in a shell of width $\delta D$; (ii) incorporate the effect of virtual excitations to these eliminated states perturbatively by rescaling the couplings $J$ and $V$ to give an effective Hamiltonian of the same form but defined with a reduced bandwidth $D\to D-\delta D$; (iii) study the flow of the parameters $J$ and $V$ on successive reduction of the bandwidth. Making $\delta D$ infinitessimal, one obtains the following scaling equations,
+\begin{eqnarray}\label{eq:poorman}
+	\frac{dJ}{d D}&=&-\frac{\rho(D)}{D}J^2 \;, \nonumber \\ 
+	\frac{dV}{d D}&=&0\;.
+\end{eqnarray}
+The first equation determines the flow of the coupling constant $J$ on reducing the bandwidth, whereas the second equation shows that the potential scattering $V$ does not flow. If the bare model is particle-hole symmetric then no potential scattering is generated under the scaling procedure. In the remainder of this paper we will focus on the case $V=0$. The scaling equation for $J$ gives insight into the breakdown of perturbation theory and hence $T_K$, by identifying the point where the rescaled $J$ diverges. We consider various relevant situations in the following. 
 
-This offers the crucial insight regarding the origin of the first order line separating the confining and Higgs like regime. The net density of domain walls takes the role of density in the van der Waals theory dealing with liquid-vapor transitions. This is just the ubiquitous affair where the density changes discontinuous in a first order transition in the pressure-temperature diagram, terminating at a critical point. Huse and Leibler argue that this particular ``platelet'' versus ``vesicle'' incarnation is literally related to the behaviour of lipid membranes as of great relevance to e.g. biology\cite{HuseLeibler}. One take-home message of our work is that this peculiar ``amplitude dynamics'' is surprisingly ubiquitous in the whole landscape of theories defined by Eq. (\ref{eq:z2action}). 
+%################
 
-The next general motif that will be important is associated with matter field characterized by a larger symmetry than the gauge sector. In general, this will imply that a gauge invariant {\em global} symmetry can be identified, that is broken in the Higgs phase, restoring the distinguishability with the confining phase. The simplest example is the single copy $O(N)/Z_2$ system. 
+\subsection{Numerical Renormalization Group}\label{subsec:nrg}
 
-This ``left over'' global symmetry breaking is easy to infer in the large $K,J$ limit. In unitary gauge one finds here an ordered state breaking the $O(N)$ symmetry. However, the gauge transformation transforms the vector into minus itself. Consider $O(3)$ in 3D: this turns the vector in the {\em director} order parameter of a {\em uniaxial nematic}. The confinement-Higgs transition becomes in turn equivalent to the liquid crystal nematic-isotropic transition. This was used by Toner et al. \cite{toner95} to shed light on the origin of the well known first order character of this transition. One way is to consider small $K$ to integrate out perturbatively the gauge fluctuations, the outcome being that one recovers the Landau-de-Gennes theory governed by a rank two traceless symmetric tensor order parameter, allowing for a cubic invariant responsible for the first order transition. However, the dual (topological) language elucidates that {\em two} global symmetries are now simultaneously broken by the vison condensation as well as the manifest nematic order. We notice that this gauge theory strategy was used recently to completely classify and study ``generalized nematics''  associated with the breaking of rotational symmetry to any of the (non-Abelian) three dimensional point groups. This is a remarkably rich affair, with the highly symmetric point groups translating in high rank tensor order parameters \cite{nonabnematic,nonabnematic1,nonabnematic2}.
+Wilson's numerical renormalization group \cite{wilson1975renormalization,bulla2008numerical} (NRG) is a non-perturbative technique for solving quantum impurity type problems. It builds upon Anderson's perturbative scaling ideas \cite{anderson1970poor}, but overcomes its limitations by establishing a more general framework in terms of which physical quantities can be calculated numerically-exactly, down to zero temperature. Wilson's original formulation of NRG \cite{wilson1975renormalization}, designed to obtain the thermodynamic properties of a single magnetic impurity in a metal, has since been extended to deal with arbitrary host systems \cite{chen1995kondo,*bulla1997anderson,bulla2008numerical}, and to the calculation of dynamical quantities via the full-density-matrix NRG approach \cite{anders2006spin,weichselbaum2007sum}. The former has allowed NRG to be applied to monolayer graphene \cite{vojta2010gate}, and other Dirac systems \cite{mitchell2013TI, mitchell2015kondo}. The latter provides access to highly accurate spectral data, with excellent real-frequency resolution, at any temperature. NRG has also been adapted over the years to extend the range of problems that can be tackled and improve accuracy or efficiency \cite{bulla1998numerical,oliveira1994generalized,bulla2003numerical,pruschke2009energy,mitchell2014generalized,*stadler2016interleaved,lee2021computing,rigo2022automatic}, making it the gold-standard method of choice for solving generalized quantum impurity problems.
 
-\begin{figure*}[!h]
-	\centering	\includegraphics[width=0.425\textwidth]{figures/chapter2/O2Z2phasedia.pdf}
-	\raisebox{-.13in}{
-		\includegraphics[width=0.44\textwidth]{figures/chapter2/O2Z2.pdf}}
-	\caption{In the left panel the phase diagram of the $O(2)/Z_2$ theory, established from the Monte Carlo results for the specific heat $c_V$ in the right panel. This can be directly compared with the $Z_2/Z_2$ theory, Fig.\ref{Z2Z2phasediagram}. One infers that it looks very similar, the only difference being that now the ``gap'' between the termination of the first order line and the $K \rightarrow 0$ limit between the confining- and Higgs phase is now interrupted by a second order phase transition associated with the breaking of the gauge invariant ``half-periodic'' $O(2)$ symmetry. The fact that in other regards the phase diagrams look so similar is surprising, see the main text. } 
-	\label{O2Z2phasediagram}
-\end{figure*}
-
-
-
-A final motif that will be useful in the remainder is associated with the ``outlier'' Abelian matter $O(2)/Z_2$ case that is also well known, especially in the context of ``fractionalized'' superconductivity (e.g., \cite{visons}).  Different from the non-Abelian $O(N)$ cases in the small K limit the rank two tensor order parameter simplifies to a simple $O(2)$ with halved periodicity, 
-\begin{equation}
-	H_{\mathrm{eff}, K \rightarrow 0} = -J' \sum_{\langle i, j \rangle} \left( \vec{\Phi}_i \cdot \vec{\Phi}_j \right)^2  = -J' |\Phi|^2 \sum_{\langle i, j \rangle} \cos \left( 2 (\phi_j - \phi_i ) \right) ~,
-	\label{directorH}
-\end{equation}         
-using $\vec{\Phi}_i = |\Phi | e^{i \phi_i}$. This has the obvious ramification that for $K \rightarrow 0$ this transition continues to be second order.  In Fig.\ref{O2Z2phasediagram} we show the phase diagram. There is now indeed a second order transition separating the Higgs and confining phases, associated with the disappearance of the ``halved periodicity'' XY order parameter characterizing the Higgs phase. However, upon increasing $K$ this turns into a first order line again. Strikingly, this first order ``strand'' is even quantitatively very similar as its analogue in the $Z_2/Z_2$ case: the main difference is just that the ``connection'' between confining and Higgs is now closed off by the transition involving the manifest XY order parameter.  This is clearly associated with the amplitude of the order parameter that obviously submits to the same ``Huse-Leibler'' logic, being controlled by the density of the ``non-topological'' matter defect ``fragments'' near the tricritical point. 
-
-Although it has been previously observed that close to the tricritical point the Higgs-confinement transition has turned first order \cite{Senthil} it took us by surprise that the $O(2)/Z_2$ behavior behaves so similarly as to the $Z_2/Z_2$ case: the only essential difference is that the ``gap'' between the critical end point and the $K \rightarrow 0$ limit is just ``filled'' with the nematic-to-isotropic like second order transition, barely affecting even the locus of the end point of the first order line. A priori it is not at all obvious why this is so similar. For instance, the matter topological excitations, as identified in unitary gauge, are now XY-vortices with a quantized rotation associated with the halved periodicity. These are lines (and not surfaces) in 3D, in stark contrast with the Ising domain walls of the $Z_2/Z_2$ theory. We will encounter underneath other variations on this theme, invariably revealing this somewhat mysterious quantitative universality of the Huse-Leibler motif.     
-
-\section{Replicating the $Z_2$ matter fields: two copies.}
-\label{replZ2}
-
-After these preliminaries let us now turn to the main subject: the family of ``replicated'' Ising gauge theories. The simplest case is the $Z_2$ matter theory with two matter copies:  $Z_2 \times Z_2 / Z_2$. In fact, the most interesting  case is the truly minimal one where we take the same matter field coupling $J_1 = J_2 = J$ and set the local couplings to zero $J^{12}_L = 0$. Under these circumstances the matter fields couple only through the Ising gauge fields.  
-
-Let us start with the simplest example of a $Z_2$ gauge theory with replicated matter: the $Z_2 \times Z_2 / Z_2$ case. In Fig.\ref{Z2xZ2Z2phasediagram} we show the phase diagram as established by our Monte-Carlo simulations.  We infer that this is a very close sibling of the $O(2)/Z_2$ phase diagram that we just discussed Fig.\ref{O2Z2phasediagram}. Next to the ubiquitous Higgs-deconfining transition, the transitions between the Higgs- and confining phase looks very similar, including the first order line emanating from the tricritical point turning second order roughly at the locus of the $Z_2/Z_2$ critical endpoint. 
-
-\begin{figure*}[!h]
-	\centering	\includegraphics[width=0.425\linewidth]{figures/chapter2/Z2xZ2Z2phasedia.pdf}
-	\raisebox{-.13in}{
-		\includegraphics[width=0.44\linewidth]{figures/chapter2/Z2xZ2Z2.pdf}}
-	\caption{ The phase diagram of the ``two copy''  $Z_2 \cross Z_2 / Z_2$ theory for $J_1 = J_2  = J$ and $J_L^{12} = 0 $ illustrated by  the Monte Carlo results  for the specific heat $c_V$ in the right panel. This looks very similar as to the $O(2)/Z_2$ case (Fig.\ref{O2Z2phasediagram}) in turn similar to the $Z_2/Z_2$ case  except for the connection between Higgs- and confinement is closed off by an honest second order transition. As explained in the text, one can now identify an Ising valued gauge invariant ``registry'' order parameter that breaks the symmetry spontaneously in the Higgs phase having a similar role as the nematic order parameter of the $O(2)/Z_2$ case.} 
-	\label{Z2xZ2Z2phasediagram}
-\end{figure*}
-
-What is going on here? As explained earlier, for the transition between confining and Higgs at low $K$ to be a true second order phase transition, there has to be a broken global symmetry. In fact this is indeed controlled by a gauge invariant order parameter with a global Ising symmetry that may not be directly obvious to the reader, but it is quite simple. Consider again the unitary gauge with all bond spins $+ 1$. Because we have two matter fields, we are now dealing with two {\em independent} Ising spin systems living on the sites that will both be ordered for large $J,K$. As we emphasized in Section \ref{Z2Z2review}, after restoring the gauge invariance  both Ising spin systems ``loose their symmetry'' according to the $Z_2/Z_2$ rule book. But now we observe that the relative orientation of these two spin systems actually corresponds  with a  gauge invariant, global $Z_2$ symmetry! 
-
-\begin{figure*}[!h]
-	\centering
-	\includegraphics[scale=.4]{figures/chapter2/Z2xZ2Z2domainWall.pdf}
-	\caption{The ``registry'' order parameter of the two copy $Z_2 \times Z_2/Z_2$ theory. Depart from the large $J,K$ limit and take a unitary gauge fix as in Fig.\ref{Z2Z2domainwall}. One can now construct two types of domain walls associated with the two copies (upper line). However, upon restoring gauge invariance only two of the four on-site configurations can be distinguished: the spins are locally either parallel- or anti-parallel.  This is the global $Z_2$ symmetry that is broken in the Higgs phase.} 
-	\label{twocopyregistry}
-\end{figure*} 
-
-Take the matter spins ``1'' to be pointing in the positive direction, and the ``2'' spins can be either parallel or anti-parallel to the ``1'' spins. Let us now see what happens with this ``registry'' upon restoring the gauge invariance, see Fig.\ref{twocopyregistry}. Consider parallel registry on a particular site like  $ \uparrow_{1} \uparrow_{2}$ and  under a gauge transformation both spins flip -- a single sector $\uparrow, \downarrow$ is not  gauge invariant. But it follows that the {\em relative} orientation of the matter spins in both sectors can be either {\em parallel} or {\em anti-parallel} and after restoring the gauge invariance it continues to be distinguishable whether one is dealing with locally parallel or anti-parallel configurations:  $ \downarrow_{1} \downarrow_{2} \leftrightarrow \uparrow_{1} \uparrow_{2}$ versus $ \uparrow_{1} \downarrow_{2} \leftrightarrow \downarrow_{1} \uparrow_{2}$! This is what we call the ``registry order parameter'' which carries clearly a global $Z_2$ charge!
-
-This ``registry'' symmetry breaks spontaneously in the Higgs phase, causing a two fold degenerate ground state: either the ``parallel'' or ``anti-parallel'' registry takes over. This registry order parameter $\langle \phi^1\phi^2\rangle$ is easy to measure and it is precisely what we find in the Monte-Carlo simulation of the Higgs phase, see Fig.\ref{Z2xZ2Z2orderParameter}.
-\begin{figure*}[!h]
-	\centering
-	\includegraphics[scale=.7]{figures/chapter2/orderParameterZ2xZ2Z2K0.pdf}
-	\caption{Expectation value of the registry order parameter $\langle \phi^1\phi^2\rangle$ of the  $Z_2 \times Z_2 / Z_2$ theory, along the $K=0$ slice.} 
-	\label{Z2xZ2Z2orderParameter}
-\end{figure*}
-
-At first sight this may be a bit confusing given that the matter fields interact only via the gauge couplings. However, the simple logic in the previous paragraph just reveals that this replicated system has in the Higgs phase a doubly degenerate ground state associated with ``parallel'' and ``anti-parallel'' registry. It is easy to construct gauge invariant domain walls between domains with opposite registry, as the ``featureless'' domain walls of the $Z_2/Z_2$ theory now acquire the gauge invariant meaning that they represent a jump in the registry order. Notice that the phase diagram is in all regards other than the second order  Higgs-confinement transition a near quantitative copy of the $Z_2/Z_2$ phase diagram. Given the lessons of the $O(2)/Z_2$ theory this is perhaps not surprising since the ``microscopy'' of the $Z_2 \times Z_2 / Z_2$ theory is a close cousin of the  $O(2)/Z_2$ case.  
-
-\begin{figure*}[!h]
-	\centering
-	\includegraphics[width=.32\textwidth]{figures/chapter2/Z2Z2Jl01phasedia.pdf}
-	\includegraphics[width=.32\textwidth]{figures/chapter2/Z2Z2Jl1phasedia.pdf}
-	\includegraphics[width=.32\textwidth]{figures/chapter2/Z2Z2diffJphasedia.pdf}\\
-	\raisebox{-.1in}{	\includegraphics[width=.32\textwidth]{figures/chapter2/Z2xZ2Z2_gap_01.pdf}}
-	\hfill
-	\raisebox{-.1in}{
-		\includegraphics[width=.32\textwidth]{figures/chapter2/Z2xZ2Z2_gap_1.pdf}}
-	\hfill
-	\raisebox{-.1in}{	\includegraphics[width=.32\textwidth]{figures/chapter2/Z2xZ2Z2_2J.pdf}}
-	\\		
-	\caption{The phase diagrams of the $Z_2 \cross Z_2 / Z_2$ theory, with the Monte Carlo data for $c_V$ in the second row, for a finite  $J_L=0.1$ (\textbf{a}) and $J_L = 1$ (\textbf{b}). Notice that  the Monte Carlo results are shown over a small interval in $K$ to highlight the most relevant changes.  This local  coupling acts as a field breaking the registry symmetry explicitly, turning the $J_L =0$ Ising phase transition into a cross over. The consequence is that for any finite $J_L$ the indistinguishability of Higgs and confinement is restored. The small strand of second-order like (dashed line) transition for  small $J_L$ (\textbf{a}) may well be related to a rapid crossover that can not be distinguished within our numerical accuracy (Binder criterium) from a real transition. For large $J_L$ (\textbf{b}) the phase diagram becomes nearly identical to the one of the $Z_2/Z_2$ theory itself. Another interesting game is to vary the relative strength of the matter coupling of the two copies for $J_L =0$.  In (\textbf{c}) we show a typical example  dealing with different matter couplings $J = J_1 = 3 J_2$.}
-	\label{Z2xZ2Z2Jl}
-\end{figure*}
-
-To illustrate these matters further, let us consider what happens when the local $J_L^{12}$ interaction in Eq. (\ref{eq:z2action}) is switched on. It is immediately obvious that this relates directly to the registry: one sees immediately departing from unitary gauge that this lifts the degeneracy of the parallel and anti-parallel registry configurations. This acts as a field breaking the registry Ising symmetry explicitly! This should have the effect to turn the registry phase transition into a cross over, with the effect that yet again the confining and Higgs phases become indistinguishable again, and this is what we find is going on according to our MC simulations: see Fig.\ref{Z2xZ2Z2Jl}  (\textbf{a},\textbf{b}). 
-
-A next freedom one can exploit is to take $J_L =0$ but change instead the relative magnitude of the matter couplings, $J = J_1 \neq J_2$.  This is an entertaining affair highlighting the unusual nature of the registry order. Upon reducing $J_2$ the locus on the vertical axis where this second field changes from order to disorder shifts upwards along the vertical axis in terms of the ``dominating'' copy governed by $J_1=J$. The effect is that at the $J_1$ transition in the small $K$ regime the $J_2$ coupled matter field is still {\em disordered} 
-while the order in both fields is required for the existence of the registry order! Hence, holding $J_1\neq J_2$ fixed while varying $K$, there is a window where the registry order disappears in the small $K$ regime, switching on again when $K$ has become sufficiently large to reach the $J$ where also the second field becomes also prone to order again, see Fig.\ref{Z2xZ2Z2Jl}(\textbf{c}). The outcome is a critical end point where now a line of second order transitions starts that is subsequently turned into the first order Huse-Leibler affair! We notice that this peculiar behaviour is only seen in a small $J_2/J_1$ interval; for $J_2 \le 0.25 J$ the phase diagram becomes again the one of the single copy $Z_2/Z_2$ theory.
-
-\bigskip
-
-Up to this point we have demonstrated that in terms of the degrees of freedom of the gauge theory a quantity can be identified characterized by a global symmetry that is broken in the Higgs phase -- the registry order parameter. However, what is the nature of the {\em dynamics} responsible for the stability of this order? Inspecting this deep in the Higgs phase (large $K,J$) employing the unitary gauge is not informative. The reason is that this is rooted in ``gauge field interactions'' that are unusual   in the sense that the discrete nature of the $Z_2$ gauge fields implies that these ``gauge forces'' are characterized by a mass scale that becomes large deep in the Higgs phase. In a statistical physics language any gauge field mediated force may be viewed as an ``order-out-of disorder'' phenomenon -- the fluctuations of the gauge fields are responsible for the interactions between the (gauge invariant) matter fields. 
-
-Hence, the limit to consider is $K=0$: the visons are the dynamical degrees of freedom of the discrete gauge theory and these come for free in this limit. Given that the disclinations are bound states of matter defects (domain walls) and the visons, the stability of the Higgs phase itself is entirely due to the cost associated with the former, while the $Z_2$ gauge field is maximally fluctuating. Its only energy cost comes from the coupling to the matter fields. The gauge fields can therefore be straightforwardly integrated out with the outcome that one obtains the (gauge invariant)  Landau-de-Gennes order parameter theory \cite{toner95}. In the general case one is dealing with the point groups associated with the rotational symmetry of the nematic-type state; for Abelian point groups in two dimensions that are encoded by $Z_N$ gauge fields one recovers in this way the simple ``p-adic'' nematics \cite{nematic2D}, while this procedure has been shown to be instrumental to derive the high rank tensor de-Gennes order parameters associated with the non-Abelian point groups in three dimensions \cite{nonabnematic,nonabnematic1,nonabnematic2}. 
-
-The outcome for the elementary $Z_2$ gauge theory is simple: integrating out the gauge fields when $K=0$ leads to the simple ``square of the Hamiltonian'' gauge invariant effective theory as in Eq. (\ref{directorH}) \cite{toner95}. In full generality, departing from the replicated theory with arbitrary matter field symmetry Eq. (\ref{eq:z2action}) when $J_L^{ij} =0$ and all $J_i = J$ one obtains, 
-\begin{equation}
-	H_{\mathrm{eff}, K =0, } = -J' \sum_{\langle i, j \rangle} \left( \sum_{a=1}^{N_\text{rep} } \vec{\phi}_i^a  \cdot \vec{\phi}_j^a \right)^2 ~.
-	\label{Z2deGennes}
-\end{equation}
-Let us first consider the single replica $Z_2$ matter field. Here $\vec{\phi_i} \rightarrow \sigma^z_i$ and we infer that the effective Hamiltonian becomes $\sum_{\langle i, j \rangle} (\sigma^z_i \sigma^z_j ) ^2 \rightarrow \mathrm{constant}$: this is the essence of the Fradkin-Shenker observation \cite{Fradkinshenker}, no gauge invariant degree of freedom can be identified distinguishing the Higgs and confining phases implying that these are indistinghuishable. But let us now consider two identical $Z_2$ copies,
-\begin{equation}
+The basic NRG algorithm \cite{wilson1975renormalization,bulla2008numerical} proceeds as follows. 
+(i) The local conduction electron density of states $\rho(\omega)$ of the pristine host material (without the impurity) must first be calculated. \\
+(ii) This DoS is then discretized logarithmically by dividing it up into intervals according to the discretization points $\pm D \Lambda^{-n}$, where $D$ is the bare conduction electron bandwidth, $\Lambda>1$ is the NRG discretization parameter, and $n=0,1,2,3,...$. The continuous electronic density in each interval is replaced by a single pole at the average position with the same total weight, yielding $\rho^{\rm disc}(\omega)$.\\
+(iii) The conduction electron part of the Hamiltonian $H_{\rm host}$ is then mapped into the form of a `Wilson chain',
+\begin{eqnarray}
+	H_{\rm host} \to H_{\rm host}^{\rm disc} = \sum_{\sigma}\sum_{n=0}^{\infty} \Big [ &t_n^{\phantom{\dagger}} \left ( f_{n,\sigma}^{\dagger}f_{n+1,\sigma}^{\phantom{\dagger}}+  f_{n+1,\sigma}^{\dagger}f_{n,\sigma}^{\phantom{\dagger}}\right ) \nonumber \\ 
+	&+\epsilon_n^{\phantom{\dagger}} f_{n,\sigma}^{\dagger}f_{n,\sigma}^{\phantom{\dagger}} \Big ]\;,\qquad
+\end{eqnarray}
+where the Wilson chain coefficients $\{t_n\}$ and $\{\epsilon_n\}$ are determined such that the DoS at the end of the chain reproduces exactly the discretized host DoS, that is $-\tfrac{1}{\pi}{\rm Im}~\langle\langle f_{0,\sigma}^{\phantom{\dagger}} ; f_{0,\sigma}^{\dagger}\rangle\rangle = \rho^{\rm disc}(\omega)$. For a system with particle-hole symmetry, $\epsilon_n=0$ for all $n$. Due to the logarithmic discretization, the Wilson chain hopping parameters decay roughly exponentially down the chain, $t_n \sim \Lambda^{-n/2}$, although the precise details are also important since they encode the specific host DoS \cite{bulla2008numerical}.\\ 
+(iv) The impurity is coupled to site $n=0$ of the Wilson chain. We define a sequence of Hamiltonians $H_N$ comprising the impurity and the first $N$ Wilson chain sites,
+\begin{equation}\label{eq:Hn}
 	\begin{split}
-		H_{\mathrm{eff}, K =0, N_{\text{rep}} = 2} &= -J' \sum_{\langle i, j \rangle} \left( \sum_{a=1}^{2} (\sigma^z)_i^a  \cdot (\sigma^z)_j^a \right)^2 \\ &= 
-		\mathrm{constant} - J'  \sum_{\langle i, j \rangle} \left( (\sigma^z)_i^{(1)} ( \sigma^z)_i^{(2)} \right) \left( ( \sigma^z)_j^{(1)} (\sigma^z)_j^{(2)} \right) \mathperiod
+		H_N=&H_{\rm imp} + H_{\rm hyb} + \sum_{\sigma}\Bigg [ \sum_{n=0}^{N} 
+		\epsilon_n^{\phantom{\dagger}} f_{n,\sigma}^{\dagger}f_{n,\sigma}^{\phantom{\dagger}}\\
+		&+ \sum_{n=0}^{N-1}  t_n^{\phantom{\dagger}} \left ( f_{n,\sigma}^{\dagger}f_{n+1,\sigma}^{\phantom{\dagger}}+  f_{n+1,\sigma}^{\dagger}f_{n,\sigma}^{\phantom{\dagger}}\right ) \Bigg ] \;,
 	\end{split}
-	\label{twocopyZ2deGennes}
 \end{equation}
-This simple affair reveals the origin of the ``registry dynamics'': the combination $\left( (\sigma^z)_i^{(1)} (\sigma^z)_i^{(2)} \right)$ takes the (global) $Z_2$ values $ \pm 1$ for parallel and anti-parallel registry and Eq. (\ref{twocopyZ2deGennes}) is just an Ising Hamiltonian associated with the registry degrees of freedom.
-
-In hindsight this is elementary. As for the uniaxial nematics of Toner {\em et al.} \cite{toner95}, the gauge theory in the strong coupling regime ($K \rightarrow 0$) is in fact a redundant parametrization of the ``director'' gauge invariant de Gennes type theories. The additional richness of the gauge theory is associated with $K$ becoming large, i.e. the weak coupling regime of the gauge theory. For instance, the topologically ordered {\em deconfining} phase has no physical identification dealing with the ``molecular'' nematic liquid crystals. Additional microscopic structure is required, with perhaps the ``stripe fractionalization'' \cite{stripefrac,stripefracdemler} being the most elementary example of how this can happen. 
-
-This is also underlying the difficulty to recognize this simple  motif ``deep'' in the Higgs phase, for large $J$ and $K \rightarrow \infty$. Departing from the unitary gauge one easily identifies the registry as gauge invariant degree of freedom (as in the above) but at first sight the dynamics stabilizing it is obscure. The reason is of course that the visons are now highly energetic excitations  requiring an energy $E\sim K$ per unit length associated with the effect that the gauge symmetry is discrete and the gauge fields are massive . However, there is no phase transition in the Higgs phase at large $J$, varying $K$ from zero to infinity. This implies that regardless the magnitude of the virtual visons their fluctuations {\em always} suffice to hard wire the registry order. This may be viewed as an order-out-of-disorder phenomenon pushed to its extreme.  
-
-
-
-\section{The case of many  $Z_2$ matter fields.}
-\label{replmanyZ2}
-
-Having established the rules for two $Z_2$ matter fields copies, how does this generalize to many copies? Let us depart again from Eq.(\ref{eq:z2action}) for $Z_2$ matter and consider an arbitrary number of matter field copies $N_{\text{rep}}$. As before the circumstances optimal for the registry type order are associated with setting all local couplings to vanish, $J_L^{ab} = 0$, and taking the matter fields couplings to be equal: $J_a = J$. It is in fact easy to find out by induction how the registry spontaneous symmetry breaking of the two copy case generalizes to many copies.
-
-
-
-
-Let us consider the three copy case:  $Z_2 \times Z_2 \times Z_2/ Z_2$. We just proceed as before, departing from deep in the Higgs phase (large $K,J$) and using the unitary gauge. At every site the matter fields can occur in $2^3$ different configurations, see  Fig.\ref{threecopyexample}. Identifying these with domains one would find accordingly 8 different domain walls associated with flipping one spin keeping the other spins fixed. However, upon restoring the gauge invariance amounting to flipping {\em all} spins on the site, it follows that configurations are pairwise associated, e.g.  $\uparrow \uparrow \uparrow \leftrightarrow  \downarrow \downarrow \downarrow$. Accordingly, one finds 4 distinct gauge invariant vacuum states, separated by ``single spin'' domain walls. This is governed by a $p = 4$ state {\em Potts model}! It is easy to check that the Ising registry theory Eq.(\ref{twocopyZ2deGennes}) generalizes to the 4-state Potts theory  by considering the ``squared'' de-Gennes type effective theory in the $K \rightarrow 0$ limit. 
-
-\begin{figure*}[!h]
-	\centering
-	\includegraphics[scale=.4]{figures/chapter2/Z2xZ2xZ2Z2domainWall.pdf}
-	\caption{The registry order parameter (see main text) in the case of the three copy $Z_2 \times Z_2 \times Z_2/Z_2$ theory. Depart from unitary gauge fix and the three matter fields can locally form eight configurations. However, under gauge transformations half of them are redundant, e.g. $\uparrow \uparrow \uparrow \leftrightarrow \downarrow \downarrow \downarrow$. The gauge invariant registry order parameter takes therefore four different physical realizations and it is governed by a $p=4$ state Potts model.}
-	\label{threecopyexample}
-\end{figure*} 
-
-
-\begin{figure*}[!h]
-	\centering	\includegraphics[width=0.425\textwidth]{figures/chapter2/Z2xZ2xZ2Z2phasedia.pdf}
-	\raisebox{-.13in}{
-		\includegraphics[width=0.45\textwidth]{figures/chapter2/Z2xZ2xZ2Z2.pdf}}
-	\caption{The phase diagram of the three copy $Z_2 \cross Z_2  \cross Z_2/ Z_2$ theory as in Fig.\ref{Z2Z2phasediagram} and Fig.\ref{O2Z2phasediagram} for the ``minimal'' $J_a =J$ and $J^L_{ab} = 0 $ case. This looks very similar to Fig.\ref{Z2xZ2Z2phasediagram} and the strand of the first order transitions is barely changed. The specific heat $c_V$ data suggests a first order transition all the way down to $K=0$, but a Binder cumulant study reveals this change to second order as sketched. A major distinction now is that dynamics of (continuous) confining to Higgs transition is governed by a $p=4$ state \textit{Potts model}.} 
-	\label{Z2xZ2xZ2Z2phasediagram}
-\end{figure*} 
-
-This is confirmed by our MC simulations. In Fig.\ref{Z2xZ2xZ2Z2phasediagram} we show the phase diagram of the three copy model. As anticipated, this looks very similar as to the two  copy case, Fig.\ref{Z2xZ2Z2phasediagram}. Although the dynamics is quite different --- the 4 distinct ``gauged'' domain walls associated with $p=4$ Potts --- the Huse-Leibler first order strand is barely affected with yet again the registry order being responsible for the continuous (Potts model) phase transition distinguishing the confining and Higgs phases. In Fig.\ref{Z2xZ2xZ2Z2snapshot} we show a typical  realization after a partially annealed Monte-Carlo ``quench'' deep in the Higgs phase: one discerns the 4 distinct Potts domains separated by the ``registry domain walls'' confirming this simple analysis.  
-
-\begin{figure*}[!h]
-	\centering
-	\includegraphics[scale=1]{figures/chapter2/Z2xZ2xZ2Z2domainWallsSlice.pdf}
-	\caption{Planar snapshot along the $z$ axis of a Monte Carlo quench for the three copy model deep in the Higgs phase $J_1=J_2=J_3=0.8$ and $K=0$. This reveals the presence of the 4-state Potts model domains of Fig.\ref{threecopyexample} separated by the ``registry'' domain walls. Domain 1 - \fcolorbox{black}{z1}{\rule{0pt}{6pt}\rule{6pt}{0pt}} are $\uparrow \uparrow \uparrow \leftrightarrow \downarrow \downarrow \downarrow$, domain 2 - \fcolorbox{black}{z2}{\rule{0pt}{6pt}\rule{6pt}{0pt}} are $\downarrow \uparrow \uparrow \leftrightarrow \uparrow \downarrow \downarrow$, domain 3 - \fcolorbox{black}{z3}{\rule{0pt}{6pt}\rule{6pt}{0pt}} are $\downarrow \uparrow \downarrow \leftrightarrow \uparrow \downarrow \uparrow$, domain 4 - \fcolorbox{black}{z4}{\rule{0pt}{6pt}\rule{6pt}{0pt}} are $\uparrow \uparrow \downarrow \leftrightarrow \downarrow \downarrow \uparrow$. Every domain wall differs from the neighboring domain by a single flip.}
-	\label{Z2xZ2xZ2Z2snapshot}
-\end{figure*}
-
-As for the two copy case one can now proceed by switching on  various $J_L^{ab}$ local couplings, ``gluing together''  the local matter copies with the expected results that we checked. Involving one coupling between two of the three sectors, the 4-state Pott symmetry is lifted by the explicit symmetry breaking to the effective two copy registry Ising symmetry. Similarly, coupling all copies with each other diminishes the registry spontaneous symmetry breaking such that confinement and Higgs become indistinguishable. In the same guise one can detune the matter couplings $J_a$, turning into a variation of the matters we discussed in the previous section. 
-
-The two and three copy cases reveal the counting rules and by induction we can generalize this now to an arbitrary number copies. We just proceed as for the three copy case. Given $N_{\text{rep}}$ copies there are a total of $2^{N_{\text{rep}}}$ local configurations in unitary gauge. The next observation is that these configurations are pair wise identified with each other by the gauge transformation. The result is that the registry symmetry is now captured by a $p = 2^{N_{\text{rep}}} /2 $ state Potts model. 
-
-\section{Replicating $O(2)$ matter.}
-\label{replO2}
-
-\begin{figure*}[!h]
-	\centering	\includegraphics[width=0.425\textwidth]{figures/chapter2/O2xO2Z2phasedia.pdf}
-	\raisebox{-.13in}{
-		\includegraphics[width=0.45\textwidth]{figures/chapter2/O2xO2Z2}}
-	\caption{The phase diagram of the $O(2) \cross O(2) / Z_2$ (left) and raw MC data for $c_V$(right) for $J_1 = J_2 = J$ and $J_L^{12} =0$. This is yet again remarkably similar as to the other phase diagrams. The difference is that the Higgs-confinement phase transition is now first order all the way to $K=0$ contrasting with its second order behavior for the single copy version, Fig.\ref{O2Z2phasediagram}. This due to the occurrence of a Ising type registry order parameter in the Higgs phase which is of the same kind as for the $Z_2$ matter cases, that disappears simultaneously with the nematic type order parameter upon entering the confining phase. The first order nature is confirmed by a Binder cumulant study (Fig.\ref{weakfirstorder}{\textbf{(c)}} in Appendix \ref{binder}).}
-	\label{O2xO2Z2phasediagram}
-\end{figure*}
-
-
-
-The ``matter in the fundamental'' $Z_2$ matter case is special, and what to expect when the symmetry of the matter field is raised relative to the $Z_2$ gauge 
-symmetry? For this purpose we focused in on the minimal extension: the replicated $O(2)$ matter fields gauged by $Z_2$. As we discussed in Section \ref{Z2Z2review}, for a single copy the Higgs phase is now characterized by the nematic-like order, distinguishing it from the confining phase through the presence of a second order phase transition.
-
-In Fig.\ref{O2xO2Z2phasediagram}  we show the phase diagram of the two copy $O(2)\cross O(2)/Z_2$ case for the (usual) choice $J=J_1=J_2, J_L^{12} = 0$. This looks yet again very similar as to the other cases, the main difference being that now the transition between the Higgs and confining phase has turned into a {\em first order} transition for {\em all} $K$. Inspecting the ``strength'' of the first order transition exploiting the Binder criterium (see Appendix \ref{binder}) we find that close to the tricritical point the transition looks quite like the other cases: this is clearly driven by the ``Huse-Leibler'' amplitude fluctuations. Upon reducing $K$ the transition becomes an increasingly weak first order transition, but it continues to be first order all the way down to $K \rightarrow 0$.
-
-As we will argue, this first order behavior is due to the fact that {\em two order parameters governed by two independent global symmetries vanish simultaneously}  at the Higgs to confinement transition. In fact, the replicating has the effect that the ``accidental'' second order nature of this transition for $O(2)/Z_2$ becomes similar to the generic first order transition of the $O(N)/Z_2$ system with $N \ge 3$ as argued by Ref. \cite{toner95}.
-
-What are the two symmetries that are broken in the Higgs phase?  This is actually a bit more of a subtle affair than for the simple $Z_2$-replica's. As we will argue and confirm with the Monte Carlo, one type of symmetry is associated with the nematic type ``halved periodicity'' XY as for a single $O(2)/Z_2$, actually applying to both copies individually. But these are non-locally coupled together by the gauge fluctuations in a way that they submit to a perfect $Z_2$ registry symmetry, that is macroscopically the same symmetry as the registry $Z_2$ of the $Z_2\times Z_2/Z_2$ theory.        
-
-This is yet again easy to deduce by zooming in on the maximal gauge fluctuations, the $K=0$ case. As discussed in Section \ref{replZ2}, this is of the universal form Eq.(\ref{Z2deGennes}). For the two copy $O(2) \times O(2)/Z_2$  case it follows immediately,
-\begin{equation}
+where for the Anderson model $H_{\rm imp} =\epsilon_d \sum_{\sigma} d_{\sigma}^{\dagger}d_{\sigma}^{\phantom{\dagger}} + U_d d_{\uparrow}^{\dagger}d_{\uparrow}^{\phantom{\dagger}}d_{\downarrow}^{\dagger}d_{\downarrow}^{\phantom{\dagger}}$ and $ H_{\rm hyb}= g\sum_{\sigma} ( d_{\sigma}^{\dagger} f_{0,\sigma}^{\phantom{\dagger}} + f_{0,\sigma}^{\dagger}d_{\sigma}^{\phantom{\dagger}})$ while for the Kondo model $H_{\rm imp} + H_{\rm hyb}=J \vec{S} \cdot \vec{s}_0 + V\sum_{\sigma}f_{0,\sigma}^{\dagger}f_{0,\sigma}^{\phantom{\dagger}}$ with $\vec{s}_0=\tfrac{1}{2}\sum_{\alpha,\beta}f^{\dagger}_{0,\alpha} \vec{\sigma}_{\alpha\beta} f^{\phantom{\dagger}}_{0,\beta}$. From Eq.~\eqref{eq:Hn} we obtain the recursion relation,
+\begin{equation}\label{eq:recursion}
 	\begin{split}
-	&H_{O(2) \times O(2), K \rightarrow 0} =  -J' \sum_{\langle i, j \rangle} \left( \vec{\Phi}_{i1} \cdot  \vec{\Phi}_{j1} + \vec{\Phi}_{i2} \cdot  \vec{\Phi}_{j2} \right)^2 \\
-		&\sim -J' \sum_{\langle i, j \rangle}  \left( ( \vec{\Phi}_{i1} \cdot  \vec{\Phi}_{j1})^2  + (\vec{\Phi}_{i2} \cdot  \vec{\Phi}_{j2})^2 +2 (  \vec{\Phi}_{i1} \cdot  \vec{\Phi}_{j1} ) \times ( \vec{\Phi}_{i2} \cdot  \vec{\Phi}_{j2}   ) \right) \mathperiod
-	\end{split} 
-	\label{O2O2effH}
+		H_{N}=&H_{N-1}+\sum_{\sigma}\Big [\epsilon_N^{\phantom{\dagger}} f_{N,\sigma}^{\dagger}f_{N,\sigma}^{\phantom{\dagger}}\\&+ t_N^{\phantom{\dagger}} \left ( f_{N-1,\sigma}^{\dagger}f_{N,\sigma}^{\phantom{\dagger}}+f_{N,\sigma}^{\dagger}f_{N-1,\sigma}^{\phantom{\dagger}}\right ) \Big ] \;,
+	\end{split}
 \end{equation}
-The first and second term just represent the director order parameter -- for $O(2)$ just the halved periodicity -- and upon ignoring the last term one is just dealing with two completely decoupled identical "$O(2)$ nematics".  This last term encapsulates the interactions between these two copies as induced by the fluctuating disclinations. It is obvious that also this term is governed by an invariance under $O(2)$ rotations of every copy separately -- there is surely no effective single site "anisotropy" at work reducing  it to the on site  $Z_2$ registry revealed by Eq. (\ref{twocopyZ2deGennes}) of the $Z_2 \times Z_2 / Z_2$ case.
+such that the full (discretized) model is obtained as $H^{\rm disc}=\lim_{N\to \infty} H_N$ \cite{note_nrg}. \\
+(v) Starting from the impurity, we build up the chain by successively adding Wilson chain sites using the recursion, Eq.~\eqref{eq:recursion}. At each step $N$, the intermediate Hamiltonian $H_N$ is diagonalized, and only the lowest $N_s$ states are retained to construct the Hamiltonian $H_{N+1}$ at the next step (the higher energy states are discarded). In such a way, we focus on progressively lower energy scales with each iteration. Furthermore, the iterative diagonalization and truncation procedure can be viewed as an RG transformation \cite{wilson1975renormalization}, $H_{N+1}=\mathcal{R}[H_N]$.\\
+(vi) The partition function $Z_N$ can be calculated from the diagonalized Hamiltonian $H_N$ at each step $N$. Wilson used RG arguments to show \cite{wilson1975renormalization} that thermodynamic properties obtained from $Z_N$ at an effective temperature $T_N \sim \Lambda^{-N/2}$ accurately approximate those of the original undiscretized model at the same temperature. The sequence of $H_N$ can therefore be viewed as coarse-grained versions of the full model, which faithfully capture the physics at progressively lower and lower temperatures.\\
+(vii) The discarded states at each step form a complete set (the Anders-Schiller basis \cite{anders2006spin}), from which the NRG full density matrix can be constructed. This provides a rigorous way of calculating real-frequency dynamical quantities via the Lehmann representation \cite{weichselbaum2007sum}.
 
-However, the registry is now hidden in the "synchronization" imposed by the gauge fluctuations associated with the relative orientation of the two spin configurations on neighbouring sites.  Parameterize $\vec{\Phi} = | \Phi | e^{i \phi}$, such that $\phi_{j a} = \phi_{i a} + \nabla_{ij} \phi_a$ and the interaction term becomes,
+In this work, we take the DoS $\rho(\omega)$ of the TBG system for a given twist angle $\theta$ (as calculated from the BM model in Sec.~\ref{sec:BM-model}), discretize it logarithmically, and map to Wilson chains. The DoS used and the resulting Wilson chains are shown in Appendix B. NRG is then used to solve the Anderson and Kondo models describing an impurity embedded in the TBG host. Thermodynamic and dynamical quantities are calculated and discussed in Sec.~\ref{sec:Kondo-BM}. Throughout, we use an NRG discretization parameter $\Lambda=2$ and retain $N_s=4000$ states at each step of the calculation.
+
+%##################
+
+\subsection{Observables}
+\label{sec:obs} 
+
+The physics of an impurity in the TBG host can be characterized by a number of observables, both thermodynamic and dynamical. 
+Here we consider the impurity contribution to the total thermal entropy $S_{\rm imp}(T)$ as a function of the temperature $T$, and the low-$T$ impurity spectral function $A(\omega)$ as a function of energy $\omega$. 
+
+The impurity entropy readily allows us to extract the Kondo scale $T_K$ from NRG data, to track accurately the RG flow, and to identify RG fixed points. It is defined as $S_{\rm{imp}}(T) = S_{\rm{tot}}(T) - S_0(T)$, where $S_{\rm{tot}}$ is the entropy of the entire system, while $S_0$ is the entropy of the free TBG host without impurities. The residual  impurity entropy $S_{\rm imp}(T=0)$, is a finite universal number of order unity which characterizes the stable RG fixed point and hence the ground state of the system; for example $S_{\rm imp}(0)=\ln 2$ for a free, unscreened impurity spin $S=\tfrac{1}{2}$ local moment.
+
+The impurity spectral function gives dynamical information and is accessible experimentally via scanning tunneling spectroscopy (STS), which probes the energy-resolved impurity density of states \cite{ternes2008spectroscopic}. For an Anderson impurity it is related to the impurity Green's function, $A(\omega)=-\tfrac{1}{\pi}{\rm Im}~G_{dd}(\omega)$ where $G_{dd}(\omega)=\langle\langle d_{\sigma}^{\phantom{\dagger}} ; d_{\sigma}^{\dagger}\rangle\rangle$. 
+
+Electronic scattering in the TBG system induced by the impurity is characterized by the t-matrix, which in turn is controlled by the impurity Green's function. In momentum space, the t-matrix equation reads,
 \begin{equation}
-	-J' \sum_{\langle i, j \rangle} (  \vec{\Phi}_{i1} \cdot  \vec{\Phi}_{j1} ) \times ( \vec{\Phi}_{i2} \cdot  \vec{\Phi}_{j2}   ) =   -J' | \Phi |^2 \sum_{\langle i, j \rangle} \cos ( \nabla_{ij} \phi_1 ) \cos(  \nabla_{ij} \phi_2) \mathperiod
-	\label{O2O2dyn}
+	G_{kk'}(\omega) = \delta_{kk'}G_{kk}^0(\omega) + G_{kk}^0(\omega)T_{kk'}(\omega) G_{k'k'}^0(\omega) \;,
 \end{equation}
-This interaction term is governed by a global $Z_2$ symmetry! It originates in the synchrony of gauge invariant ``remnants'' of the two copies: the interaction term is minimal either for {\em both} copies being parallel on neighbouring sites  or {\em both} antiparallel where $\nabla_{ij} \phi_a=0$ or $\nabla_{ij} \phi_a=\pi$.  This signals the two fold degeneracy of the Ising order. In Fig.\ref{O2O2Z2order} we illustrate how to  construct the Ising domain walls associated with this registry order.  
-
-\begin{figure*}[!h]
-	\centering
-	\includegraphics[scale=.5]{figures/chapter2/O2xO2Z2order.pdf}
-	\caption{Illustration of the registry order of the  $O(2)\cross O(2) / Z_2$ theory: the construction of the registry Ising domain wall. We see that in contrast with the multiple $Z_2$ matter fields --- the \textit{local onsite} orientation of different matter fields is irrelevant for the registry. The two copies acquire independent orientations on the $O(2)$ (half) circle.   
-		What matters is how two matter fields change {\em together} from site to site. The strong gauge field fluctuations ``glue'' together matter fields in a sense that they would have to simultaneously change together in the same direction, see Eqs.\eqref{O2O2effH},\eqref{O2O2dyn}.  In all cases \textbf{(a)}-\textbf{(d)} we depart from the same unitary gauge two spin reference configuration on site $i$. In \textbf{(a)} we just consider the ground state configuration on site $j$ in unitary gauge. By performing a gauge transforming on site $j$ we obtain  \textbf{(b)}, gauge equivalent  to \textbf{(a)}. But now consider  \textbf{(c)}, with an anti-parallel orientation of the second spin on site $j$, %turning into the
-		gauge equivalent with \textbf{(d)}. 
-		The case 	\textbf{(a)}, \textbf{(b)} corresponds with $\nabla_{ij} \phi_1 = \nabla_{ij} \phi_2=0$. We see that these configurations minimize the interaction energy Eq.\eqref{O2O2dyn}.  While \textbf{(c)}, \textbf{(d)} instead has $\nabla_{ij} \phi_1 =  0, \nabla_{ij} \phi_2=\pi$. Compared to \textbf{(a)}-\textbf{(b)} this would cost us $2J^{\prime}$ energy. The configuration \textbf{(a)}-\textbf{(b)} corresponds with a registry domain wall  between \textit{parallel} and \textit{anti-parallel} orientations of $O(2)$ matter directors at the neighboring sites.}
-	\label{O2O2Z2order}
-\end{figure*}
-
-
-
-
-\begin{figure*}[!h]
-	\centering
-	\includegraphics[width=0.45\linewidth]{figures/chapter2/O2xO2Z2domainWallsSlice.pdf}
-	\includegraphics[width=0.45\linewidth]{figures/chapter2/O2xO2Z2domainWallsNematicSlice.pdf}
-	\caption{2D snapshot along $z$ axis of a system on $12\cross12\cross12$ lattice with periodic b.c for $O(2) \times O(2) / Z_2$  model. We a single frozen configuration of fields computed using a Monte Carlo quench deep in the Higgs phase: $J_1=J_2=5$ and $K=0$. \textbf{(Left)} Snapshot of $\cos(\nabla_{ij}\phi_1)$. This elucidates a simple registry order (parallel/anti-parallel), in the form of registry domains that are frozen in. The color coding denotes the cosine of the relative orientation of the spins on the neighboring sites: Domain 1 (parallel) - \fcolorbox{black}{z3}{\rule{0pt}{6pt}\rule{6pt}{0pt}} corresponds with $\uparrow \uparrow \leftrightarrow \downarrow \downarrow$, and domain 2 (anti-parallel) - \fcolorbox{black}{z4}{\rule{0pt}{6pt}\rule{6pt}{0pt}} accordingly  $\downarrow \uparrow \leftrightarrow \uparrow \downarrow$. \textbf{(Right)} Snapshot of $\exp(2i\phi_1)$ director order parameter showing homogeneous distributions, being annealed, with some local fluctuations due to the finite size and temperature effects.}
-	\label{O2O2Z2snapshot}
-\end{figure*}
-
-This can be illustrated by a Monte-Carlo quench from ``high temperature'', departing from random configurations and partially annealing the system in the Higgs regime, similar to Fig.\ref{Z2xZ2xZ2Z2snapshot}. This is shown in Fig.\ref{O2O2Z2snapshot}. One infers that one form of order is of the nematic-type (XY like)  associated with the orientation of the director of one of the the copies that we find to be homogeneous in this snapshot -- this is annealed. However we can also track the {\em relative orientation of a single field between neighboring sites} $\nabla_{ij}\phi_\alpha$, for $\alpha=1$. Fig.\ref{O2O2Z2snapshot} (Left) shows that this is either parallel $\nabla_{ij}\phi_1=0$ or anti-parallel $\nabla_{ij}\phi_1=\pi$ as illustrated in Fig.\ref{O2O2Z2order} and explained after the text. As in Fig.\ref{Z2xZ2xZ2Z2snapshot} we observe domains of the two different parallel and anti-parallel registry separated by ``registry domain walls'' of the kind similar to the $Z_2$ matter.
-
-Similar to the $Z_2\cross Z_2/Z_2$ case, this registry order is critically dependent on the $J_L^{12}$ being zero -- upon switching it on this acts as an explicit symmetry breaking of the registry turning the first order transition near $K=0$ into second order, exhibiting a phase diagram that is like the single  copy $O(2)/Z_2$ case (Fig.\ref{O2Z2phasediagram}). The effect of unbalancing the matter couplings ($J_1 \neq J_2$) has very similar effects as illustrated in Fig.\ref{Z2xZ2Z2Jl}, although now a second order transition is left behind when the registry order switches off.
-
-In summary, the ``registry-sector'' of the $O(2)$ case behaves more or less identically as in the $Z_2$ case. The difference is that in the $O(2)$ case one also has to account simultaneously for the nematic type order characterizing this Higgs phase. This renders the phase transition first order all the way to $K=0$. 
-The topological defects of this nematic-like state will start to populate the vacuum upon lowering $K,J$. These are the disclinations, in turn being a ``confined'' combination of the vortex-type matter defect, and the $Z_2$ gauge flux/vison, e.g. \cite{toner95,Senthil}. The matter-vortices of the two copies share a single gauge flux. Upon integrating out these ``topological fluctuations'', an interaction mediated by the $Z_2$ gauge fields develops which is responsible for the registry order.   Similar to the $Z_2$ case, the limit where one can easily deduce the effects of the visons ``gluing'' the copies into registry, this is most easily deduced in the $K=0$ limit which is entirely controlled by the matter interaction $J$.    
-
-\section{Discussion and conclusions}
-\label{discussion}
-
-Gauge field theory is of course well known to have its own rules. In this paper we have focused in on the simplest of all gauge symmetries, the $Z_2$ variety, as the simplest theory revealing the characteristic phase structure characterized by confinement, deconfinement and the Higgs phase. By introducing the matter replicas we discovered a new set of phenomena. In this pursuit we have heavily leaned on the unbiased Monte-Carlo simulations. Puzzled by the outcomes we discovered the new phenomenon of ``registry order parameter''. As we discussed in Sections \ref{replZ2} and \ref{replmanyZ2}, it is very easy to identify the origin in the $Z_2$ matter versions, although it is a bit less obvious and arguably more entertaining  for the $O(2)$ version in Section \ref{replO2}. It took us by surprise, given that the origin of the induced ``gauge interaction'' that is responsible for the registry symmetry breaking  is of a kind that is rather unfamiliar.  
-
-The mechanism is revealed by considering the extreme strongly coupled limit of the gauge fields, $K=0$. In terms of the degrees of freedom of the gauge theory, the mechanism is unusual, highlighted by the $O(2)$ case. The physical degrees of freedom associated with the disordering of the Higgs phase are the nematic-type disclinations that are in turn confined combinations of matter vortices and the fluxes of the gauge field (the visons). Although both matter fields carry their own vortices, these ``share'' a single vison. In the $K=0$ limit the latter come for free and upon integrating these out one finds that the de-Gennes type effective order parameter theory is endowed with the registry ``Ising'' Hamiltonian, Eq . (\ref{twocopyZ2deGennes}), and Eq.(\ref{O2O2dyn}) respectively. Interestingly, the discrete nature of the gauge theory has eventually the effect to generate the Ising type registry global symmetry breaking. 
-
-We have only inspected the most elementary forms of such gauge theoretical systems. 
-These are just a point in the vast landscape of all gauge theories, up to the non-Abelian Yang-Mills theory behind e.g. the Standard Model. It would be quite interesting to find out what happens with this ``registry order'' upon systematically raising the symmetries involved. What happens in the ``replicated''  $Z_2$ gauge theory involving the non-Abelian $O(N)$ matter fields with $N \ge 3$? What happens raising the $Z_2$ gauge symmetry to the non-Abelian 3D point group symmetries as in Ref. \cite{nonabnematic}? Even more fundamental, what is the fate of registry dealing with {\em continuous} gauge symmetry, starting with the Abelian $U(1)$ of compact electrodynamics \cite{PolyakovQED}? 
-
-Finally, another aspect also caught us by surprise in the Monte Carlo outcomes for the various phase diagrams. The Huse-Leibler mechanism for the first order transition between the "Higgs'' and "confinement-like phase'' emanating from the tricritical point appears to be surprisingly universal. Eventually this is a quantitative affair. The mechanism as understood for the $Z_2/Z_2$ case does in this regard rely on the specifics of this particular theory: the ``vesicles'' versus ``platelet'' affair. This surely works differently involving continuous symmetry -- the $O(2)$ cases. But surprisingly the ``first order strand'' is even quantitatively barely affected by these fundamental differences. The reason for this is presently unclear to us and it may be of interest to have a closer look at the origin of this ``quasi-universality''.
-
-\section*{Acknowledgments}
-We thank T. Senthil and K. Liu for discussions. 
-This research was supported in part by the Dutch Research Council (NWO) project 680-91-116 ({\em Planckian Dissipation and Quantum Thermalisation: From Black Hole Answers to Strange Metal Questions.}), and by the Dutch Research Council/Ministry of Education. The numerical computations were carried out on the Dutch national Cartesius and Snellius national supercomputing facilities with the support of the SURF Cooperative as well as on the ALICE-cluster of Leiden University. We are grateful for their help.
-
-
-\section{Appendix}
-\subsection{Monte Carlo Simulations}
-\label{app:mc-details}
-The Monte Carlo simulations were performed on a $d \times d \times d$ grid with periodic boundary conditions. Grid size in all simulations was $d=12$ in order to avoid finite size effects and still get reasonable computational times. We used most of the time a number of  measurement sweeps $N=6000000$; thermalization sets in typically after 1/3 of the sweeps. Near the critical points we checked this by tracking the evolution of the various quantities  as function of the number of steps, taking as many steps as needed for the quantity to saturate. For the updating rules we used the  Metropolis-Hastings algorithm with the acceptance ratio $A(n, n^\prime) = \min(1, e^{-\Delta E_{n,n^\prime}})$ where $\Delta E_{n,n^\prime}$ is the energy difference between states $n$ and $n^\prime$ that differ in a single matter field or gauge field flip. Phase diagrams were obtained by vertically scanning along different values of $J$'s, using annealing order to improve convergence accuracy. The whole phase diagram was run on a remote cluster where each process was  associated with a single value of $K$ scanning along the $J$ axis. We noted that the longest sweeps were required to equilibrate when deep in the deconfining regime. Flipping single ``bond spins'' using the Metropolis-Hastings algorithm leads to highly energetic configurations and accordingly to long thermalization times. But this did not pose any difficulty since the physics in this regime is simple.
-
-\subsection{Determining order of phase transition}
-\label{binder}
-We used several quantities in order to determine the order of a phase transition. For the $O(2)$ matter fields we tracked  the  local nematic magnetization $m=\langle |e^{2i\theta_i}|\rangle$ and local registry order parameter $R=\langle \theta^1_i \cdot \theta^2_i \rangle$. For $Z_2$ matter fields we only encountered the local registry order parameter. Note that formally the $O(2)\cross O(2)/Z_2$ registry order parameter is non-local in that it is the nearest neighbor difference. In practice this implies also a local order parameter, which is easy to understand after performing a ``block-spin'' averaging RG-step. We also measured  the specific heat computed as $C_V = \frac{1}{d^3}(\langle E^2 \rangle -\langle E \rangle)$. In order to see the exact point of phase transition we employed the Binder ratio defined as: 
+where $G_{kk'}^{(0)}(\omega)=\langle\langle c_{k,\sigma}^{\phantom{\dagger}} ; c_{k',\sigma}^{\dagger}\rangle\rangle^{(0)}$ is the electron Green's function for the full (free) TBG system with (without) the impurity, and $T_{kk'}(\omega)=g^2\xi_k\xi_{k'}G_{dd}(\omega)$ is the t-matrix itself. Transforming to real space, the t-matrix equation becomes,
 \begin{equation}
-	U = \frac{1}{2} \left[3 - \frac{\langle m^4\rangle}{\langle m^2 \rangle^2}\right] \mathperiod
+	G_{\vec{r}_i\vec{r}_j}(\omega) = G_{\vec{r}_i\vec{r}_j}^0(\omega)  + G^0_{\vec{r}_i\vec{r}_0}(\omega) T(\omega) G^0_{\vec{r}_0\vec{r}_j}(\omega) \;,
 \end{equation}
-In the $\lim_{T \to 0} U = 1$ while for $\lim_{T \to \infty} U = 0$. Since this ratio is dimensionless, plotting curves of different sizes clusters their intersection point which represents the exact value of the phase transition. In our case shape of the Binder curve is more important than the exact intersection point. A smooth transition from 0 to 1 in a sigmoid fashion indicates a second order transition while a sharp dip that diverges with system size indicates a first order behavior. Especially the transition associated with the small $K$ regime of the $O(2) \cross O(2) / Z_2$ is quite weakly first order, and this is manifested by a Binder ratio dip that does not diverge with the system size, see e.g. and Fig.\ref{weakfirstorder}(\textbf(c)). When going to larger system sizes, dip in the Binder curve become very narrow. In that case, refining values of $J$ in that regions helps capture it, otherwise the peak is easily missed.  
+where $G_{\vec{r}_i\vec{r}_j}^{(0)}(\omega)$ are the full (free) electronic propagators between real-space sites $\vec{r}_i$ and $\vec{r}_j$ of the TBG system, and the local t-matrix is $T(\omega)=g^2 G_{dd}(\omega)$. The impurity is taken to be located at site $\vec{r}_0$.
 
-\begin{figure}[!h]
-	\captionsetup[subfigure]{labelformat=empty}
+A related experimental quantity obtained by Fourier transform STS \cite{hoffman2002imaging} (FT-STS) is the quasiparticle interference (QPI) pattern, defined as,
+\begin{equation}
+	\Delta \rho(\vec{q},\omega) = \sum_i e^{-i\vec{q}\cdot \vec{r}_i}\Delta \rho(\vec{r}_i,\omega) \;,
+\end{equation}
+where $\Delta \rho(\vec{r}_i,\omega)=-\tfrac{1}{\pi}{\rm Im}~[G_{\vec{r}_i\vec{r}_i}(\omega)-G_{\vec{r}_i\vec{r}_i}^0(\omega)]$ is the difference in electronic density at site $\vec{r}_i$ due to the impurity. As such, the QPI pattern $\Delta \rho(\vec{q},\omega)$ can be obtained entirely from the free TBG propagators and the impurity Green's function, via the t-matrix equation.
+
+In the following, we study the zero temperature, $T=0$, impurity spectral function $A(\omega)$ using NRG; the t-matrix and QPI can be obtained from this as described above.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{Limiting cases of the Kondo problem}\label{sec:KondoDOS}
+
+The physics of the Kondo model strongly depends on the host DoS. For the problem of a magnetic impurity in a TBG host, as modelled using the BM model, there are a number of relevant limits. We assume that the impurity couples to all the orbitals in the same way meaning the local TBG DoS $\rho(\omega)$ is the only relevant quantity characterizing the host. Furthermore, we consider here the particle-hole symmetric case $V=0$ for simplicity.
+
+The main insights of the ensuing discussion are summarized in Table~\ref{tab:ScalingTk}.
+\begin{table*}
 	\centering
-	\begin{subfigure}{0.45\textwidth}
-		\centering
-		\includegraphics[width=\columnwidth]{figures/chapter2/BinderSecondExample.pdf}
-		\caption{\textbf{(a)}}
-	\end{subfigure}%
-	\begin{subfigure}{0.45\textwidth}
-		\centering
-		\includegraphics[width=\columnwidth]{figures/chapter2/BinderFirstExample.pdf}
-		\caption{\textbf{(b)}}
-	\end{subfigure}
-	\par\bigskip
-	\begin{subfigure}{0.45\textwidth}
-		\centering
-		\includegraphics[width=\columnwidth]{figures/chapter2/BinderK0O2xO2Z2.pdf}
-		\caption{\textbf{(c)}}
-	\end{subfigure}%
-	\begin{subfigure}{0.45\textwidth}
-		\centering
-		\includegraphics[width=\columnwidth]{figures/chapter2/BinderK0Z2xZ2xZ2Z2.pdf}
-		\caption{\textbf{(d)}}
-	\end{subfigure}
-	\caption{Examples of the Binder ratio as function of system size: (\textbf{a}):  A typical example of a second order transition from confining to Higgs for $O(2)/Z_2$ at $K=0$, (\textbf{b}): An example of a first order transition for $O(2)/Z_2$ at value of $K$ in the range of first order - "Huse-Leibler" line emanating from the tricritical point (\textbf{c}):  An example of the Binder ratio for a weak first order transition, showing its behavior for $O(2) \cross O(2) / Z_2$ for  $K=0$ as function of $J$. (\textbf{d}) An example of the Binder ratio for $Z_2 \cross Z_2 \cross Z_2 / Z_2$ along $K=0$ with a clear indication of a second order phase transition.}
-	\label{weakfirstorder}	
+	\begin{tabular}{|c||c|c|c|} \hline
+		& Density of States, $\rho(\omega)$   &  ~~Kondo Temperature, $T_K$~~ & ~~Impurity entropy, $S_{\rm{imp}}(T=0)$~~ \\ \hline
+		Metal   & $\rho_0$ ~:~constant & $  D e^{-{\nicefrac{1}{\rho_0 J}}}$ & $0$ \\ \hline 
+		Standard van-Hove  & $ \rho_0 \left[1+a\ln \left(D/|\omega| \right) \right]$ ~:~log diverging & $ D e^{\frac{1}{a} - \frac{1}{a}\sqrt{1 + \frac{2a}{\rho_0J}}}$ & $0 $ \\\hline
+		Higher Order van-Hove & $ \rho_0\abs{\omega}^{-\alpha}$ ~:~power-law diverging & $D\left(1+\frac{\alpha D^\alpha}{\rho_0 J}\right)^{-\nicefrac{1}{\alpha}} $ & $-2\alpha \ln 2$\\ \hline 
+		Dirac cone & $\rho_0 |\omega|$ ~:~linear pseudogap & $T_K=0$ & $\ln 2$\\ \hline
+	\end{tabular}
+	\caption{Summary of properties for the Kondo model with the different host DoS encountered in this work.}
+	\label{tab:ScalingTk}
+\end{table*}
+
+%##########
+
+\subsubsection{The metallic limit}\label{subsec:SKondo}
+
+The case of a magnetic impurity embedded in a metallic host is the most commonly encountered and well-studied situation, with extensive literature to its name (see Ref.~\cite{Hewson} for an introduction). The most important feature of the problem is that upon reducing the temperature, the system becomes increasingly strongly correlated. This is captured by the poor-man's scaling equation, Eq.~\eqref{eq:poorman}. In a metal, it is a reasonable assumption that the DoS is roughly constant within the relevant energy window, $\rho(\omega)\approx \rho_0$. Integrating  Eq.~\eqref{eq:poorman} then straightforwardly yields, 
+\begin{eqnarray}
+	J(\Lambda)=\frac{J_0}{1+\rho_0 J_0 \ln \left( \frac{\Lambda}{D}\right)}\;,
+\end{eqnarray}
+where $\Lambda$ is the energy scale of interest whereas $D$ is the starting high-energy cutoff (physically $D$ is the conduction electron bandwidth). $J_0$ is the starting value of the coupling constant at the scale $D$ (with $J_0\equiv J$ in Eq.~\eqref{eq:KM}) whereas $J(\Lambda)$ is the running coupling strength at energy scale $\Lambda$. Perturbation theory breaks down, once the running coupling $J(\Lambda=T_K)\to \infty$. This happens at the root of the denominator and the corresponding running energy scale reads
+\begin{eqnarray}
+	T_K=D e^{-1/(\rho_0 J_0)}\;.
+\end{eqnarray}
+This energy scale has a number of interpretations. One implication is that for temperatures $T \gg T_K$, the physics can be captured using a perturbative expansion around $J=0$, meaning the limit of a free impurity henceforth referred to as the local moment (LM) regime. Consequently, the impurity entropy, up to small correction, is that of a free spin, meaning $S_{\rm{imp}}^{\rm LM}=\log 2$. 
+
+Conversely, for $T \sim  T_K$, perturbation theory breaks down. Nozi\`eres showed~\cite{nozieres1980kondo} that at zero temperature, the ground state is a complicated many-body spin-singlet state and the system is a local Fermi liquid. The low-temperature limit $T\ll T_K$ is referred to as the strong coupling (SC) regime.  The corresponding impurity entropy is that of a unique state with $S_{\rm{imp}}^{\rm SC}=0$. The strong coupling physics in this regime shows up in the local spectral function $A(\omega)$ as a strong quasiparticle resonance around the Fermi energy, with a spectral pinning condition satisfying the Friedel sum rule \cite{Hewson}. The RG flow between the two fixed points is relatively simple, with $J(\Lambda)$ increasing from LM to SC as the energy scale $\Lambda$ is decreased. This is illustrated in the upper panel of Fig.~\ref{fig:RGFlow}. The Kondo scale $T_K$ is the scaling invariant along this RG flow. Note that in the metallic case, the potential scattering $V$ is strictly marginal and consequently plays no role. 
+
+%##########
+
+\subsubsection{Close to a van Hove singularity}
+
+This case is a twist on the usual metallic Kondo problem, with very similar physics. The poor man's scaling analysis points to an RG flow from weak to strong coupling, with the running coupling $J(\Lambda)$ again increasing from LM to SC as the energy scale $\Lambda$ is decreased (Fig.~\ref{fig:RGFlow}, upper panel). The main difference from the standard metallic case is an enhanced Kondo temperature~\cite{Gogolin1993,Zhuravlev2011,zhuravlev2018one} due to the enhanced DoS, which diverges logarithmically at low energies for standard vHs points. 
+Taking the low-energy form of the DoS to be $\rho(\omega)= \rho_0 \left(1+a\ln \left(D/|\omega| \right) \right)$, we can integrate Eq.~\eqref{eq:poorman} and, as before, extract the Kondo scale from the divergence in $J(\Lambda)$. In this case we obtain,
+\begin{eqnarray}
+	T_K=D e^{\frac{1}{a} - \frac{1}{a}\sqrt{1 + \frac{2a}{\rho_0J_0}}}\;. 
+	\label{eq:TKLog}
+\end{eqnarray}
+Note that for $a \to 0$ the DoS becomes metallic and we recover the metallic limit result for $T_K$.
+
+This expression has two limiting cases and the relevant parameter is now $a/(\rho_0 J_0)$: (i) For $a/(\rho_0 J_0) \ll 1$, the logarithmic enhancement of the DoS plays no role and one recovers the metallic limit result, $T_K=D e^{-1/(\rho_0 J_0)}$ since the system starts out already close to the SC fixed point; (ii) In the opposite limit, $a/(\rho_0 J_0) \gg 1$, we find $T_K=D e^{- \sqrt{\frac{2}{a \rho_0J_0}}}$, which is strongly boosted relative to the metallic case.
+The Kondo temperature $T_K$ is therefore enhanced in the vicinity of a vHs. As expected, the impurity entropy is quenched at low temperatures, $S_{\rm{imp}}(T\to 0)=0$, embodying Kondo singlet formation. In terms of the impurity spectral function $A(\omega)$, the quasiparticle Kondo resonance around the fermi energy is in fact suppressed logarithmically by the logarithmically diverging DoS of the free host \cite{derry2015quasiparticle}. However,  the fact that $A(\omega=0)=0$ should not in this case be interpreted as a flow towards weak coupling since the relevant quantity is rather $\rho(\omega)\times A(\omega)$, which remains finite as $|\omega|\to 0$ and satisfies a generalized Friedel sum rule \cite{logan2014common} for strong coupling physics.
+
+%##########
+
+\subsubsection{Close to a Higher Order van Hove singularity}
+
+As discussed in Sec.~\ref{sec:BM-model}, a HO-vHs is characterized by a power-law divergence in the DoS. In the following discussion, we neglect the metallic background on top of which the power-law divergence sits, and take the DoS to be of the form $\rho(\omega)=\rho_0 |\omega|^{-\alpha}$ with $0<\alpha<1$. This problem falls into the class of power-law Kondo problems~\cite{Mitchell2013}. Intuitively, one expects the Kondo temperature to be further enhanced through the more strongly divergent DoS. Integrating Eq.~\eqref{eq:poorman}  with this DoS yields,
+\begin{eqnarray}\label{eq:tkHO}
+	T_K = \frac{D}{\left(1+\frac{\alpha D^\alpha}{\rho_0 J_0}\right)^{\nicefrac{1}{\alpha}}}\;.
+\end{eqnarray}
+This problem also has two limits, one characterized by the local moment physics of a free impurity (LM) the other limit by a particle-hole symmetric strong coupling fixed point that we henceforth call $\rm{SSC}_{\rm{HO}}$. This RG fixed point has properties that are slightly different from the metallic strong coupling fixed point SC. It is characterized by a $T \to 0$  impurity entropy of $S_{\rm{imp}}=-2\alpha \ln 2$, which is negative. We emphasize that although the total thermodynamic entropy is of course never negative, the \emph{impurity contribution} to the total system entropy as defined in Sec.~\ref{sec:obs} can be negative, if the presence of the impurity causes dramatic changes to the host (local) electronic structure, relative to the clean host. This is precisely the case for the power-law Kondo model \cite{Mitchell2013}. 
+As for the impurity spectral function, the quasiparticle Kondo resonance is suppressed by the divergent free host DoS, and we find $A(\omega) \sim |\omega|^{\alpha}$ at low energies. But again, the signature of Kondo singlet formation and strong coupling physics is that $\rho(\omega)\times A(\omega)$ remains finite as $|\omega|\to 0$, which is indeed the case for $\rm{SSC}_{\rm{HO}}$.
+
+The RG flow in the particle-hole symmetric case considered here is again one-dimensional, running from LM to $\rm{SSC}_{\rm{HO}}$ as the energy scale or temperature is reduced (see middle panel of Fig.~\ref{fig:RGFlow}). We note that strong particle-hole asymmetry can play a role in the power-law Kondo model, unlike the pure metallic case, and leads to the intricate phase diagram discussed in Ref.~\cite{Mitchell2013}.
+
+\begin{figure}[t]
+	\includegraphics[width=0.8\linewidth]{figures/chapter2/FigureFixPointv4.pdf}
+	\caption{
+		%\justifying
+		\small  One-dimensional RG diagram showing the flow into different stable fixed points as the temperature is lowered, for different host density of states profiles.}
+	\label{fig:RGFlow}
+\end{figure}
+%##########
+
+\subsubsection{The limit of a two-dimensional Dirac cone}
+
+The linear vanishing DoS associated with a Dirac cone in two dimensional systems gives rise to a subtle impurity problem which falls into the class of so-called pseudogap Kondo models. This is by far the most complicated situation; it has been discussed at length in Refs.~\cite{Ingersent1998,Fritz2004a,Fritz2004b,Fritz2013,logan2014common}. In the following, we focus on the particle-hole symmetric case, with a linear pseudogap $\rho(\omega)=\rho_0|\omega|$ that is characteristic of 2d Dirac materials. Naively, one might expect a reduced Kondo temperature due to the reduced DoS of a Dirac cone compared with that of a metal. In fact, the Kondo effect is suppressed entirely in this case and $T_K$ vanishes, regardless of the strength of the bare coupling $J_0$. The LM fixed point is stable and the impurity local moment remains unscreened.
+
+For large bare $J_0$ the system starts off close to the particle-hole symmetric strong coupling fixed point of the linear pseudogap Kondo model, dubbed $\rm{SSC}_{\rm{Dirac}}$. In this regime, the impurity entropy is $S_{\rm{imp}}=2 \ln 2$. However, this fixed point is unstable and RG flow on reducing the temperature tends towards the LM fixed point with entropy $S_{\rm{imp}}=\ln 2$. Unlike the other cases considered, here the renormalized running coupling $J(\Lambda)$ \emph{decreases} on reducing temperature, so that the impurity always becomes asymptotically free as $T\to 0$. This is illustrated in the lower panel of  Fig.~\ref{fig:RGFlow}. The Kondo effect can only be revived by doping so that the Dirac point is not longer at the fermi energy (in which case the low-energy DoS is finite and we recover the metallic scenario); or if very strong potential scattering is introduced.
+For the linear pseudogap case $\rho(\omega)\sim |\omega|$ the impurity spectral function also goes as $A(\omega)\sim |\omega|$. Note that in this case $\rho(\omega)\times A(\omega) \to 0$ as $|\omega|\to 0$, indicating a free impurity at low energies.
+
+
+%###############
+%###############
+
+
+\section{Results and discussion}\label{sec:Kondo-BM}
+We now turn to our full NRG results for a magnetic impurity embedded in the TBG host. The impurity is taken to be of Anderson type (Eq.~\ref{eq:AM}), and the BM model is used for the host (Eq.~\ref{eq:H-TBG-symmetric}). The observables of primary interest are the temperature-dependence of the entropy $S_{\rm imp}(T)$, and the energy-resolved impurity spectral function $A(\omega)$ at $T=0$, for TBG systems with different twist angles  -- see Fig.~\ref{fig:angles}. The most dramatic changes are observed in the vicinity of the magic angle at $\theta=1.05^{\circ}$, and this is where we focus our discussion. The physical quantities we calculate reveal a complex RG flow in the system, illustrated in Fig.~\ref{fig:flow}. The physics precisely at the magic angle is also investigated in detail, and the dependence of the Kondo temperature on microscopic parameters is extracted -- see Fig.~\ref{fig:kondomagic}.
+
+
+\begin{figure}[t]
+	\includegraphics[width=\linewidth]{figures/chapter2/S_A_vs_th.pdf}
+	\caption{
+		%\justifying
+		\small  NRG results for an Anderson impurity in the TBG host material described by the BM model, at various twist angles $\theta$ approaching the magic angle at $\theta=1.05^{\circ}$. 
+		(a) Impurity entropy $S_{\rm imp}(T)$ vs temperature $T$; and (b) Impurity spectral function $A(\omega)$ vs energy $\omega$ at $T=0$. Inset shows low-energy spectral details on a linear scale for representative cases approaching the magic angle. All plots shown for $U_d=0.4D$, $\epsilon_d=-U_d/2$ and $g=0.2D$, with $D$ the TBG bandwidth. }
+	\label{fig:angles}
 \end{figure}
 
-Besides the Binder ratio we also inspected histograms of values occurred during the run of a simulation for an average spatial order parameter and the local energy in order to observe the detailed behavior around the critical point where more than one peak signals the phase separation associated with first order transitions. Histogram are created by counting the occurrences of observed value in specific predetermined bins. Even with fluctuations happening during the run of a simulation, these graphs reveal where are the points of most concentrations around which quantity varies. In most simulations size of the single bin was $10^{-5}$ in single unit of observed quantity, which helps in a resolution of very closely placed peaks. As an example of usefulness of distribution histograms in determining the order of a phase transition we present ``registry'' and energy distributions for $Z_2 \cross Z_2 / Z_2$ model for single value of $K=0.55$ in the regime of ``Huse-Leibler'' first order line emanating from the tricritical point, Fig.\ref{distributions}.
+Consider first the entropy flows presented in Fig.~\ref{fig:angles}(a). At the highest temperatures $T\sim D$, the impurity has four thermally populated configurations (empty, doubly-occupied, and up/down spin states) and the entropy for all systems is therefore $\ln(4)$ in this limit. On the scale $T \sim U$ the empty and doubly-occupied impurity configurations become thermally inaccessible and only the local moment states of the impurity survive. Note that this high-$T$ charge-freezing crossover is absent in the Kondo model, which features only the two impurity spin states from the outset. Far away from the magic angle, where the low-energy TBG DoS is dominated by the linear pseudogap of the Dirac cone, the Kondo effect is inoperative and the impurity spin degrees of freedom remain unscreened down to $T=0$. The impurity entropy therefore saturates at the LM value of $\ln(2)$. This is the basic picture for the blue line in Fig.~\ref{fig:angles}(a) obtained for twist angle $\theta=2^{\circ}$. In the opposite limit, when the system is tuned to the magic angle $\theta=1.05^{\circ}$  the impurity physics is dominated by the power-law divergence in the low-energy DoS of TBG. The physics in this case is effectively that of the power-law Kondo model discussed in the previous section. Since $\rho(\omega)\sim |\omega|^{-1/4}$, the entropy saturates to $-\tfrac{1}{2}\ln(2)$ for $T\ll T_K$, where the Kondo scale $T_K$ itself is strongly enhanced. This is precisely what we observe for the red line in Fig.~\ref{fig:angles}(a).
 
-\begin{figure*}[!h]
+However, the situation is much more complex for twist angles close to (but not at) the magic angle. To understand the full RG flow in this intermediate regime, consider Fig.~\ref{fig:flow}, together with the fixed point discussion in Sec.~\ref{sec:KondoDOS} and the RG flow diagrams in Fig.~\ref{fig:RGFlow}. Note that the same color-coding is used in Figs.~\ref{fig:RGFlow} and \ref{fig:flow}.
+
+Near the magic angle, the TBG host DoS has a compound structure featuring multiple elements, each of which corresponding to a different limiting Kondo problem. At high energies, the system shows behavior that is characteristic of the HO-vHs, denoted in blue in Fig.~\ref{fig:flow}. This behavior crosses over to that of a standard logarithmic vHs on the scale of $E_v$, denoted in green. Far below this scale, the linear vanishing pseudogap DoS of the Dirac cone emerges, denoted in red. Depending on the energy window, the RG flow will therefore be controlled by the different regimes depicted in  Fig.~\ref{fig:RGFlow}.
+
+\begin{figure}[t]
+	\includegraphics[width=0.8\linewidth]{figures/chapter2/RGFlowColors.pdf}
+	\caption{
+		%\justifying
+		\small Near the magic angle, the TBG host DoS has a compound structure. At high energies $\Lambda$, the power-law diverging DoS associated with the HO-vHs generates a rapid RG flow towards strong coupling -- blue arrow. On the scale of $E_v$ the DoS crosses over to logarithmic vHs -- green arrow. Below $E_v$ the Dirac cone pseudogap dominates the DoS and $J(\Lambda)$ begins to decrease again as the system flows back towards the free local moment regime on an emergent scale $E^*$. The color-coding is the same as that in Fig.~\ref{fig:RGFlow}.}
+	\label{fig:flow}
+\end{figure}
+
+
+
+This RG flow is reflected in the temperature dependence of the entropy. After the charge degrees of freedom are frozen out on the high-temperature scale of $T\sim U$ and the impurity entropy reaches $\sim \ln(2)$ characteristic of the LM regime, the system then rapidly flows towards $\rm{SSC}_{\rm{HO}}$ on further reducing the temperature. On this trajectory, the effective coupling strength $J(\Lambda)$ grows as the energy scale $\Lambda$ decreases, and the entropy approaches $S_{\rm{imp}}=-\tfrac{1}{2} \ln 2$. 
+However, at the scale $E_v$ the physics of the logarithmic vHs takes over and the system starts  to flow towards the regular SC fixed point with $S_{\rm{imp}}=0$. The running coupling $J(\Lambda)$ continues to increases. 
+But on the `other side' of the vHs in energy space, as the temperature is further decreased, the effect of the low-energy pseudogap DoS begins to dominate. Interestingly though, at this point in the RG flow the system already has a very strong coupling strength $J(\Lambda)$, which puts the system close to the unstable $\rm{SSC}_{\rm{Dirac}}$ fixed point. The entropy therefore `overshoots' up to $\ln(4)$ characteristic of this fixed point. The ultimate RG flow on the lowest energy scales is therefore between $\rm{SSC}_{\rm{Dirac}}$ and the stable LM fixed point of the pseudogap Kondo problem, with a residual $T=0$ entropy of $\ln(2)$. The ground state is an unscreened local moment with $\ln(2)$ entropy in all cases except when precisely at the magic angle (where $E_v = 0$ such that this final part of the flow towards LM is omitted). Our NRG results for the entropy show that the final low-temperature flow between $\rm{SSC}_{\rm{Dirac}}$ and LM is controlled by an emergent energy scale $E^* \sim |E_v|^3$.
+As we get closer to the magic angle, the $E_v$ scale reduces and the lines fold progressively onto that of the red line for the magic angle itself. The $E^*$ scale rapidly becomes very small. This gives a finite window in twist angle over which magic angle physics can be observed at intermediate temperatures.
+
+
+The same RG flow is demonstrated by the $T=0$ spectral function for the impurity $A(\omega)$, which we plot in Fig.~\ref{fig:angles}(b) for the same systems. On the lowest energy scales $|\omega|\ll E^*$, we find $A(\omega)\sim |\omega|$ characteristic of the linear pseudogap Kondo model, for all cases except when precisely at the magic angle. This is because the physics here is controlled by the Dirac cone and the resulting RG flow toward the LM fixed point. By contrast, at the magic angle, the enhanced DoS leads to strong coupling physics and a flow towards the $\rm{SSC}_{\rm{HO}}$ fixed point for all $|\omega| \ll T_K$, yielding $A(\omega)\sim |\omega|^{1/4}$ (red line). As the magic angle is approached, the $E_v$ scale diminishes and so the spectrum progressively folds onto the magic angle result, see e.g.~black line for $\theta=1.1^{\circ}$ in Fig.~\ref{fig:angles}(b). The most prominent feature of the impurity spectral function is however the dramatic peak on the scale of $E^*$ (note the log scale), which characterizes the flow between $\rm{SSC}_{\rm{Dirac}}$ and LM fixed points. This is highlighted in the inset to Fig.~\ref{fig:angles}(b) which compares on a linear scale the magic angle result (red line) to systems at $\theta=1.6^{\circ}$ (orange) and $2^{\circ}$ (blue). The rapid change in position and intensity of this spectral peak on nearing the magic angle demonstrates that quantum impurities are highly sensitive probes of magic angle physics in TBG systems.
+
+
+
+\begin{figure}[t]
 	\centering
-	\includegraphics[scale=.7]{figures/chapter2/Z2xZ2Z2K57.pdf}
-	\caption{Example of average order parameter ($\langle \theta^1_i \cdot \theta^2_i \rangle$) and energy ($E$) distributions values during a single run of a simulation, on the ``Huse-Leibler'' first order line $J=0.29, K=0.55$ , for $Z_2 \cross Z_2 / Z_2$ model with the usual $J=J_1=J_2$ and $J_L^{12}=0$. We see the appearance of two peaks in these distributions indicating the coexistence of two phases.}
-	\label{distributions}	
-\end{figure*}
+	\includegraphics[width = \linewidth]{figures/chapter2/kondo2.pdf}
+	\caption{
+		% \justifying
+		\small NRG results for an impurity embedded in magic angle TBG. Main panel: Entropy $S_{\rm imp}$ vs $T$ for Anderson and Kondo impurities (points and lines respectively)  for different impurity-host couplings. For a given Kondo $J$, the low temperature physics of an Anderson model with fixed $U=0.4D$ is fit by tuning $g$. The relationship between $J$ and $g$ is shown in the lower-left inset (points), comparing with the SW result (red dashed line). The evolution of $T_K$ with $J$ is shown in the lower-right inset (points), comparing with Eq.~\ref{eq:tkHO} (red dashed line) and its small-$J$ asymptote (blue dotted line). \rev{$T_K$ is extracted numerically from NRG results for the entropy, defined in practice via $S_{\rm imp}(T=T_K)=0$.}}
+	\label{fig:kondomagic}
+\end{figure}
+
+In Fig.~\ref{fig:kondomagic} we turn to an analysis of NRG results for systems at the magic angle itself. In the main panel (top) we plot the impurity entropy $S_{\rm imp}(T)$ for impurities of either Anderson type (Eq.~\ref{eq:AM}, points) or Kondo type (Eq.~\ref{eq:KM}, lines), for different impurity-host couplings. 
+
+At the highest temperatures $T\sim D$, the Anderson impurity again shows $\ln(4)$ entropy for the four quasi-degenerate impurity states. At lower temperatures $T\sim U$, the charge configurations on the impurity in the Anderson model are frozen out and only the local moment spin states survive, giving $\ln(2)$ entropy. In this regime the system is close to the LM fixed point. RG flow towards the ${\rm SSC}_{\rm HO}$ strong coupling fixed point results in a crossover in the entropy on the scale of the Kondo temperature $T\sim T_K$ to $S_{\rm imp}=-\tfrac{1}{2}\ln(2)$. This remains the $T=0$ residual impurity entropy for TBG systems at the magic angle. However, the Kondo scale itself varies with the impurity-host coupling, as seen in the main panel of Fig.~\ref{fig:kondomagic} by the evolution of the different lines. For good scale separation $T_K\ll U$, we see clear two-stage behavior, with distinct crossovers to and from the LM fixed point in the Anderson model. However, given the strongly enhanced $T_K$ at the magic angle, such a scale separation may not be in evidence in practice (see e.g.~pink and orange lines in Fig.~\ref{fig:kondomagic} which show a more or less direct crossover in the entropy from $\ln(4)$ to $-\tfrac{1}{2}\ln(2)$; or indeed the cases close to the magic angle in Fig.~\ref{fig:angles}).
+
+By contrast, the Kondo impurity features only the local moment spin configurations and hence has a $\ln(2)$ entropy at high temperatures $T\sim D$. The Kondo scale generated by finite antiferromagnetic exchange coupling $J$ results in the same crossover to the ${\rm SSC}_{\rm HO}$ fixed point, with the same $T=0$ residual entropy of $-\tfrac{1}{2}\ln(2)$. Indeed, RG arguments imply~\cite{Hewson} that the physics of the Anderson and Kondo models for $T\ll U$ should be identical, providing the effective Kondo coupling $J$ is chosen appropriately for a given $U$ and $g$ of the Anderson model. To verify this Anderson-Kondo mapping in the magic-angle TBG setting, in Fig.~\ref{fig:kondomagic} we considered Kondo models with different $J$ and then fit Anderson models to match the low-temperature physics by tuning $g$ at fixed $U$. In such a way, the Kondo and Anderson models have the same Kondo temperature $T_K$.  The precise agreement in the universal regime confirms that at particle-hole symmetry the effective Kondo model is a faithful description of the more microscopic Anderson model. 
+
+The Anderson-Kondo mapping can be performed perturbatively via the approximate SW transformation \cite{Hewson,schrieffer1966relation} as described in Sec.~\ref{sec:Kondo}. 
+The exact relationship between $J$ and $g$ as extracted from our NRG results is shown in the lower left panel of Fig.~\ref{fig:kondomagic} as the circle points. The SW result (red dashed line) is seen to work well when the bare coupling of the underlying Anderson model is small, $g\ll U$  (small $T_K$ regime). Away from this limit, NRG results show that the Kondo model is still the correct low-energy effective model, but that non-perturbative techniques must be used to obtain the correct effective model parameters~\cite{rigo2020machine}. The evolution of the numerically-extracted Kondo temperature as a function of the effective $J$ is shown in the lower right panel of Fig.~\ref{fig:kondomagic} (points), and is compared with the analytic result for the Kondo model Eq.~\ref{eq:tkHO}
+(red dashed line). The blue dotted line is the asymptotic small-$J$ limit of this expression, $T_K \sim (4\rho_0 J)^{1/\alpha}$.
+
+Our full NRG results for an impurity in magic angle TBG therefore confirm the analytic predictions of the previous sections. For a comparison with results for an impurity coupled to a standard logarithmic vHs, see Appendix~C.
+
+\rev{Finally, we comment on the role of potential scattering and particle-hole symmetry breaking. In the above analysis we have for simplicity neglected particle-hole asymmetry in the TBG host DoS by employing the symmetric BM model. However, we believe this approximation is well-justified and does not affect the presented results. Although in principle particle-hole asymmetry can lead to Kondo screening in the linear pseudogap case \cite{Fritz2013} relevant to the low-energy Dirac cone in TBG away from the magic angle, the singlet-doublet quantum phase transition arises only at very strong asymmetry. In practice, the relatively small particle-hole symmetry breaking in TBG means that the impurity problem is far away from the asymmetric strong coupling Kondo phase. Within the doublet local moment phase, particle-hole asymmetry is RG irrelevant and can be safely ignored. We have also assumed that the impurity itself is particle-hole symmetric ($\epsilon_d=-U_d/2$ in the Anderson model, or $V=0$ in the Kondo model). Relaxing this condition induces potential scattering in the TBG host. Very strong deviations away from the half-filled Anderson impurity are required to destroy the local moment ground state (the resulting asymmetric Kondo strong coupling state is continuously connected to the trivial empty orbital state of the impurity). In this regime, the mapping to the Kondo model breaks down (the large value of $V$ in the Kondo model required for Kondo screening is unphysical). Therefore, we argue that the results presented above are generic for a local moment impurity embedded in a TBG host material.}
+
+%############
 
 
-All the phase diagrams presented in this paper are graphs of specific heat. But for determining the precise nature of the phase order that is not enough. As it can be seen from raw data graphs absolute values of specific heat can be an indicator of the order, but can't be completely trusted, because these values depend on the model and are not universal. We only used specific heat as an indicator of where the transition might be Fig.\ref{cvExample}, but analysis using Binder and histograms were done to determine the order of the transition.
-\begin{figure*}[!h]
+\section{Conclusions}
+\label{sec:conclusions}
+In this paper, we have studied the physics of a single magnetic impurity in TBG at, and close to, the magic angle. We find a surprisingly rich range of behavior, rooted in the unique evolution of the TBG density of states. It is interesting to note that there is no Kondo screened ground state in general, only at the magic angle. However, the signatures at finite temperature relevant to experiment show highly nontrivial structure due to the interplay between van Hove and Dirac physics on the level of a strongly correlated quantum impurity problem. Close to the magic angle, the TBG host density of states at different energy scales yields different limits of paradigmatic Kondo models -- from logarithmic and power-law diverging Kondo to pseudogap vanishing Kondo. The subtle renormalization group flow between these limits shows up in the temperature and energy dependence of physical observables.
+
+The behavior we uncover should be detectable in STM experiments. Indeed we argue that the impurity response in TBG gives a very clear signature of magic angle physics. Magnetic impurities may therefore prove useful as highly sensitive \textit{in-situ} probes for moir\'{e} materials.
+
+An interesting direction of future research is the role of the RKKY interaction between multiple magnetic impurities in TBG, and how it competes with the Kondo effect of individual impurities near the magic angle.
+
+\rev{Although van Hove-boosted Kondo physics may be observable in other systems (including 3d bulk metals \cite{igoshev2019giant,igoshev2022giant} with magnetic impurities), we note that TBG stands out as a uniquely tunable platform. Furthermore, TBG also allows one to study the complex interplay of these effects with Dirac physics.}
+
+%%%%%%%%%%%%%%%
+
+\section*{acknowledgments}
+	We thank S.~Polla, V.~Cheianov, L.~Classen, A.~Chubukov, and L.~Fu for helpful discussions. this work is part of the D-ITP consortium,
+	a program of the Netherlands Organisation for Scientific Research (NWO) that is funded by the Dutch Ministry of Education, Culture and Science (OCW). DOO acknowledges the support from the Netherlands Organization for Scientific Research (NWO/OCW) and from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme. AKM acknowledges funding from the Irish Research Council through the Laureate Award 2017/2018 grant IRCLA/2017/169.
+
+%##################
+
+\appendix
+
+\section{Locating saddle point positions in the particle-hole symmetric BM model}
+
+To locate the saddle points in the Brillouin  zone, we require gradients of the energy. The flat bands make it imperative that the first derivative is computed very accurately, and this means that we must avoid crude finite difference methods for numerical derivatives of the energy. This problem can be addressed by utilizing our analytical access to the Hamiltonian itself, and implementing the Hellman-Feynman theorem,
+\begin{equation}
+	\pdv{E}{k^i} = \expval{\pdv{H}{k^i}}{\psi_k}, 
+\end{equation}
+where $\psi_k$ is the wavefunction of the lowest positive energy band at momentum $\vec{k}$. A more extended analysis of this method has been introduced recently in \cite{chandrasekaran2022detect}.
+
+The saddle point is found by minimizing the value of $\left(\partial_{k_x} \epsilon_\vec{k}\right)^2 + \left(\partial_{k_y} \epsilon_\vec{k}\right)^2$ over the Brillouin  zone vectors, by using the conjugate gradient method.
+The coefficients for the local energy dispersion are then calculated along the principal directions of the saddle point. These directions are given by the eigenvectors of the Hessian matrix, and are in general different from the $k_x$ and $k_y$ of the Brillouin  zone. Derivatives are convenient to compute along the natural Brillouin  zone directions, however. The trick to overcome this is to note that a matrix formed from $n$ derivatives of a scalar transforms like a rank-$n$ tensor. Then the tensor transformation rule can be used with a covariant Jacobian to obtain the coefficients along the rotated axes. 
+
+One subtlety is that for angles very close to the magic angle, there are secondary vHs points at other locations in the Brillouin zone than those indicated in Fig.~\ref{fig:contourslog}. For the purposes of the Kondo effect, we have only considered the one with the largest spectral weight, since this is found to dominate the results of our NRG calculations. This is done by computing the local dispersion coefficients $\alpha$ and $\beta$ at each of the saddle points, and picking the one with the largest value of $\frac{1}{\sqrt{\alpha\beta}}$. 
+
+%!!!!!!!!!!!!
+
+\begin{figure}[t!]
 	\centering
-	\includegraphics[scale=.7]{figures/chapter2/cvExample.pdf}
-	\caption{Example of the specific heat $c_V$ for $O(2) \cross O(2) / Z_2$ (blue-dots) and $O(2)/Z_2$ (red-cross) along the $K=0$ slice (Higgs to confining transition). These two models have a different order of a phase transition which might be seen from the amplitude of a $c_V$ divergence. Usually sharper and bigger divergences indicate the first order has occurred. However, one has to be careful due to finite size effects, and for this reason we also study the Binder cumulants. Better use for this graphs is in roughly locating where the transition happens. This information can be used to run the simulation on a more finely spaced grid around the transition in order to get better convergence and more precise point of transition using finite size methods.}
-	\label{cvExample}	
-\end{figure*}
+	\includegraphics[width = \linewidth]{figures/chapter2/DoS_wc_labels.pdf}
+	\caption{
+		%\justifying
+		\small Left panels: DoS used in our NRG calculations, obtained from analysis of the effective BM model, for different twist angles $\theta$ as used in the main text. Vertical dotted lines show the $E_v$ scale at which the vHs divergence occurs. This scale moves to lower energies as the magic angle is approached. Right panels: corresponding Wilson chain coefficients.}
+	\label{fig:wc}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width = \linewidth]{figures/chapter2/Slog_labels.pdf}
+	\caption{
+		% \justifying
+		\small Main panel: NRG results for the impurity entropy $S_{\rm imp}$ vs temperature $T$ for different bare coupling strengths $J$, in a system with a pure log-diverging DoS (standard vHs). Right inset shows the extracted $T_K$ scale (points), compared with Eq.~\ref{eq:TKLog} (black line) and the asymptotic result $T_K \sim D e^{-1/\sqrt{A J/D}}$ (red dashed line), with $A=a\rho_0 D/2$.}
+	\label{fig:Slog}
+\end{figure}
+
+%###############
+
+\section{Mapping from TBG density of states to the NRG Wilson chain}
+
+The TBG DoS away from the magic angle has two qualitative features: the linear-pseudogap Dirac cone at low energies and the divergence due to the vHs on the scale of $E_v$. We extract an effective model DoS from analysis of the BM model for different twist angles -- see left panels of Fig.~\ref{fig:wc} for the cases explicitly considered in the main text (we have rescaled the energy range in terms of the bandwidth cutoff and normalized the spectrum to unity). This DoS is then discretized logarithmically and mapped to a Wilson chain \cite{bulla2008numerical} as described in Sec.~\ref{subsec:nrg}. The corresponding Wilson chain hopping parameters are plotted in the right panels of Fig.~\ref{fig:wc}. The results show that the different DoS elements can be captured in NRG through the crossover behavior in the functional form of the Wilson chain.
+
+
+
+%##################
+
+\section{NRG calculations for an impurity coupled to a conventional log-vHs host}
+
+In Fig.~\ref{fig:Slog} we provide reference NRG calculations for a Kondo impurity coupled to a pure log-diverging DoS. This gives a useful comparison to our result for an impurity embedded in the magic-angle TBG system, which has a HO-vHs point and hence a stronger power-law diverging DoS. As predicted from our perturbative scaling (poor man's scaling) results, the system flows towards strong coupling in all cases, in which the impurity is Kondo-screened. The residual entropy at $T=0$ is seen to be $S_{\rm imp}=0$, although this limit is approached logarithmically slowly from below. This is characteristic of the logarithmic DoS. From the scaling with bare coupling strength $J$ in the left panel, the Kondo temperature $T_K$ is seen to be enhanced relative to the metallic case, but substantially suppressed relative to the power-law diverging DoS case. In the right panel, we analyze the behavior of $T_K$ in more detail, comparing NRG results at different $J$ (circle points) with our analytic formula Eq.~\ref{eq:TKLog} (black line). The results agree almost perfectly. The red dashed line is the asymptotic result at small $J$, which also does remarkably well compared with exact NRG results.
+
+
+
+%####################
