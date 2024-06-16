@@ -71,9 +71,48 @@ The corresponding dispersion $E(\Vec{p}) = v_F \abs{\vec{p}}$ is dubbed a Dirac 
 
 \par 
 Graphene also has an interesting saddle-like dispersion near its $M$ point. This is shown in panels (b) and (d) of Fig.\ref{fig:grapheneschematic}. 
+Since first derivatives vanish at a saddle point, the dispersion is most faithfully captured by a Taylor expansion upto second order, with the expansion coefficients in the two principal directions having opposite sign: 
+\begin{equation}
+    E = E_v + \alpha p_x^2 -\beta p_y^2 \quad\quad \alpha,\beta>0
+    \label{eq:dispQUAD}
+\end{equation}
+Then, we can find the density of states: 
+\begin{equation}
+    \rho(E) = \int \frac{\dd p_y}{2\pi} \frac{\dd p_x}{2\pi} \, \delta(E - E_{\vec{p}})
+    \label{eq:DOSformula}
+\end{equation}
+where we use the formula 
+\begin{equation}
+    \delta(g(x)) = \sum_i \frac{\delta(x-x_i)}{\abs{g^\prime(x_i)}}
+\end{equation}
+where $x_i$ are the roots of the function $g(x)$. Here we have $g(p_x) = E - E_v +\beta p_y^2 - \alpha p_x^2$, and $g^\prime(p_x) = -2\alpha p_x$. 
+We obtain the roots of $g(p_x)$ as 
+\begin{equation}
+    p_x^\pm = \pm\sqrt{\frac{(E-E_v)+\beta p_y^2}{\alpha}}
+\end{equation}
+which gives, defining $\Tilde{E} = E - E_v$ 
+\begin{equation}
+    \rho(E) = \int \frac{\dd p_y}{2\pi} \int_{-\infty}^\infty \frac{\dd p_x}{2\pi} \, \frac{\delta(p_x - p_x^+) + \delta(p_x - p_x^-)}{2\sqrt{\alpha\beta}\sqrt{\frac{\Tilde{E}}{\beta} + p_y^2}}
+\end{equation}
 
+A note has to be made here about the range of $p_y$, which comes from the condition when $p_x$ has a solution, which is when $E - E_v + \beta p_y^2 > 0$. 
 
+\begin{equation}
+    \text{range of } p_y =
+    \begin{cases} 
+    \texttt{True}, \quad E>E_v \\
+    p_y^2 > \abs{\frac{E-E_v}{\beta}}, \quad E<E_v
+    \end{cases} 
+\end{equation}
 
+Introducing a cutoff for $p_y$ as $\Lambda$, for $E>E_v$, 
+\begin{align}
+    \rho(E) &= \frac{2}{\sqrt{\alpha\beta}} \int_0^\infty \frac{\dd p_y}{(2\pi)^2} \frac{1}{\sqrt{\frac{\Tilde{E}}{\beta} +  p_y^2}} \nonumber \\
+    &= \frac{1}{2\pi^2\sqrt{\alpha\beta}} \log\abs{\frac{2\Lambda\sqrt{\beta}}{\sqrt{E - E_v}}} \nonumber \\
+    &= \frac{1}{4\pi^2 \sqrt{\alpha\beta}} \log\abs{\frac{\Tilde{\Lambda}}{E - E_v}}
+    \label{eq:LOGvHSDoS}
+\end{align}
+with $\Tilde{\Lambda} = 4\Lambda^2\beta$. The density of states is symmetric about the van Hove energy, and we obtain exactly the same expression for $E<E_v$.  
 
 
 
@@ -84,7 +123,7 @@ Graphene also has an interesting saddle-like dispersion near its $M$ point. This
 
 
 \section{This thesis}
-In the introduction, we have covered the basic ideas used later in this thesis. We started with introductory topics in thermodynamics and statistical physics, then moved to a basic introduction to Monte Carlo methods and all the required knowledge to understand our physical system's simulation design and analyze the results. The proceeding section was dedicated to the basics of machine learning, deep learning, and appropriate selection of model, loss function, and minimization method. The last section culminated in a synergy of the previously mentioned topics by combining quantum physics, Monte Carlo methods, and neural networks in neural quantum states that we used to find the ground state and its energy of lattice gauge theories.
+In the introduction, we have explored different electronic systems, and identified clandestine hyperbolic geometries in each of them.  
 
 \subsection{Chapter 1 - The Kondo effect in Twisted bilayer graphene}
 
