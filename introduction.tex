@@ -9,13 +9,30 @@ Consider a scattering diagram: self energy proportional to DoS, van hove points 
 
 \newpage     
 
-\section{The Kondo effect}
-\section{The low energy band structure of twisted bilayer graphene}
+\section{Interactions enhanced by van hove singularities}
 
+
+\section{The low energy band structure of twisted bilayer graphene}
+\label{sec:graphene}
+Graphene is a single sheet of carbon atoms arranged in a hexagonal lattice~\cite{neto2009electronic}. Its electronic properties can be described by a simple tight binding model which accounts for electrons hopping between its two sublattices, with its hamiltonian given by
+\begin{align}
+    H &= -t \sum_{\langle i,j\rangle} a_i^\dagger b_j + h.c ,  
+\end{align}
+and can be diagonalized in terms of two component wavefunctions 
+\begin{align}
+    \Psi_i = \mqty(a_i \\ b_i  ) .
+\end{align}
+
+
+
+
+\section{The Kondo effect}
 \section{The Sachdev-Ye-Kitaev model}
 
 \section{Statistical physics}
 \label{sec:statPhys}
+\textbf{TEMPLATE: ERASE LATER}
+\par
 The primary goal of statistical physics is an exploration of macroscopic quantities and the calculation thereof. Often, the systems we explore are made up of many degrees of freedom, and solving them exactly is impossible. In order to do this, we will assume that the statistical average over all possible states can replace the time average. 
 \par 
 One of the main assumptions we make when resorting to statistical calculations instead of fully dynamically solving the system is the principle of \textit{ergodicity}. Ergodicity states that if the system is left to evolve, all accessible states will eventually be realized. This assumption helps us often turn insolvable time integrals into relatively easy and, more importantly, simulation-friendly integrals over the probability distributions of those states. For example, let us say we want to study some volume of gas in a container. At standard temperature and pressure, one liter of oxygen contains around $3\cdot 10^{22}$ oxygen molecules moving around the container. Just writing down equations of motion for all molecules would take a very long time, but no practical conclusion can be drawn even if we manage to do it. Hence we turn to the methods of statistical physics.
@@ -25,13 +42,12 @@ One of the main assumptions we make when resorting to statistical calculations i
 \section{This thesis}
 In the introduction, we have covered the basic ideas used later in this thesis. We started with introductory topics in thermodynamics and statistical physics, then moved to a basic introduction to Monte Carlo methods and all the required knowledge to understand our physical system's simulation design and analyze the results. The proceeding section was dedicated to the basics of machine learning, deep learning, and appropriate selection of model, loss function, and minimization method. The last section culminated in a synergy of the previously mentioned topics by combining quantum physics, Monte Carlo methods, and neural networks in neural quantum states that we used to find the ground state and its energy of lattice gauge theories.
 
-\subsection{Chapter 1 - Thermalization in quantum systems}
+\subsection{Chapter 1 - The Kondo effect in Twisted bilayer graphene}
 
 
-\subsection{Chapter 2 - Symmetry restoration through ``registry''}
-
-\subsection{Chapter 3 - Entanglement entropy of lattice gauge theories}
+\subsection{Chapter 2 - Chaos in the bipartite Sachdev-Ye-Kitaev model}
 
 
-\subsection{Chapter 4 - Phase space and efficient learning of deep neural networks}
+
+\subsection{Chapter 3 - Wormholes in the Yukawa-Sachdev-Ye-Kitaev model}
 
