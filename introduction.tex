@@ -9,6 +9,219 @@ Consider a scattering diagram: self energy proportional to DoS, van hove points 
 
 \newpage     
 
+\section{Fermions, fermi surfaces and quasiparticles}
+
+Condensed matter physics concerns the study of the quantum properties of matter. We know of solids to be composed of atoms arranged in a crystalline structure. Their quantum description at its core is given by the many-body Schrodinger equation of all the electrons and ions that make up the solid, all interacting with each other. The first simplification one can make is to observe that the ions in a solid are composed of a many protons and neutrons, and are much heavier than the electrons since $\nicefrac{m_p}{m_e} \approx 2000$. Then the solid's low energy dynamics can be modeled by the motion of free electrons and their interactions with each other through the electromagnetic force, and with the vibrations of the lattice, known as phonons~\cite{oppenheimer1927quantentheorie}. 
+
+\par 
+Schematically, in the language of second quantization, the hamiltonian of the system can be written as 
+\begin{align}
+    H \sim \underbrace{\sum_k \epsilon_k c^\dagger_k c^{\phantom{\dagger}}_k}_T + \underbrace{\frac{g}{\Omega}\sum_{k,k^\prime,q} c^\dagger_{k+\frac{q}{2}}c^\dagger_{k^\prime -\frac{q}{2}}c^{\phantom{\dagger}}_k c^{\phantom{\dagger}}_{k^\prime}}_V \quad\quad, 
+    \label{eq:schemHam}
+\end{align}
+where the kinetic and potential energy terms have been separated out. In Eq.~\eqref{eq:schemHam}, $\epsilon_k$ refers to the dispersion of bare electrons subject to the symmetry of the lattice, and $\Omega$ is the volume of the system under consideration. For simplicity, all interactions that the electrons are subject to are schematically represented by the constant $g$, which may come from their charged interactions or with phonons or impurities etc. In a real material, the interaction itself may have a long range (and hence a momentum dependance), or may even face retardation effects, but these are neglected for now. 
+
+\par
+Let's first consider the kinetic energy term, given by $T$, and let us also suppose the bare parabolic dispersion of free electrons in the Galilean continuum: 
+\textbf{INSERT FIGURE OF PARABOLA GETTING FILLED WITH STATES TILL FERMI ENERGY}
+Just the fact that electrons are fermions obeying the Pauli exclusion principle means that the large density of free electrons in a metal corresponds to a gigantic energy scale. For example, in copper~\cite{Ashcroft1976} which has an electron density of $8.47\times 10^{28} m^{-3}$, the energy of the topmost occupied level turns out to be $7 eV$, which corresponds to about $81600 K$ in units of temperature. For reference, the surface of the sun is at a temperature of $5000 K$. 
+\par 
+This mammoth fermi energy is what is responsible in most cases to the success of Landau's fermi liquid theory. To lowest approximation, electrons can be considered to be completely non-interacting, from which weak interactions can be included perturbatively~\cite{luttinger1960ground,baym1961conservation,pines2018microscopic}. 
+\par 
+This can be understood mathematically using the language of Green's functions. The Dyson equation can be written as 
+\begin{equation}
+    G(\vec{k},\omega) = \frac{1}{\omega - \epsilon_{\vec{k}} - \Sigma(\vec{k},\omega)}
+\end{equation}
+ Typically, the green's function for free fermions looks like \begin{equation}
+        G^0(k,\omega) = \frac{1}{\omega - \xi_k}
+    \end{equation}
+ The characteristic feature is that the green's function has poles in it. When interactions are included, the green's functions pick up a self energy according to the Dyson's equation:
+ \begin{equation}
+         G^{-1} = G_0^{-1} - \Sigma
+ \end{equation}
+
+The self-energy will have a frequency and momentum dependence, and also a real and an imaginary part. We can expand the self-energy around a vector on the fermi surface, at low frequencies
+\begin{equation}
+    \Sigma(k,\omega) = const + k\pdv{\Sigma(k,0)}{k}\eval_{k=k_F} + \omega\pdv{\Sigma(k_F,\omega)}{\omega}\eval_{\omega=0} + \cdots
+\end{equation}
+We can use this to rewrite the Green's function in the well-known form
+\begin{align}
+    G(k,\omega) &= \frac{1}{\omega\left(1 - \pdv{\Sigma}{\omega} \right) - \left(\xi_k + k\pdv{\Sigma}{k}\right) + i\Gamma} \nonumber \\ 
+    &= \frac{Z}{\omega - \Tilde{\xi_k} + i\Tilde{\Gamma}} 
+\end{align}
+The quasiparticle residue is given by 
+\begin{equation}
+    Z = \left(1-\pdv{\Sigma(k_F,\omega)}{\omega}\eval_{\omega=0}\right)^{-1}
+\end{equation}
+Typically, if the self energy is analytic ($\Sigma \sim \alpha + \beta\omega + \gamma\omega^2 + \cdots$), the quasi-particle residue would be finite
+When the derivative of the self energy blows up in the infrared(as $\omega\xrightarrow{}0$), it leads to a breakdown of fermi liquid theory. 
+\par
+At this point, one can mention a proposal from the past~\cite{varma1989phenomenology,ruckenstein1991theory,varma1993towards,varma2002singular}. The marginal or singular fermi liquid is the most marginal way to create non-fermi liquid behavior 
+The real part of the self energy goes as 
+\begin{equation}
+    \Sigma \sim \omega\log(\frac{\omega}{\omega_c})
+\end{equation}
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+    \centering
+    \includegraphics[width = \textwidth]{figures/introduction/MFLS.jpeg}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+    \centering
+    \includegraphics[width = \textwidth]{figures/introduction/MFLZ.jpeg}
+    \end{subfigure}
+    \caption{Absence of Quasiparticles in the marginal fermi liquid}
+    \label{fig:MFLZ}
+\end{figure}
+
+\par
+ We can understand the emergence of non-fermi liquid behavior as a non-analytic behavior in the self energy. 
+The Green's function would now not have poles, but rather branch cuts on the $\omega$ axis. 
+\par
+We would like some microscopic model which helps us understand such a singular self energy.
+Such an example is the SYK model, whose self energy, as we shall see goes as $\left|\omega\right|^{\nicefrac{1}{2}}$. 
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+    \centering
+    \includegraphics[width = \textwidth]{figures/introduction/SYKS.jpeg}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.4\textwidth}
+    \centering
+    \includegraphics[width = \textwidth]{figures/introduction/SYKZ.jpeg}
+    \end{subfigure}
+    \caption{Absence of Quasiparticles in the SYK model}
+    \label{fig:SYKZ}
+\end{figure}
+
+\section{The SYK model}
+The SYK model is a quantum dot, which has $N$ flavors of majorana fermions living on it.
+It is described by the Hamiltonian with Gaussian random interactions
+\begin{equation}
+    H = \displaystyle \sum_{1\leq i<j<k<l\leq N} J_{ijkl}\,\psi_i\psi_j\psi_k\psi_l
+\end{equation}
+The random couplings are normally distributed, i.e 
+\begin{align}
+    \expval{J_{ijkl}} &= 0 \\
+    \expval{J^2_{ijkl}} &= \frac{6 J^2}{N^3}
+\end{align}
+
+\par
+We can look in Euclidean time. The free part of the Green's function is (with the strange normalization $\anticommutator{\psi_i}{\psi_j} = \delta_{ij}$)
+\begin{align}
+    G^0(\tau) &= \expval{\mathcal{T}\psi_i(\tau)\psi_j(0)}\nonumber\\
+    &= \frac{1}{2}\sgn(\tau) \, \delta_{ij}
+\end{align}
+In Fourier space,  
+\begin{align}
+    G^0(\omega) = \int \dd\tau \,e^{i\omega\tau} G^0(\tau) = -\frac{1}{i\omega}
+\end{align}
+
+\par
+
+Upon turning on interactions, we can look at the so called melon diagrams
+\begin{figure}
+    \centering
+    \includegraphics[width = \linewidth]{figures/introduction/SYK1.png}
+    \caption{Diagrams that dress the propagator}
+    \label{fig:SYK1}
+\end{figure}
+The disorder average means that the flavors of the four majoranas at both the connecting vertices are identical, and brings out a contribution $\sim \frac{J^2}{N^3}$ for each vertex pair. 
+This combined with the large N limit forces the interacting green's function $G_{ij}(\tau) = G(\tau)\delta_{ij}$
+  
+
+
+\subsection{The SYK self consistent equations}
+\par
+With these considerations, the Dyson's equations can be represented as
+\begin{figure}
+    \centering
+    \includegraphics[width= \linewidth]{figures/introduction/Melons.png}
+    \caption{Summing the Dyson series}
+    \label{fig:melons}
+\end{figure}
+  
+
+\par
+This gives us the SYK equations: 
+\begin{align}
+    \left(G(\omega)\right)^{-1} = -i\omega - \Sigma(\omega) \label{eq:sykeq1} \\ 
+    \Sigma(\tau) = -J^2\left(G(\tau)\right)^3 \label{eq:sykeq2}
+\end{align}
+These are a set of equations that must be solved self-consistently: eq.(\ref{eq:sykeq1}) tells how the self-energy determines the Green's function, and eq.(\ref{eq:sykeq2}) says how the self-energy is set by the Green's function. 
+They are not the most trivial to solve, since one is in real space, and the other in Fourier space. 
+  
+
+\par
+The key to doing so is to assume that the self-energy dominates the free propagator's contribution at strong coupling in the IR $(\omega \xrightarrow{} 0)$
+Then, eq.(\ref{eq:sykeq1}) can be written as:
+\begin{equation}
+    \int \dd\tau^\prime G(\tau,\tau^\prime)\Sigma(\tau^\prime,\tau^{\prime\prime}) = -\delta(\tau - \tau^{\prime\prime})
+\end{equation}
+This is solved by the ansatz
+\begin{equation}
+    G_c(\tau) = \frac{b\sgn(\tau)}{\abs{\tau}^{2\Delta}}
+    \label{eq:Gc}
+\end{equation}
+
+
+
+\subsection{SYK as an NCFT in the IR}
+\par
+We see that eq.(\ref{eq:Gc}) is the form of the Green's function of a conformal field theory
+$\Delta$ can be easily determined by a scaling argument $\tau \xrightarrow{} b\tau$
+\begin{align}
+    b^{1 - 2\Delta - 6\Delta} &= b^{-1} \nonumber \\
+    \implies \Delta &= \frac{1}{4}
+\end{align}
+Using the identity
+\begin{equation}
+    \int_{-\infty}^\infty \dd\tau e^{i\omega\tau} \frac{\sgn(\tau)}{\abs{\tau}^{2\Delta}} \sim \abs{\omega}^{2\Delta-1},
+\end{equation}
+we retrieve our branch-cut propagator result of $\Sigma(\omega)\sim \abs{\omega}^{\nicefrac{1}{2}} $, as promised!
+
+
+\section{Other versions of the SYK used in this thesis}
+\subsection{b-SYK}
+A{Fremling, Fritz and the bipartite SYK}
+Now that we've understood how important the SYK model is, we would like to realize (at least some version of) it using a realistic system
+They considered Kitaev's honeycomb model of a Z2 spin liquid (whose excitations are majorana fermions and gauge fluxes), and strained it in a particular way
+\begin{figure}
+    \centering
+    \includegraphics[scale = 0.3]{figures/introduction/KHM.png}
+    \caption{Kitaev's honeycomb model}
+    \label{fig:KHM}
+\end{figure}
+  
+\par
+The hamiltonian they realized is the so called b-SYK
+\begin{equation}
+    H_{b-SYK} = \frac{1}{4}\sum_{i,j=1}^{N_A}\sum_{\alpha,\beta = 1}^{N_B} J_{ij\alpha\beta}\psi^A_i\psi^A_j\psi^B_\alpha\psi^B_{\beta} 
+\end{equation}
+Again, the couplings have some sense of Gaussianity: 
+\begin{equation}
+    \expval{J_{ij\alpha\beta}\,J_{i^\prime j^\prime \alpha^\prime \beta^\prime}} = \frac{J^2}{2\sqrt{N_A N_B}^3}\delta_{i,i^\prime}\delta_{j,j^\prime}\delta_{\alpha,\alpha^\prime}\delta_{\beta,\beta^\prime}
+\end{equation}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
 \section{Interactions enhanced by van hove singularities}
 
 
