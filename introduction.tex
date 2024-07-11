@@ -16,7 +16,7 @@ Condensed matter physics concerns the study of the quantum properties of matter.
 \par 
 Schematically, in the language of second quantization, the hamiltonian of the system can be written as 
 \begin{align}
-    H \sim \underbrace{\sum_k \epsilon_k c^\dagger_k c^{\phantom{\dagger}}_k}_T + \underbrace{\frac{g}{\Omega}\sum_{k,k^\prime,q} c^\dagger_{k+\frac{q}{2}}c^\dagger_{k^\prime -\frac{q}{2}}c^{\phantom{\dagger}}_k c^{\phantom{\dagger}}_{k^\prime}}_V \quad\quad, 
+    H \sim \underbrace{\sum_k \epsilon_k c^\dagger_k c^{\phantom{\dagger}}_k}_{T} + \underbrace{\frac{g}{\Omega}\sum_{k,k^\prime,q} c^\dagger_{k+\frac{q}{2}}c^\dagger_{k^\prime -\frac{q}{2}}c^{\phantom{\dagger}}_k c^{\phantom{\dagger}}_{k^\prime}}_{V} \quad\quad, 
     \label{eq:schemHam}
 \end{align}
 where the kinetic and potential energy terms have been separated out. In Eq.~\eqref{eq:schemHam}, $\epsilon_k$ refers to the dispersion of bare electrons subject to the symmetry of the lattice, and $\Omega$ is the volume of the system under consideration. For simplicity, all interactions that the electrons are subject to are schematically represented by the constant $g$, which may come from their charged interactions or with phonons or impurities etc. In a real material, the interaction itself may have a long range (and hence a momentum dependance), or may even face retardation effects, but these are neglected for now. 
@@ -299,11 +299,6 @@ In this case, the non-fermi liquid metallic phase is difficult to observe as it 
 
 
 
- 
-
-
-
-\section{Interactions enhanced by van hove singularities}
 
 
 \section{Graphene and its bilayers}
@@ -407,6 +402,52 @@ Introducing a cutoff for $p_y$ as $\Lambda$, for $E>E_v$,
     \label{eq:LOGvHSDoS}
 \end{align}
 with $\Tilde{\Lambda} = 4\Lambda^2\beta$. The density of states is symmetric about the van Hove energy, and we obtain exactly the same expression for $E<E_v$.  
+
+
+\section{The concept of the higher order van hove singularity} 
+The hyperbolic geometry of the fermi surface near the van hove energy and its enhanced density of states can be understood quite intuitively by means of Fig.~\ref{fig:logcontours}. 
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/introduction/logcontours.png}
+        \caption{\centering conventional van Hove singularity, Eq.~\eqref{eq:dispQUAD}}
+        \label{fig:logcontours}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/introduction/paracontours.png}
+        \caption{\centering higher order van hove singularity}
+        \label{fig:paracontours}
+    \end{subfigure}
+    \hfill
+    \caption{Hyperbolic geometry of the energy contours near a van Hove singularity. In each case, the limiting curve for $e=0$, which is here the van Hove energy, is shown by an orange line. More and more states can be fit into the corner created by the touching fermi surfaces at the van hove energy, leading to the diverging density of states.}
+    \label{fig:vanHoveillustration}
+\end{figure}
+
+\par 
+Near a conventional logarithmic van hove singularity, the contours of equal energy form hyperbolae in momentum space. This is easily visible in the topology change of the fermi surface, as it crosses the van hove energy. At exactly the van hove energy, the fermi surface is made of the asymptotes of the hyperbola, which are two lines meeting at a point. This can be generalized in many ways, the most obvious of which is to have a fermi surface composed of the intersection of two parabolae (see Fig. ~\ref{fig:paracontours}). This also has a direct effect in the type of singularity in the density of states: in this case being a power law~\cite{Yuan2019,Yuan2020PRB-classification}. These can be neatly classified by a recently developed catastrophe theory formalism~\cite{chandrasekaran2020catastrophe,classen2024high}
+.  
+\par
+The higher order van hove singularity is believed to exist in many physical scenarios, most notably in the cuprates~\cite{markiewicz1989correlation,markiewicz2023investigating,paul2023exceptional} and in twisted bilayer graphene and other transition metal dichalcogenide bilayers.  
+
+\section{Enhanced interactions near van hove points - towards Twisted Bilayer graphene}
+Graphene is known to not be superconducting at charge neutrality owing to it being a bad metal~\cite{efetov2014towards}, i.e having a low density of states at the Dirac point. This can be understood in the following cartoon like picture. Assuming, BCS theory of superconductivity holds, the superconducting transition temperature is obtained by solving the linearized gap equation to be 
+\begin{equation}
+    T_c = \omega_0 \exp{-\frac{1}{g\rho(E_F)}},
+    \label{eq:BCSTc}
+\end{equation}
+where $g$ is a parameter characterizing electron-electron attraction, $\omega_0$ is a UV cutoff (usually taken to be the Debye frequency) and $\rho(E_F)$ is the density of states at the fermi energy. The vanishing density of states of the Dirac cone implies an negative infinity in the exponential in Eq.~\eqref{eq:BCSTc}, meaning no superconductivity at any finite temperature.
+
+\par
+Thus it came as a surprise when twisted bilayer graphene was observed to be superconducting in some recent landmark experiments~\cite{Cao2018,Caocorrelated2018,oh2021evidence,lisi2021observation}. This is a part of a general phenomenon in which interactions get enhanced by the hyperbolic geometry in the fermi surface, which is sketched below. 
+
+
+
+
+
 
 
 
