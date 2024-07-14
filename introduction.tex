@@ -28,30 +28,26 @@ Just the fact that electrons are fermions obeying the Pauli exclusion principle 
 \par 
 This mammoth fermi energy is what is responsible in most cases to the success of Landau's fermi liquid theory. To lowest approximation, electrons can be considered to be completely non-interacting, from which weak interactions can be included perturbatively~\cite{luttinger1960ground,baym1961conservation,pines2018microscopic}. 
 \par 
-This can be understood mathematically using the language of Green's functions. The Dyson equation can be written as 
+This can be understood mathematically using the language of Green's functions. Typically, the green's function for free fermions looks like \begin{equation}
+        G^0(k,\omega) = \frac{1}{\omega - \xi_k}
+    \end{equation}
+The characteristic feature is that the green's function has poles in it. When interactions are included, the green's functions pick up a self energy according to the Dyson's equation:
 \begin{equation}
     G(\vec{k},\omega) = \frac{1}{\omega - \epsilon_{\vec{k}} - \Sigma(\vec{k},\omega)}
 \end{equation}
- Typically, the green's function for free fermions looks like \begin{equation}
-        G^0(k,\omega) = \frac{1}{\omega - \xi_k}
-    \end{equation}
- The characteristic feature is that the green's function has poles in it. When interactions are included, the green's functions pick up a self energy according to the Dyson's equation:
- \begin{equation}
-         G^{-1} = G_0^{-1} - \Sigma
- \end{equation}
 
 The self-energy will have a frequency and momentum dependence, and also a real and an imaginary part. We can expand the self-energy around a vector on the fermi surface, at low frequencies
 \begin{equation}
-    \Sigma(k,\omega) = const + k\pdv{\Sigma(k,0)}{k}\eval_{k=k_F} + \omega\pdv{\Sigma(k_F,\omega)}{\omega}\eval_{\omega=0} + \cdots
+    \Sigma(k,\omega) = \mathrm{const} + k\pdv{\Sigma(k,0)}{k}\eval_{k=k_F} + \omega\pdv{\Sigma(k_F,\omega)}{\omega}\eval_{\omega=0} + \cdots .
 \end{equation}
-We can use this to rewrite the Green's function in the well-known form
+We can use this to rewrite the Green's function in the form
 \begin{align}
     G(k,\omega) &= \frac{1}{\omega\left(1 - \pdv{\Sigma}{\omega} \right) - \left(\xi_k + k\pdv{\Sigma}{k}\right) + i\Gamma} \nonumber \\ 
-    &= \frac{Z}{\omega - \Tilde{\xi_k} + i\Tilde{\Gamma}} 
+    &= \frac{Z}{\omega - \Tilde{\xi_k} + i\Tilde{\Gamma}} ,
 \end{align}
-The quasiparticle residue is given by 
+wehre the quasiparticle residue is given by 
 \begin{equation}
-    Z = \left(1-\pdv{\Sigma(k_F,\omega)}{\omega}\eval_{\omega=0}\right)^{-1}
+    Z = \left(1-\pdv{\Sigma(k_F,\omega)}{\omega}\eval_{\omega=0}\right)^{-1} .
 \end{equation}
 Typically, if the self energy is analytic ($\Sigma \sim \alpha + \beta\omega + \gamma\omega^2 + \cdots$), the quasi-particle residue would be finite
 When the derivative of the self energy blows up in the infrared(as $\omega\xrightarrow{}0$), it leads to a breakdown of fermi liquid theory. 
@@ -284,7 +280,7 @@ At finite temperature, the model exhibits a rich phase diagram first outlined in
 In the presence of time reversal symmetry, the couplings in Eq.~\eqref{eq:HYSYK} are further constrained to be completely real, and $g_{ij,k}$ have to be drawn from the Gaussian orthongoanl ensemble (GOE)
 Similar to the Fr\"ohlich or the Bardeen-Pines hamiltonian, the bosons condense in the ground state of the model causing the fermions to pair with their time reversal partners. 
 \par 
-In this case, the non-fermi liquid metallic phase is difficult to observe as it competes with the superconducting phase, which satisfies the quantum critical Eliashberg equations~\cite{chubukov2020interplay,abanov2020interplay}. 
+In this case, the non-fermi liquid metallic phase is difficult to observe as it competes with the superconducting phase, which satisfies the quantum critical Eliashberg equations~\cite{metlitski2015cooper,chubukov2020interplay,abanov2020interplay}. 
 
 
 
@@ -404,7 +400,7 @@ Introducing a cutoff for $p_y$ as $\Lambda$, for $E>E_v$,
 with $\Tilde{\Lambda} = 4\Lambda^2\beta$. The density of states is symmetric about the van Hove energy, and we obtain exactly the same expression for $E<E_v$.  
 
 
-\section{The concept of the higher order van hove singularity} 
+\section{The concept of a higher order van Hove singularity} 
 The hyperbolic geometry of the fermi surface near the van hove energy and its enhanced density of states can be understood quite intuitively by means of Fig.~\ref{fig:logcontours}. 
 
 \begin{figure}[h]
@@ -442,18 +438,82 @@ Graphene is known to not be superconducting at charge neutrality owing to it bei
 where $g$ is a parameter characterizing electron-electron attraction, $\omega_0$ is a UV cutoff (usually taken to be the Debye frequency) and $\rho(E_F)$ is the density of states at the fermi energy. The vanishing density of states of the Dirac cone implies an negative infinity in the exponential in Eq.~\eqref{eq:BCSTc}, meaning no superconductivity at any finite temperature.
 
 \par
-Thus it came as a surprise when twisted bilayer graphene was observed to be superconducting in some recent landmark experiments~\cite{Cao2018,Caocorrelated2018,oh2021evidence,lisi2021observation}. This is a part of a general phenomenon in which interactions get enhanced by the hyperbolic geometry in the fermi surface, which is sketched below. 
+Thus it came as a surprise when twisted bilayer graphene was observed to be superconducting in some recent landmark experiments~\cite{Cao2018,Caocorrelated2018,oh2021evidence,lisi2021observation}. This is a part of a general phenomenon in which interactions get enhanced by the hyperbolic geometry in the fermi surface. A rigorous argument for breakdown of fermi liquid theory has been addressed in the seminal works of Shankar and Polchinksi in Refs.~\cite{shankar1991renormalization,shankar1994renormalization,polchinski1992effective} by considering the renormalization effects of interactions upon scaling momenta in the low energy effective theory towards the fermi surface, but we shall sketch a much simpler version of it below that captures the essence of the argument. 
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/introduction/LabeledChiQOmdiagram.pdf}
+    \caption{Polarization bubble diagram $\Pi(q,i\omega_n)$: This shows up in charge susceptibility, self energy due to fermion-fermion interactions, phonon self energy among others}
+    \label{fig:PHbubblediagram}
+\end{figure}
+Consider the particle-hole bubble shown in Fig.~\ref{fig:PHbubblediagram}. This diagram called the polarization bubble arises in many different contexts. In linear response theory, this is the leading diagram corresponding to the charge susceptibility $\chi(q,i\omega_n)$, and is related to the dielectric constant~\cite{coleman2015introduction}. Another context where it can appear is as a sub-diagram in the leading contribution to decay of quasiparticles in the self energy of an interacting fermi gas ~\cite{Sachdev_2011}, where the full self energy is
+\begin{equation}
+\Sigma(k,\epsilon_n) = g^2\int d\vec{q} \,T\sum_{\omega_n}\Pi(\vec{q},\omega_n)G_0(\vec{k}+\vec{q},i\epsilon_n + i\omega_n), 
+\end{equation}
+and $g$ is the simplified contact interaction coefficient in Eq.~\eqref{eq:schemHam}.
 
+\par
+The bubble diagram gives us: 
+\begin{align}
+    \chi(q,i\omega_n) = T\sum_{\epsilon_n} \int d\vec{k}\, G^0(k+q,\epsilon_n+\omega_n)G^0(k,\epsilon_n) 
+\end{align}
+We can first study the long wavelength static limit $q\xrightarrow{}0, \omega_n = 0$. Then, 
+\begin{align}
+    \chi_0(q\xrightarrow{}0, \omega_n = 0) &= T\sum_{\epsilon_n} \int d\vec{k}\, G^0(k,\epsilon_n)G^0(k,\epsilon_n) \nonumber \\
+    &= \int d\vec{k} \left[T\sum_{\epsilon_n}\left(\frac{1}{i\epsilon_n - E_{\vec{k}}}\right)^2\right].
+\end{align}
+The kosher way to do this is the contour integral, but there's a nice trick if one remembers that 
+\begin{equation}
+    T\sum_{\epsilon_n} \frac{1}{i\epsilon_n-E_k} = n_F(E_k)
+\end{equation}
+Then we see that 
+\begin{align}
+    \chi_0(q\xrightarrow{}0, \omega_n = 0) &= \int d\vec{k}\, \dv{E_k}( n_F(E_k)) \\ 
+    &= -\int d\vec{k} \, \delta(E_k - E_F) = -\rho(E_F)
+\end{align}
+We have used also that at zero temperature, 
+\begin{equation}
+    \dv{E_k}( n_F(E_k)) = -\delta(E_k - E_F)
+\end{equation}
+It's straightforward to generalize to the case of finite $q$ as well using the partial fractions trick: 
+\begin{align}
+    \chi_0(q, \omega_n = 0) &= T\sum_{\epsilon_n} \int d\vec{k}\, G^0(k+q,\epsilon_n)G^0(k,\epsilon_n) \nonumber \\ 
+    &= \int d\vec{k}\, T\sum_{\epsilon_n} \frac{1}{i\epsilon_n - \epsilon_{k+q}} \cdot \frac{1}{i\epsilon_n - \epsilon_k} \nonumber \\
+    &= \int d\vec{k}\, \frac{1}{\epsilon_{k+q} - \epsilon_k}\, T\sum_{\epsilon_n} \left(\frac{1}{i\epsilon_n - \epsilon_{k+q}} -  \frac{1}{i\epsilon_n - \epsilon_k} \right)\nonumber \\
+    &= \int \frac{d^d k}{(2\pi)^d} \frac{n_F(\epsilon_{k+q}) - n_F(\epsilon_k)}{\epsilon_{k+q}-\epsilon_{k}}
+\end{align}
 
+Although easy to evaluate, one can look at the explicit form of these functions for $k^2$ dispersions in 1,2 and 3 dimensions in Ref.~\cite{mihaila2011lindhard}. For this dispersion in 3 dimensions, the Lindhard function can be evaluated for static response and has the two properties 
+\begin{enumerate}
+    \item The susceptibility is a constant in the limit of vanishing wave-vector: i.e. a very slowly spatially varying external field. \begin{equation}
+        \chi_0(q\xrightarrow{}0,\omega=0) = -\rho(\epsilon_F)
+    \end{equation}
+    \item At finite q, there is a log-singularity at $q=2k_F$ in the susceptibility, which is a branch cut in the complex plane. \begin{align}
+        \chi_0(q,\omega=0) &= -\rho(\epsilon_F) F(\frac{q}{2k_F}) \,\,,\\
+        F(x) &= \frac{1}{2} + \frac{1-x^2}{4x} \log\abs{\frac{1+x}{1-x}}   
+    \end{align}
+\end{enumerate}
 
+\par
+Thus one can clearly see the vital effect the density of states has on the interaction corrections to the fermi gas. In a high carrier density metal in three dimensions like bulk copper, $\rho(E_F)$ can be taken to be more or less a constant, and weak interactions can be treated perturbatively to just give small corrections to the non-interacting theory. However, when the fermi energy is close to a van-Hove singularity, the divergence in the density of states makes the effective interaction strength large leading to instabilities and the breakdown of quasiparticles and fermi liquid theory.
 
-
-
-
+\par
+We have spelled out the calculation of the charge susceptibility which arises from the particle-hole bubble in Fig.~\ref{fig:PHbubblediagram}, but the exact same enhancement effect from the density of states at the fermi level also shows up in the particle-particle bubble for the susceptibility towards pairing in the theory of superconductivity. 
 
 
 \section{The Kondo effect}
+The Kondo effect is a phenomenon seen in metals which have dilute magnetic impurities embedded in them. 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
