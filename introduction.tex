@@ -1,37 +1,41 @@
 \chapter{Introduction}
 \label{ch:Intro}
+
 \par
-The unifying theme in this thesis is the presence of hidden hyperbolic geometries in strongly interacting systems and their bilayers. 
+The thesis will concern two topics of higher interest in current research. The first part of the thesis is on the Sachdev-Ye-Kitaev(SYK) model. The SYK model at its core is a model of a strongly interacting quantum dot with many flavors of electrons in it. Its rich solutions are targeted at explaining several unsolved problems in contemporary physics, including an elusive theory for the metallic phase of the cuprate high temperature  superconductors. 
+The second part of the thesis will tackle the classic problem of the Kondo effect in a modern setting of strongly interacting electrons: Twisted bilayer graphene (TBG). 
 
-What is a fermi liquid? and what is a non-fermi liquid 
+\par 
+It will be argued that the exotic phenomenon belie a hyperbolic geometry in each case. In TBG, this will be identified in the hyperbolic fermi surface contours, whereas in the SYK model, it will be an emergent Anti de-Sitter spacetime, which is the Lorentzian version of the conventional Euclidean hyperbolic space.  
 
-Consider a scattering diagram: self energy proportional to DoS, van hove points can break fermi liquid theory. cite polchinski, shankar.
+\newpage
 
-\newpage     
 
 \section{Fermions, fermi surfaces and quasiparticles}
 
-Condensed matter physics concerns the study of the quantum properties of matter. We know of solids to be composed of atoms arranged in a crystalline structure. Their quantum description at its core is given by the many-body Schrodinger equation of all the electrons and ions that make up the solid, all interacting with each other. The first simplification one can make is to observe that the ions in a solid are composed of a many protons and neutrons, and are much heavier than the electrons since $\nicefrac{m_p}{m_e} \approx 2000$. Then the solid's low energy dynamics can be modeled by the motion of free electrons and their interactions with each other through the electromagnetic force, and with the vibrations of the lattice, known as phonons~\cite{oppenheimer1927quantentheorie}. 
+Condensed matter physics concerns the study of the quantum properties of matter. We know of solids to be composed of atoms arranged in a crystalline structure. Their quantum description at its core is given by the many-body Schrodinger equation of all the electrons and ions that make up the solid, all interacting with each other. The first simplification one can make is to observe that the ions in a solid are composed of many protons and neutrons, and are much heavier than the electrons since $\nicefrac{m_p}{m_e} \approx 2000$. Then the solid's low energy dynamics can be modeled by the motion of free electrons and their interactions with each other through the electromagnetic force, and with the vibrations of the lattice, known as phonons~\cite{oppenheimer1927quantentheorie}. 
 
 \par 
-Schematically, in the language of second quantization, the hamiltonian of the system can be written as 
+Schematically, in the language of second quantization, the hamiltonian of the system of electrons can be written as 
 \begin{align}
     H \sim \underbrace{\sum_k \epsilon_k c^\dagger_k c^{\phantom{\dagger}}_k}_{T} + \underbrace{\frac{g}{\Omega}\sum_{k,k^\prime,q} c^\dagger_{k+\frac{q}{2}}c^\dagger_{k^\prime -\frac{q}{2}}c^{\phantom{\dagger}}_k c^{\phantom{\dagger}}_{k^\prime}}_{V} \quad\quad, 
     \label{eq:schemHam}
 \end{align}
-where the kinetic and potential energy terms have been separated out. In Eq.~\eqref{eq:schemHam}, $\epsilon_k$ refers to the dispersion of bare electrons subject to the symmetry of the lattice, and $\Omega$ is the volume of the system under consideration. For simplicity, all interactions that the electrons are subject to are schematically represented by the constant $g$, which may come from their charged interactions or with phonons or impurities etc. In a real material, the interaction itself may have a long range (and hence a momentum dependance), or may even face retardation effects, but these are neglected for now. 
+where the kinetic and potential energy terms have been separated out. In Eq.~\eqref{eq:schemHam}, $\epsilon_k$ refers to the dispersion of bare electrons subject to the symmetry of the lattice, and $\Omega$ is the volume of the system under consideration. For simplicity, all interactions that the electrons are subject to are schematically represented by the constant $g$, which may come from their charged interactions or with phonons or impurities etc. In a real material, the interaction itself may have a long range (and hence a momentum dependence), or may even face retardation effects, but these are neglected for now. 
 
 \par
-Let's first consider the kinetic energy term, given by $T$, and let us also suppose the bare parabolic dispersion of free electrons in the Galilean continuum: 
-\textbf{INSERT FIGURE OF PARABOLA GETTING FILLED WITH STATES TILL FERMI ENERGY}
-Just the fact that electrons are fermions obeying the Pauli exclusion principle means that the large density of free electrons in a metal corresponds to a gigantic energy scale. For example, in copper~\cite{Ashcroft1976} which has an electron density of $8.47\times 10^{28} m^{-3}$, the energy of the topmost occupied level turns out to be $7 eV$, which corresponds to about $81600 K$ in units of temperature. For reference, the surface of the sun is at a temperature of $5000 K$. 
+Let's first consider the kinetic energy term, given by $T$, and let us also suppose the bare parabolic dispersion of free electrons in the Galilean continuum.
+Just the fact that electrons are fermions obeying the Pauli exclusion principle means that the large density of free electrons in a metal each fill up the energy levels one by one, and the last few electrons to fill in would correspond to a gigantic energy scale. For example, in copper~\cite{Ashcroft1976} which has an electron density of $8.47\times 10^{28} m^{-3}$, the energy of the topmost occupied level turns out to be $7 eV$, which corresponds to about $81600 K$ in units of temperature. For reference, the surface of the sun is at a temperature of $5000 K$. 
 \par 
-This mammoth fermi energy is what is responsible in most cases to the success of Landau's fermi liquid theory. To lowest approximation, electrons can be considered to be completely non-interacting, from which weak interactions can be included perturbatively~\cite{luttinger1960ground,baym1961conservation,pines2018microscopic}. 
+This mammoth fermi energy is what is responsible in most cases to the success of Landau's fermi liquid theory. Owing to the relative unimportance of the potential energy term, to lowest approximation, electrons can be considered to be completely non-interacting, from which weak interactions can be included perturbatively~\cite{luttinger1960ground,baym1961conservation,pines2018microscopic}. 
 \par 
-This can be understood mathematically using the language of Green's functions. Typically, the green's function for free fermions looks like \begin{equation}
-        G^0(k,\omega) = \frac{1}{\omega - \xi_k}
-    \end{equation}
-The characteristic feature is that the green's function has poles in it. When interactions are included, the green's functions pick up a self energy according to the Dyson's equation:
+This can be understood mathematically using the language of Green's functions. Typically, the green's function for free fermions has the defining feature of having a pole whenever the frequency matches the energy of an excitation:
+\begin{equation}
+        G^0(\vec{k},\omega) = \frac{1}{\omega + i\eta - \epsilon_{\vec{k}}} .
+\end{equation}
+The physically accessible information here is the spectral function, which is the negative imaginary part of the self energy. As a function of frequency, this has a delta function peak at $\omega = \epsilon_k$. 
+\par
+When interactions are included, the green's functions pick up a self energy according to the Dyson's equation:
 \begin{equation}
     G(\vec{k},\omega) = \frac{1}{\omega - \epsilon_{\vec{k}} - \Sigma(\vec{k},\omega)}
 \end{equation}
@@ -42,17 +46,20 @@ The self-energy will have a frequency and momentum dependence, and also a real a
 \end{equation}
 We can use this to rewrite the Green's function in the form
 \begin{align}
-    G(k,\omega) &= \frac{1}{\omega\left(1 - \pdv{\Sigma}{\omega} \right) - \left(\xi_k + k\pdv{\Sigma}{k}\right) + i\Gamma} \nonumber \\ 
-    &= \frac{Z}{\omega - \Tilde{\xi_k} + i\Tilde{\Gamma}} ,
+    G(k,\omega) &= \frac{1}{\omega\left(1 - \pdv{\Sigma}{\omega} \right) - \left(\epsilon_{\vec{k}} + k\pdv{\Sigma}{k}\right) + i\Gamma} \nonumber \\ 
+    &= \frac{Z}{\omega - \Tilde{\epsilon_{\vec{k}}} + i\Tilde{\Gamma}} ,
 \end{align}
-wehre the quasiparticle residue is given by 
+where the quasiparticle residue is given by 
 \begin{equation}
     Z = \left(1-\pdv{\Sigma(k_F,\omega)}{\omega}\eval_{\omega=0}\right)^{-1} .
 \end{equation}
-Typically, if the self energy is analytic ($\Sigma \sim \alpha + \beta\omega + \gamma\omega^2 + \cdots$), the quasi-particle residue would be finite
+In this case, the spectral function which was a delta peak in the non-interacting case would just be shifted to the new position $\Tilde{\epsilon_{\vec{k}}}$, and would be a relatively sharp Lorentzian of width $\Tilde{\Gamma}$.
+
+\par
+When the Taylor series that was done above is valid, i.e. the self energy is analytic ($\Sigma \sim \alpha + \beta\omega + \gamma\omega^2 + \cdots$), the quasi-particle residue would be finite.
 When the derivative of the self energy blows up in the infrared(as $\omega\xrightarrow{}0$), it leads to a breakdown of fermi liquid theory. 
 \par
-At this point, one can mention a proposal from the past~\cite{varma1989phenomenology,ruckenstein1991theory,varma1993towards,varma2002singular}. The marginal or singular fermi liquid is the most marginal way to create non-fermi liquid behavior 
+At this point, one can mention a proposal from the past~\cite{varma1989phenomenology,ruckenstein1991theory,varma1993towards,varma2002singular}. The marginal or singular fermi liquid is the most marginal way to create non-fermi liquid behavior.
 The real part of the self energy goes as 
 \begin{equation}
     \Sigma \sim \omega\log(\frac{\omega}{\omega_c})
@@ -67,7 +74,7 @@ The real part of the self energy goes as
     \centering
     \includegraphics[width = \textwidth]{figures/introduction/MFLZ.jpeg}
     \end{subfigure}
-    \caption{Absence of Quasiparticles in the marginal fermi liquid}
+    \caption{Absence of quasiparticles in the marginal fermi liquid.}
     \label{fig:MFLZ}
 \end{figure}
 
@@ -87,53 +94,49 @@ Such an example is the SYK model, whose self energy, as we shall see goes as $\l
     \centering
     \includegraphics[width = \textwidth]{figures/introduction/SYKZ.jpeg}
     \end{subfigure}
-    \caption{Absence of Quasiparticles in the SYK model}
+    \caption{Absence of quasiparticles in the SYK model.}
     \label{fig:SYKZ}
 \end{figure}
 
 \section{The SYK model}
-The SYK model describes the physics of interacting fermions living on a strongly disordered quantum dot. It's simplest version can be constructed using a Hamiltonian of $N$ flavors of majorana fermions interacting all-to-all with Gaussian random couplings. 
+The SYK model describes the physics of interacting fermions living on a strongly disordered quantum dot. Its simplest version can be constructed using a Hamiltonian of $N$ flavors of majorana fermions interacting all-to-all with Gaussian random couplings. 
 \begin{equation}
     H = \displaystyle \sum_{1\leq i<j<k<l\leq N} J_{ijkl}\,\psi_i\psi_j\psi_k\psi_l
 \end{equation}
 The random couplings are normally distributed, i.e 
 \begin{align}
     \expval{J_{ijkl}} &= 0 \\
-    \expval{J^2_{ijkl}} &= \frac{6 J^2}{N^3}
+    \expval{J^2_{ijkl}} &= \frac{6 J^2}{N^3}.
 \end{align}
 
 \par
-We can look in Euclidean time. The free part of the Green's function is (with the strange normalization $\anticommutator{\psi_i}{\psi_j} = \delta_{ij}$)
+Henceforth, we will switch to Euclidean time (and imaginary frequencies). The free part of the Green's function is (with the normalization $\anticommutator{\psi_i}{\psi_j} = \delta_{ij}$)
 \begin{align}
-    G^0(\tau) &= -\expval{\mathcal{T}\psi_i(\tau)\psi_j(0)}\nonumber\\
-    &= -\frac{1}{2}\sgn(\tau) \, \delta_{ij}
+    G^0_{ij}(\tau) &= -\expval{\mathcal{T}\psi_i(\tau)\psi_j(0)} ,\nonumber\\
+    &= -\frac{1}{2}\sgn(\tau) \, \delta_{ij}.
 \end{align}
 In Fourier space,  
 \begin{align}
-    G^0(\omega) = \int \dd\tau \,e^{i\omega\tau} G^0(\tau) = \frac{1}{i\omega}
+    G^0(\omega) = \int \dd\tau \,e^{i\omega\tau} G^0(\tau) = \frac{1}{i\omega}.
 \end{align}
 
-\par
-
+\subsection{The SYK self consistent equations}
 Upon turning on interactions, we can look at the so called melon diagrams
 \begin{figure}
     \centering
     \includegraphics[width = \linewidth]{figures/introduction/SYK1.png}
-    \caption{Diagrams that dress the propagator}
+    \caption{Diagrams that dress the propagator, Figure used from~\cite{maldacena_comments_2016}.}
     \label{fig:SYK1}
 \end{figure}
 The disorder average means that the flavors of the four majoranas at both the connecting vertices are identical, and brings out a contribution $\sim \frac{J^2}{N^3}$ for each vertex pair. 
-This combined with the large N limit forces the interacting green's function $G_{ij}(\tau) = G(\tau)\delta_{ij}$
-  
+This combined with the large N limit forces the interacting green's function $G_{ij}(\tau) = G(\tau)\delta_{ij}$.
 
-
-\subsection{The SYK self consistent equations}
 \par
 With these considerations, the Dyson's equations can be represented as
 \begin{figure}
     \centering
     \includegraphics[width= \linewidth]{figures/introduction/Melons.png}
-    \caption{Summing the Dyson series. Figure used from ~\cite{maldacena_comments_2016}}
+    \caption{Summing the Dyson series. Figure used from ~\cite{maldacena_comments_2016}}.
     \label{fig:melons}
 \end{figure}
   
@@ -141,22 +144,23 @@ With these considerations, the Dyson's equations can be represented as
 \par
 This gives us the SYK equations: 
 \begin{align}
-    \left(G(\omega)\right)^{-1} = i\omega - \Sigma(\omega) \label{eq:sykeq1} \\ 
-    \Sigma(\tau) = J^2\left(G(\tau)\right)^3 \label{eq:sykeq2}
+    \left(G(\omega)\right)^{-1} = i\omega - \Sigma(\omega) \, ,\label{eq:sykeq1} \\ 
+    \Sigma(\tau) = J^2\left(G(\tau)\right)^3 \,.\label{eq:sykeq2}
 \end{align}
 These are a set of equations that must be solved self-consistently: eq.(\ref{eq:sykeq1}) tells how the self-energy determines the Green's function, and eq.(\ref{eq:sykeq2}) says how the self-energy is set by the Green's function. 
 They are not the most trivial to solve, since one is in real space, and the other in Fourier space. 
   
 
 \par
-The key to doing so is to assume that the self-energy dominates the free propagator's contribution at strong coupling in the IR $(\omega \xrightarrow{} 0)$
-Then, eq.(\ref{eq:sykeq1}) can be written as:
+The key to doing so is to assume that the self-energy dominates the free propagator's contribution at strong coupling in the IR $(\omega \xrightarrow{} 0)$.
+Then, eq.(\ref{eq:sykeq1}) can be written as
 \begin{equation}
-    \int \dd\tau^\prime G(\tau,\tau^\prime)\Sigma(\tau^\prime,\tau^{\prime\prime}) = -\delta(\tau - \tau^{\prime\prime})
+    \int \dd\tau^\prime G(\tau,\tau^\prime)\Sigma(\tau^\prime,\tau^{\prime\prime}) = -\delta(\tau - \tau^{\prime\prime}) .
+    \label{eq:confsykdyson}
 \end{equation}
 This is solved by the ansatz
 \begin{equation}
-    G_c(\tau) = \frac{b\sgn(\tau)}{\abs{\tau}^{2\Delta}}
+    G_c(\tau) = \frac{b\sgn(\tau)}{\abs{\tau}^{2\Delta}} .
     \label{eq:Gc}
 \end{equation}
 
@@ -164,17 +168,82 @@ This is solved by the ansatz
 
 \subsection{SYK as an NCFT in the IR}
 \par
-We see that eq.(\ref{eq:Gc}) is the form of the Green's function of a conformal field theory
-$\Delta$ can be easily determined by a scaling argument $\tau \xrightarrow{} b\tau$
+Eq.~\eqref{eq:Gc} is the form of the Green's function of a conformal field theory, and commutes with all the generators of the conformal transformations in $0+1$ dimensions~\cite{schellekens1995conformal}. The scaling dimension $\Delta$ can be easily determined by a consistency condition that $\tau \xrightarrow{} b\tau$ should satisfy simultaneously Eq.~\eqref{eq:sykeq2}, (which would indicate that the self energy would need to scale as $\tau^{-6\Delta}$) and Eq.~\eqref{eq:confsykdyson}. 
 \begin{align}
-    b^{1 - 2\Delta - 6\Delta} &= b^{-1} \nonumber \\
-    \implies \Delta &= \frac{1}{4}
+    b^{1 - 2\Delta - 6\Delta} &= b^{-1} ,\nonumber \\
+    \implies \Delta &= \frac{1}{4} .
 \end{align}
-Using the identity
+We can see again from simple dimensional analysis how the Green's function Eq.~\eqref{eq:Gc} scales as a function of frequency. The Fourier transformation
 \begin{equation}
     \int_{-\infty}^\infty \dd\tau e^{i\omega\tau} \frac{\sgn(\tau)}{\abs{\tau}^{2\Delta}} \sim \abs{\omega}^{2\Delta-1},
 \end{equation}
-we retrieve our branch-cut propagator result of $\Sigma(\omega)\sim \abs{\omega}^{\nicefrac{1}{2}} $, as promised!
+yields the branch-cut propagator result of $\Sigma(\omega)\sim \abs{\omega}^{\nicefrac{1}{2}} $, as promised, and we have with us a microscopic model for the breakdown of quasiparticles.  
+
+\section{Holographic dual of the SYK model and $N-AdS_2$ spacetime}
+This emergent conformal symmetry in the deep infrared is weakly broken by the free propagator $i\omega$ term in the Dyson equation Eq.~\eqref{eq:sykeq1}. The sub-leading to conformal corrections can be computed by an expansion of the action about the conformal saddle point, and can be shown in zero temperature to be of the form~\cite{maldacena_comments_2016}
+\begin{equation}
+    G(\tau) = G_c(\tau)\left(1-\frac{1}{\sqrt{2}J}\frac{1}{\abs{\tau}} + \cdots \right).
+\end{equation}
+The correct path integral representation of the SYK effective action is given in terms of a two-time formalism, and the time-translation invariant solution Eq.\eqref{eq:Gc} only represents the classical saddle. Without imposing time-translation symmetry, the saddle point equations would be Eq.~\eqref{eq:confsykdyson} and the self energy equation Eq.~\eqref{eq:sykeq2} rewritten to be
+\begin{equation}
+    \Sigma(\tau,\tau^\prime) = J^2\,\left[G(\tau,\tau^\prime)\right]^3. 
+    \label{eq:twotimesykeq2}
+\end{equation}
+
+\par
+It was observed that these set of equations in the fully conformal limit possessed an additional emergent symmetry of time reparametrizations~\cite{kitaev2018soft,maldacena_comments_2016,sachdev2015bekenstein}. 
+This means that for every solution $G(\tau,\tau^\prime), \Sigma(\tau,\tau^\prime)$ that solves Eqs.~\eqref{eq:confsykdyson} and \eqref{eq:twotimesykeq2}, one can get yet another solution by picking an arbitrary function $f(\sigma)$ to obtain another function pair of functions $\Tilde{G}(\sigma,\sigma^\prime), \Tilde{\Sigma}(\sigma,\sigma^\prime)$ such that 
+\begin{align}
+    G(\tau,\tau^\prime) &= \frac{1}{\abs{f^\prime(\sigma)f^\prime(\sigma^\prime)}^\Delta}\Tilde{G}(\sigma,\sigma^\prime) \\
+    \Sigma(\tau,\tau^\prime) &= \frac{1}{\abs{f^\prime(\sigma)f^\prime(\sigma^\prime)}^{1-\Delta}}\Tilde{\Sigma}(\sigma,\sigma^\prime)
+    \label{eq:repatsymm}
+\end{align}
+that also satisfies the same equations Eqs.~\eqref{eq:confsykdyson} and \eqref{eq:twotimesykeq2}. It turns out that starting from the conformal solution Eq.~\eqref{eq:Gc} 
+\begin{equation}
+    G_c(\tau,\tau^\prime) = b \frac{\sgn(\tau-\tau^\prime)}{\abs{\tau-\tau^\prime}}^{2\Delta},
+\end{equation}
+and picking a function from the $\mathrm{SL}(2,\mathrm{R})$ group i.e. $\tau = f(\sigma) = \frac{a\sigma + b}{c\sigma + d}$ with $ad-bc = 1$, leaves the saddle point solution invariant, i.e. $G_c(\tau,\tau^\prime) = \Tilde{G}_c(\sigma,\sigma^\prime)$. 
+
+\par
+For any other choice of the function $f$, we get new solutions to the saddle point equations , in fact infinitely many of them. This is an artifact of the far infrared limit, and the physical solution is determined by the function that minimizes the UV $i\omega$ term that has been neglected in the full action. This turns out to be the zero temperature scaling solution that we have written down. This is a motivation for an effective field theory for fluctuations around the SYK far infrared conformal fixed point - we simply write down an action with the fewest number of derivatives that vanishes for $f(\tau)$ in the $\mathrm{SL}(2,\mathrm{R})$ group. This is termed the Schwarzian action~\cite{maldacena_comments_2016, kitaev2018soft}
+\begin{equation}
+    S = \alpha_s \int d\tau \, \{f(\tau),\tau\}, \quad  \{f(\tau),\tau\} = \frac{f^{\prime\prime\prime}}{f^\prime} - \frac{3}{2}\left(\frac{f^{\prime\prime}}{f^\prime}\right)^2, 
+    \label{eq:SchwActionDefn}
+\end{equation}
+and is the correct low energy theory of the breaking of conformal symmetry in the SYK model. The constant $\alpha_s$ in front is non-universal and can be fixed from either thermodynamics or the numerical evaluation of the four point function in the full UV-complete theory. 
+
+For the time reparametrization choice $\tau = f(\sigma) = \tan{\frac{\pi\sigma}{\beta}}$ in Eq.~\eqref{eq:repatsymm} to obtain
+\begin{align}
+    \Tilde{G}(\sigma,\sigma^\prime) &= \left(\frac{\pi}{\beta}\right)^2 \left(\sec(\frac{\pi\sigma}{\beta})\sec(\frac{\pi\sigma^\prime}{\beta})\right)^{2\Delta} b \frac{\sgn(\sigma-\sigma^\prime)}{\abs{\tan(\frac{\pi\sigma}{\beta})-\tan(\frac{\pi\sigma^\prime}{\beta})}^{2\Delta}}  \nonumber \\
+    &= b \frac{\sgn(\sigma-\sigma^\prime)}{\abs{\frac{\pi}{\beta}\sin(\frac{\pi}{\beta}(\sigma-\sigma^\prime))}^{2\Delta}}, 
+\end{align}
+which corresponds to putting the conformal field theory at a finite temperature $\beta$. This particular choice of the function $f$ is not in the $\mathrm{SL}(2,\mathrm{R})$ group, and will contribute non-trivially to the action in eq.~\eqref{eq:SchwActionDefn}. The Schwarzian derivative itself for this case can be calculated to be $\frac{2\pi^2}{\beta^2}$, and that is equal to the finite temperature correction to the free energy. This directly implies that the low temperature entropy will be of the linear Sommerfeld form. 
+
+\par
+The Schwarzian action is also the minimal action that describes the propagation of a boundary graviton in a 2 dimensional nearly Anti de Sitter spacetime ($N-AdS_2)$~\cite{maldacena2016conformal,chowdhury_sachdev-ye-kitaev_2021}. The reasoning is the following. In Euclidean signature, this is just a hyperbolic space with the metric 
+\begin{equation}
+    ds^2 = \frac{dt^2 + dz^2}{z^2}. 
+    \label{eq:ads2metric}
+\end{equation}
+When one wants to study a finite part of the space, we want to cut it off along a boundary curve specified by $t(u), z(u)$, where the affine parameter $u$ is a local time coordinate on this curve. Staying $\epsilon$ away from the boundary at $z=0$ of and studying only curves of a fixed length, leaves still a choice of $t(u)$ being arbitrary, and different choices should correspond to different boundary curves. However, $AdS_2$ being a maximally symmetric space has $\mathrm{SL}(2,\mathrm{R})$ as an isometry, and different curves generated by 
+\begin{equation}
+    \Tilde{t}(u) = \frac{a t(u) + b}{c t(u) + d}, \quad ad-bc = 1.
+    \label{eq:SL2Rgravity}
+\end{equation}
+all map on to each other, and other choices of reparametrizations of $t(u)$ correspond to fluctuations of the boundary spacetime, hence describing a boundary graviton. 
+
+\par
+It turns out that just simple $AdS_2$ spacetime is non-dynamical, in that the Einstein-Hilbert action is identically zero for all metric configurations since gravity in two dimensions is topological. To have a meaningful gravity theory, one needs to look at nearly $AdS_2$ or $N-AdS_2$ spaces, which are described by dilatonic theories of gravity, called the Jackiw-Teitelboim (JT) gravity~\cite{almheiri2015models, sarosi2017ads} with the action 
+\begin{equation}
+    S = -\frac{1}{16\pi G}\left[\int d^2 x \, \phi\sqrt{g} (R + 2) + 2\int_{\partial M} \phi_b K\right] 
+\end{equation}
+with a dynamical dilaton field $\phi$ that acts as an effective Newton's constant. 
+
+\par
+From similar arguments made for the SYK case, with the reparametrization symmetry acting in this case as eq.~\eqref{eq:SL2Rgravity}, the low energy effective action describing the propagation of the boundary graviton of this nearly $AdS_2$ space will once again be exactly the Schwarzian action. 
+
+\par
+Nearly $AdS_2$ spacetimes also show up as limits of some higher dimensional spaces. It was shown by Sachdev~\cite{sachdev2015bekenstein} that the near-horizon geometry of charged black holes in 4 dimensions described by the Reissner-Nordstrom metric is also a nearly $AdS-2$ geometry. Furthermore, the partition function of both the SYK theory and the gravity theory match exactly upon identifying certain parameters on both sides to be dual to each other, and this is zen of the of the holographic duality. We have elucidated here the first instance of an unveiled hyperbolic space in the description of a strongly interacting non-fermi liquid. 
 
 
 \section{Other versions of the SYK used in this thesis}
@@ -183,7 +252,7 @@ It would be quite a fallacy to limit one's understanding of the physics of the S
 Given the importance of the SYK model, attempts have been made in order to realise it in an experimental situation. A comprehensive list of these attempts is provided in the recent review~\cite{chowdhury_sachdev-ye-kitaev_2021}. 
 
 \par 
-We will here first specifically mention Ref.~\cite{Chen2018} using graphene flakes. It is well known in graphene that the presence of a strong magnetic field induces the formation of landau levels, the lowest of which is pinned to zero energy. This completely flat band quenches the kinetic energy in Eq.~\ref{eq:schemHam}. The wavefunctions have non-trivial quantum geometry still and instead of being localized, are extended throughout the surface of the graphene. There is a zero mode generated for every quantum of flux that penetrates the sample, as is well known from the theory of the quantum hall effect. 
+We will here first specifically mention Ref.~\cite{Chen2018} using graphene flakes (more will be said about graphene in Sec.~\ref{sec:graphene} below). It is well known in graphene that the presence of a strong magnetic field induces the formation of landau levels, the lowest of which is pinned to zero energy. This completely flat band quenches the kinetic energy in Eq.~\ref{eq:schemHam}. The wavefunctions have non-trivial quantum geometry still and instead of being localized, are extended throughout the surface of the graphene. There is a zero mode generated for every quantum of flux that penetrates the sample, as is well known from the theory of the quantum hall effect. 
 
 \par
 The effects of the coulomb interaction projected onto the degenerate states of the flat band, next nearest neighbor hoppings and random onsite disorder all contribute to make the effective interactions seem almost completely random. 
@@ -277,23 +346,12 @@ For $\kappa = 1$, these equations are solved by $\Delta_f = 0.420374$, and $\Del
 At finite temperature, the model exhibits a rich phase diagram first outlined in Ref.~\cite{esterlis2019cooper}. For $g<1$, the highest temperatures are characterized by a limit of free fermions, where $G(\omega_n) \rightarrow \frac{1}{i\omega_n}$, and the low temperature phase is the finite temperature version of the non-fermi liquid described above. The $g>1$ regime is characterized by a novel impurity like phase at intermediate and high temperature.
 
 \par
-In the presence of time reversal symmetry, the couplings in Eq.~\eqref{eq:HYSYK} are further constrained to be completely real, and $g_{ij,k}$ have to be drawn from the Gaussian orthongoanl ensemble (GOE)
+In the presence of time reversal symmetry, the couplings in Eq.~\eqref{eq:HYSYK} are further constrained to be completely real, and $g_{ij,k}$ have to be drawn from the Gaussian orthongoanl ensemble (GOE).
 Similar to the Fr\"ohlich or the Bardeen-Pines hamiltonian, the bosons condense in the ground state of the model causing the fermions to pair with their time reversal partners. 
 \par 
-In this case, the non-fermi liquid metallic phase is difficult to observe as it competes with the superconducting phase, which satisfies the quantum critical Eliashberg equations~\cite{metlitski2015cooper,chubukov2020interplay,abanov2020interplay}. 
-
-
-
-
-
-
-
-
-
-
-
-
-
+In this case, the non-fermi liquid metallic phase is difficult to observe as it competes with the superconducting phase, which satisfies the quantum critical Eliashberg equations~\cite{metlitski2015cooper,chubukov2020interplay,abanov2020interplay,she2009bcs}. 
+\par
+Having understood the components of the SYK model in sufficient detail, we will now move to yet another scenario where we have an instance of strongly interacting quantum matter, but with its physics instead being engendered by a completely different kind of hidden hyperbolic geometry.
 
 
 
@@ -338,11 +396,11 @@ to obtain a spectrum given by
             \caption{\centering}
 	\end{subfigure}
 
-	\caption{(a) Schematic hexagonal lattice of graphene showing carbon atoms in the A(red) and B(blue) sublattices. (b) Dispersion with zoom near the band-touching Dirac point. (c) The corresponding Brillouin zone marking the positions of the high symmetry points. (d) Energy contours of graphene showing the brilluoin zone in black dashed lines. The highlighted contour in blue is at the van Hove energy. (panels (b) and (c) taken from \cite{neto2009electronic}).}
+	\caption{(a) Schematic hexagonal lattice of graphene showing carbon atoms in the A(red) and B(blue) sublattices. (b) Dispersion with zoom near the band-touching Dirac point. (c) The corresponding Brillouin zone marking the positions of the high symmetry points. (d) Energy contours of graphene showing the brilluoin zone in black dashed lines. The highlighted contour in blue is at the van Hove energy. (panels (b) and (c) taken from Ref.~\cite{neto2009electronic}).}
 	\label{fig:grapheneschematic}
 \end{figure}
 
-The dispersion in Eq.~\eqref{eq:Graphene dispersion} shows interesting features at the $K, K^\prime$ and the $M$ points of the Brilluoin zone. 
+The dispersion in Eq.~\eqref{eq:Graphene dispersion} shows interesting features at the $K, K^\prime$ and the $M$ points of the Brillouin zone(see Fig.~\ref{fig:grapheneschematic}). 
 
 \par
 The $K$ point and its time reversed partner $K^\prime$ points are referred to as Dirac points. This is because the gap between the two bands closes at these points, and the dispersion is linear. Indeed, the low energy hamiltonian close to for momenta $\vec{p}$ close to the $K$ point can be represented as 
@@ -356,7 +414,7 @@ The corresponding dispersion $E(\Vec{p}) = v_F \abs{\vec{p}}$ is dubbed a Dirac 
 
 \par 
 Graphene also has an interesting saddle-like dispersion near its $M$ point. This is shown in panels (b) and (d) of Fig.\ref{fig:grapheneschematic}. 
-Since first derivatives vanish at a saddle point, the dispersion is most faithfully captured by a Taylor expansion upto second order, with the expansion coefficients in the two principal directions having opposite sign: 
+Since first derivatives vanish at a saddle point by definition, the dispersion is most faithfully captured by a Taylor expansion up to second order, with the expansion coefficients in the two principal directions having opposite sign: 
 \begin{equation}
     E = E_v + \alpha p_x^2 -\beta p_y^2 \quad\quad \alpha,\beta>0
     \label{eq:dispQUAD}
@@ -385,7 +443,7 @@ A note has to be made here about the range of $p_y$, which comes from the condit
 \begin{equation}
     \text{range of } p_y =
     \begin{cases} 
-    \texttt{True}, \quad E>E_v \\
+    \texttt{all}, \quad E>E_v \\
     p_y^2 > \abs{\frac{E-E_v}{\beta}}, \quad E<E_v
     \end{cases} 
 \end{equation}
@@ -401,7 +459,7 @@ with $\Tilde{\Lambda} = 4\Lambda^2\beta$. The density of states is symmetric abo
 
 
 \section{The concept of a higher order van Hove singularity} 
-The hyperbolic geometry of the fermi surface near the van hove energy and its enhanced density of states can be understood quite intuitively by means of Fig.~\ref{fig:logcontours}. 
+The hyperbolic geometry of the fermi surface near the van hove energy and its enhanced density of states can be understood quite intuitively by means of Fig.~\ref{fig:logcontours}. Much like the SYK model, the enhanced DoS is not from a degeneracy, but the ability to pack energy levels densely close together at low energy.
 
 \begin{figure}[h]
     \centering
@@ -424,10 +482,10 @@ The hyperbolic geometry of the fermi surface near the van hove energy and its en
 \end{figure}
 
 \par 
-Near a conventional logarithmic van hove singularity, the contours of equal energy form hyperbolae in momentum space. This is easily visible in the topology change of the fermi surface, as it crosses the van hove energy. At exactly the van hove energy, the fermi surface is made of the asymptotes of the hyperbola, which are two lines meeting at a point. This can be generalized in many ways, the most obvious of which is to have a fermi surface composed of the intersection of two parabolae (see Fig. ~\ref{fig:paracontours}). This also has a direct effect in the type of singularity in the density of states: in this case being a power law~\cite{Yuan2019,Yuan2020PRB-classification}. These can be neatly classified by a recently developed catastrophe theory formalism~\cite{chandrasekaran2020catastrophe,classen2024high}
+Near a conventional logarithmic van hove singularity, the contours of equal energy form hyperbolae in momentum space. This is easily visible in the topology change of the fermi surface, as it crosses the van hove energy. At exactly the van hove energy, the fermi surface is made of the asymptotes of the hyperbola, which are two lines meeting at a point. This can be generalized in many ways, the most obvious of which is to have a fermi surface composed of the intersection of two parabolae with a quartic dispersion(see Fig. ~\ref{fig:paracontours}). This also has a direct effect in the type of singularity in the density of states: in this case being a power law $\rho(E)\sim\abs{E}^{\nicefrac{-1}{4}}$~\cite{Yuan2019,Yuan2020PRB-classification}. These can be neatly classified by a recently developed catastrophe theory formalism~\cite{chandrasekaran2020catastrophe,classen2024high}
 .  
 \par
-The higher order van hove singularity is believed to exist in many physical scenarios, most notably in the cuprates~\cite{markiewicz1989correlation,markiewicz2023investigating,paul2023exceptional} and in twisted bilayer graphene and other transition metal dichalcogenide bilayers.  
+The higher order van hove singularity is believed to exist in many physical scenarios, most notably in the cuprates~\cite{markiewicz1989correlation,markiewicz2023investigating,paul2023exceptional} and in twisted bilayer graphene and other transition metal dichalcogenide bilayers. While in graphene and the cuprates the van hove singularity is far away from the fermi energy (eV scale), the higher order van hove singularity is quite close to the fermi energy (meV scale) in twisted bilayer graphene and the other moire materials. 
 
 \section{Enhanced interactions near van hove points - towards Twisted Bilayer graphene}
 Graphene is known to not be superconducting at charge neutrality owing to it being a bad metal~\cite{efetov2014towards}, i.e having a low density of states at the Dirac point. This can be understood in the following cartoon like picture. Assuming, BCS theory of superconductivity holds, the superconducting transition temperature is obtained by solving the linearized gap equation to be 
@@ -438,7 +496,10 @@ Graphene is known to not be superconducting at charge neutrality owing to it bei
 where $g$ is a parameter characterizing electron-electron attraction, $\omega_0$ is a UV cutoff (usually taken to be the Debye frequency) and $\rho(E_F)$ is the density of states at the fermi energy. The vanishing density of states of the Dirac cone implies an negative infinity in the exponential in Eq.~\eqref{eq:BCSTc}, meaning no superconductivity at any finite temperature.
 
 \par
-Thus it came as a surprise when twisted bilayer graphene was observed to be superconducting in some recent landmark experiments~\cite{Cao2018,Caocorrelated2018,oh2021evidence,lisi2021observation}. This is a part of a general phenomenon in which interactions get enhanced by the hyperbolic geometry in the fermi surface. A rigorous argument for breakdown of fermi liquid theory has been addressed in the seminal works of Shankar and Polchinksi in Refs.~\cite{shankar1991renormalization,shankar1994renormalization,polchinski1992effective} by considering the renormalization effects of interactions upon scaling momenta in the low energy effective theory towards the fermi surface, but we shall sketch a much simpler version of it below that captures the essence of the argument. 
+Thus it came as a surprise when twisted bilayer graphene was observed to be superconducting in some recent landmark experiments~\cite{Cao2018,Caocorrelated2018,oh2021evidence,lisi2021observation}. But we will argue here that with the considerations of the enhanced DoS coming from the van hove singularity, now quite close to the fermi level, that it should not be so surprising at all. 
+
+\par
+This is a part of a general phenomenon in which interactions get enhanced by the hyperbolic geometry in the fermi surface. A rigorous argument for breakdown of fermi liquid theory has been addressed in the seminal works of Shankar and Polchinksi in Refs.~\cite{shankar1991renormalization,shankar1994renormalization,polchinski1992effective} by considering the renormalization effects of interactions upon scaling momenta in the low energy effective theory towards the fermi surface, but we shall sketch a much simpler version of it below that captures the essence of the argument. 
 
 \begin{figure}[h!]
     \centering
@@ -483,7 +544,7 @@ It's straightforward to generalize to the case of finite $q$ as well using the p
     &= \int \frac{d^d k}{(2\pi)^d} \frac{n_F(\epsilon_{k+q}) - n_F(\epsilon_k)}{\epsilon_{k+q}-\epsilon_{k}}
 \end{align}
 
-Although easy to evaluate, one can look at the explicit form of these functions for $k^2$ dispersions in 1,2 and 3 dimensions in Ref.~\cite{mihaila2011lindhard}. For this dispersion in 3 dimensions, the Lindhard function can be evaluated for static response and has the two properties 
+One can also look at the explicit form of these functions for $k^2$ dispersions in 1,2 and 3 dimensions~\cite{mihaila2011lindhard}. In summary, for this dispersion in 3 dimensions, the Lindhard function can be evaluated for static response and has the two properties 
 \begin{enumerate}
     \item The susceptibility is a constant in the limit of vanishing wave-vector: i.e. a very slowly spatially varying external field. \begin{equation}
         \chi_0(q\xrightarrow{}0,\omega=0) = -\rho(\epsilon_F)
@@ -495,37 +556,22 @@ Although easy to evaluate, one can look at the explicit form of these functions 
 \end{enumerate}
 
 \par
-Thus one can clearly see the vital effect the density of states has on the interaction corrections to the fermi gas. In a high carrier density metal in three dimensions like bulk copper, $\rho(E_F)$ can be taken to be more or less a constant, and weak interactions can be treated perturbatively to just give small corrections to the non-interacting theory. However, when the fermi energy is close to a van-Hove singularity, the divergence in the density of states makes the effective interaction strength large leading to instabilities and the breakdown of quasiparticles and fermi liquid theory.
+Thus one can clearly see the vital effect the density of states has on the interaction corrections to the fermi gas. In a high carrier density metal in three dimensions like bulk copper, $\rho(E_F)$ can be taken to be more or less a constant, and weak interactions can be treated perturbatively to just give small corrections to the non-interacting theory. However, when the fermi energy is close to a van-Hove singularity, the divergence in the density of states makes the effective interaction strength large, leading to instabilities and the breakdown of quasiparticles and fermi liquid theory.
 
 \par
 We have spelled out the calculation of the charge susceptibility which arises from the particle-hole bubble in Fig.~\ref{fig:PHbubblediagram}, but the exact same enhancement effect from the density of states at the fermi level also shows up in the particle-particle bubble for the susceptibility towards pairing in the theory of superconductivity. 
 
 
-\section{The Kondo effect}
-The Kondo effect is a phenomenon seen in metals which have dilute magnetic impurities embedded in them. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \section{This thesis}
-In the introduction, we have explored different electronic systems, and identified clandestine hyperbolic geometries in each of them.  
+In the introduction, we have explored two very different electronic systems, and uncovered clandestine hyperbolic geometries in each of them.  
 
 \subsection{Chapter 1 - The Kondo effect in Twisted bilayer graphene}
-
+This chapter concerns the fate of dilute magnetic impurities embedded in twisted bilayer graphene. The density of states profile of twisted bilayer graphene has both a dirac cone and a van Hove singularity in it, the location of which moves closer towards the fermi energy upon changing the twist angle between the layers closer and closer to $1.05^\circ$. In a metal with a constant density of states and a large carrier density, the magnetic moment of the impurity gets strongly screened by the conduction electrons in a phenomenon called the Kondo effect for temperatures below a characteristic scale called the Kondo temperature. This is not seen in monolayer graphene owing to the low density of states of the Dirac cone in similar spirit to Eq.~\ref{eq:BCSTc}. The chapter first addresses the modeling of the low energy band structure of twisted graphene using the continuum Bistritzer-MacDonald model~\cite{Bistritzer2011}, presents a method to accurately determine the positions and nature of the van Hove singularities close to the Fermi level, and then presents numerical renormalization group results for the impurity entropy and spectral function at finite temperature for this version of the Kondo problem. The key prediction is a revival of the Kondo effect at the lowest energy scales at exactly the magic angle of twisted bilayer graphene. The results of this chapter have been published in Ref.~\cite{shankar2023kondo} and further studies confirming the prediction using more sophisticated models have appeared from other groups since in Ref.~\cite{chang2023vacancy}. 
 
 \subsection{Chapter 2 - Chaos in the bipartite Sachdev-Ye-Kitaev model}
-
+This chapter studies the scrambling dynamics of the b-SYK model by calculation of its Lyapunov exponent, both in the fully conformal limit and at intermediate and weak coupling as the population ratios of the A and B majoranas are changed. The population imbalance endows the A and B majoranas with separate conformal dimensions, but the analysis presented determines the model as a whole to have one unique exponent. This is understood in terms of scattering pathways of the A and the B majoranas mixing with each other and the model always picking the scattering pathway with the fastest rate. Furthermore, although the model saturates the chaos bound presented in the seminal work of Ref.~\cite{maldacena_bound_2016} in the conformal limit, it was observed that even the corrections to the Lyapunov exponent at intermediate coupling in the b-SYK model is uninfluenced by perturbations to the conformal dimension of the A and B fermions, which is a surprising result. This chapter has been published in Ref.~\cite{shankar2023lyapunov}.
 
 
 \subsection{Chapter 3 - Wormholes in the Yukawa-Sachdev-Ye-Kitaev model}
 
+TBD
