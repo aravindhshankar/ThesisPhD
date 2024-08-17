@@ -72,11 +72,11 @@ The real part of the self energy goes as
     \centering
     \begin{subfigure}[b]{0.4\textwidth}
     \centering
-    \includegraphics[width = \textwidth]{figures/introduction/MFLS.jpeg}
+    \includegraphics[width = \textwidth]{figures/introduction/MFLS.pdf}
     \end{subfigure}
     \begin{subfigure}[b]{0.4\textwidth}
     \centering
-    \includegraphics[width = \textwidth]{figures/introduction/MFLZ.jpeg}
+    \includegraphics[width = \textwidth]{figures/introduction/MFLZ.pdf}
     \end{subfigure}
     \caption{Absence of quasiparticles in the marginal fermi liquid.}
     \label{fig:MFLZ}
@@ -92,11 +92,11 @@ Such an example is the SYK model, whose self energy, as we shall see goes as $\l
     \centering
     \begin{subfigure}[b]{0.4\textwidth}
     \centering
-    \includegraphics[width = \textwidth]{figures/introduction/SYKS.jpeg}
+    \includegraphics[width = \textwidth]{figures/introduction/SYKS.pdf}
     \end{subfigure}
     \begin{subfigure}[b]{0.4\textwidth}
     \centering
-    \includegraphics[width = \textwidth]{figures/introduction/SYKZ.jpeg}
+    \includegraphics[width = \textwidth]{figures/introduction/SYKZ.pdf}
     \end{subfigure}
     \caption{Absence of quasiparticles in the SYK model.}
     \label{fig:SYKZ}
@@ -125,14 +125,7 @@ In Fourier space,
 \end{align}
 
 \subsection{The SYK self consistent equations}
-Upon turning on interactions, we can look at the so called melon diagrams
-\begin{figure}
-    \centering
-    \includegraphics[width = \linewidth]{figures/introduction/SYK1.png}
-    \caption{Diagrams that dress the propagator, Figure used from~\cite{maldacena_comments_2016}.}
-    \label{fig:SYK1}
-\end{figure}
-The disorder average means that the flavors of the four majoranas at both the connecting vertices are identical, and brings out a contribution $\sim \frac{J^2}{N^3}$ for each vertex pair. 
+Upon turning on interactions, we can look at the so called melon diagrams. The disorder average means that the flavors of the four majoranas at both the connecting vertices are identical, and brings out a contribution $\sim \frac{J^2}{N^3}$ for each vertex pair. 
 This combined with the large N limit forces the interacting Green's function $G_{ij}(\tau) = G(\tau)\delta_{ij}$.
 
 \par
@@ -144,7 +137,6 @@ With these considerations, the Dyson's equations can be represented as
     \label{fig:melons}
 \end{figure}
   
-
 \par
 This gives us the SYK equations: 
 \begin{align}
@@ -377,34 +369,32 @@ to obtain a spectrum given by
 
 \begin{figure}[]
 	\centering
-	\begin{subfigure}{0.5\linewidth}
+	\begin{subfigure}[c]{0.3\linewidth}
 		\centering
 		\includegraphics[width=4cm]{figures/introduction/graphene lattice.png}
-            \caption{\centering}
 	\end{subfigure}%
-        \begin{subfigure}{0.5\linewidth}
+        \begin{subfigure}[c]{0.7\linewidth}
 		\centering
-		\includegraphics[width=5cm]{figures/introduction/bandstructure_graphene.png}
-            \caption{\centering}
+		\includegraphics[width=\linewidth]{figures/introduction/bandstructure_graphene.png}
 	\end{subfigure}%
-	
+	\caption{Left: Schematic hexagonal lattice of graphene showing carbon atoms in the A(red) and B(blue) sublattices. Right: Dispersion with zoom near the band-touching Dirac point (this panel taken from Ref.~\cite{neto2009electronic}).}
+    \label{fig:schematiclatticegraphene}
+    \end{figure}
+    \begin{figure}
  	\centering
-	\begin{subfigure}{0.45\linewidth}
+	\begin{subfigure}[c]{0.32\linewidth}
 		\centering
-		\includegraphics[width=4cm]{figures/introduction/brilluoinzonegraphene.png}
-            \caption{\centering}
+		\includegraphics[width=\linewidth]{figures/introduction/brilluoinzonegraphene.png}
 	\end{subfigure}
-	\begin{subfigure}{0.45\linewidth}
+	\begin{subfigure}[c]{0.65\linewidth}
 		\centering
-		\includegraphics[width=4cm]{figures/introduction/graphenecontoursv2.pdf}
-            \caption{\centering}
+		\includegraphics[width=\linewidth]{figures/introduction/graphenecontoursv2.pdf}
 	\end{subfigure}
-
-	\caption{(a) Schematic hexagonal lattice of graphene showing carbon atoms in the A(red) and B(blue) sublattices. (b) Dispersion with zoom near the band-touching Dirac point. (c) The corresponding Brillouin zone marking the positions of the high symmetry points. (d) Energy contours of graphene showing the brilluoin zone in black dashed lines. The highlighted contour in blue is at the van Hove energy. (panels (b) and (c) taken from Ref.~\cite{neto2009electronic}).}
-	\label{fig:grapheneschematic}
+	\caption{Right: Energy contours of graphene showing the brilluoin zone in black dashed lines. The highlighted contour in blue is at the van Hove energy.  Left: The corresponding Brillouin zone marking the positions of the high symmetry points. (The left panel has been taken from Ref~\cite{neto2009electronic}).}
+    \label{fig:Brillouin zone of graphene}
 \end{figure}
 
-The dispersion in Eq.~\eqref{eq:Graphene dispersion} shows interesting features at the $K, K^\prime$ and the $M$ points of the Brillouin zone(see Fig.~\ref{fig:grapheneschematic}). 
+The dispersion in Eq.~\eqref{eq:Graphene dispersion} shows interesting features at the $K, K^\prime$ and the $M$ points of the Brillouin zone( see Fig.~\ref{fig:schematiclatticegraphene}). 
 
 \par
 The $K$ point and its time reversed partner $K^\prime$ points are referred to as Dirac points. This is because the gap between the two bands closes at these points, and the dispersion is linear. Indeed, the low energy Hamiltonian close to for momenta $\vec{p}$ close to the $K$ point can be represented as 
@@ -417,7 +407,7 @@ The Dirac matrices in two dimensions are simply the $2x2$ Pauli matrices given b
 The corresponding dispersion $E(\Vec{p}) = v_F \abs{\vec{p}}$ is dubbed a Dirac cone, because it looks like a causal light cone from special relativity, just with an effective speed of light $v_F$. 
 
 \par 
-Graphene also has an interesting saddle-like dispersion near its $M$ point. This is shown in panels (b) and (d) of Fig.\ref{fig:grapheneschematic}. 
+Graphene also has an interesting saddle-like dispersion near its $M$ point. This can be seen in Figs.\ref{fig:Brillouin zone of graphene} and \ref{fig:schematiclatticegraphene}. 
 Since first derivatives vanish at a saddle point by definition, the dispersion is most faithfully captured by a Taylor expansion up to second order, with the expansion coefficients in the two principal directions having opposite sign: 
 \begin{equation}
     E = E_v + \alpha p_x^2 -\beta p_y^2 \quad\quad \alpha,\beta>0
@@ -507,7 +497,7 @@ This is a part of a general phenomenon in which interactions get enhanced by the
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/introduction/LabeledChiQOmdiagram.pdf}
+    \includegraphics[width=0.5\linewidth]{figures/introduction/LabeledChiQOmdiagramv2.pdf}
     \caption{Polarization bubble diagram $\Pi(q,i\omega_n)$: This shows up in charge susceptibility, self energy due to fermion-fermion interactions, phonon self energy among others}
     \label{fig:PHbubblediagram}
 \end{figure}
