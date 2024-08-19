@@ -168,7 +168,7 @@ This is solved by the ansatz
 
 % \subsection{SYK as an NCFT in the IR}
 \par
-Eq.~\eqref{eq:Gc} is the form of the Green's function of a conformal field theory, and commutes with all the generators of the conformal transformations in $0+1$ dimensions~\cite{schellekens1995conformal}. The scaling dimension $\Delta$ can be easily determined by a consistency condition that $\tau \xrightarrow{} b\tau$ should satisfy simultaneously Eq.~\eqref{eq:sykeq2}, (which would indicate that the self energy would need to scale as $\tau^{-6\Delta}$) and Eq.~\eqref{eq:confsykdyson}. 
+Eq.~\eqref{eq:Gc} is the form of the Green's function of a conformal field theory (CFT), and commutes with all the generators of the conformal transformations in $0+1$ dimensions~\cite{schellekens1995conformal}. The scaling dimension $\Delta$ can be easily determined by a consistency condition that $\tau \xrightarrow{} b\tau$ should satisfy simultaneously Eq.~\eqref{eq:sykeq2}, (which would indicate that the self energy would need to scale as $\tau^{-6\Delta}$) and Eq.~\eqref{eq:confsykdyson}. 
 \begin{align}
     b^{1 - 2\Delta - 6\Delta} &= b^{-1} ,\nonumber \\
     \implies \Delta &= \frac{1}{4} .
@@ -184,8 +184,45 @@ It would be quite a fallacy to limit one's understanding of the physics of the S
 \par
 Rather, its physical content  describes the emergence and the weak breaking of a new conformal symmetry in the infrared. In this section, we will describe some generalizations of the SYK model to include different kinds of degrees of freedom, which will be an emphasis of the fact that this class of models should be thought of as a description of a new IR fixed point. 
 
-There are also other UV-completions to include a conserved U(1) charge using complex fermions by means of the appropriately dubbed "complex-SYK"~\cite{sachdev2015bekenstein}. 
-\textbf{Write this section keeping in mind how you want to do the black holes.}\cite{gu_notes_2020}
+\subsection{Complex SYK}
+The first generalization of the SYK fixed point that we will will consider is one that has a UV-completion that includes a conserved U(1) charge using complex fermions. This will be appropriately called the "complex-SYK" model~\cite{sachdev2015bekenstein,gu_notes_2020}. The hamiltonian will be written as 
+\begin{align}
+    H = \frac{1}{(2N)^{\nicefrac{3}{2}}}\displaystyle\sum_{ijkl = 1}^N\,J_{ij;kl}c^\dagger_ic^\dagger_jc^{\phantom{\dagger}}_kc^{\phantom{\dagger}}_l - \mu\sum_{i=1}^N c^\dagger_ic^{\phantom{\dagger}}_i \, .
+\end{align}
+In this UV hamiltonian, the total charge is simply given by 
+\begin{align}
+    Q = \frac{1}{N}\sum_i \expval{c^\dagger_i c^{\phantom{\dagger}}_i} .
+    \label{eq:chargeUV_syk}
+\end{align}
+At $\mu = 0$, the model is at half filling, and $Q = \frac{1}{2}$ in this notation. 
+\par
+Similar to the Majorana SYK, this model also permits a conformally invariant IR, with exactly the same scaling dimension $\delta = \frac{1}{4}$. The infrared for the $\mu = 0$ case of the complex SYK model is indistinguishable from the Majorana SYK model in terms of the effective $G-\Sigma$ theory, in that the Green's functions are identical in the two cases. 
+\par
+At finite $\mu$, the effect of having a finite amount of charge is also indirectly felt by the infrared Green's functions, in the form of $G(\tau = 0^-) = Q$.  
+The Schwinger-Dyson equations in this case become~\cite{sachdev2015bekenstein}
+\begin{subequations}
+\begin{align}
+    G(i\omega_n) &= \frac{1}{i\omega_n + \mu -\Sigma(\omega_n)} \\
+    \Sigma(\tau) &= -J^2 G^2(\tau)G(-\tau)
+    \label{eq:cSYKSDeqns}
+\end{align}
+\end{subequations}
+For a solution of these equations to exist, one needs that $\Sigma(\omega_n \rightarrow 0) = \mu$, and at low energy and low temperatures it is solved by the same power law form. Then in that case, indeed one finds that there is a scaling solution to Eqs.~\eqref{eq:cSYKSDeqns} with the exponent $\Delta = \frac{1}{4}$. 
+
+\begin{figure}
+    \centering
+    \begin{subfigure}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/introduction/Gtaushowingspectasymm.pdf}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/introduction/complexSYKpowerlaw.pdf}
+    \end{subfigure}
+    \caption{Imaginary time solutions to the Schwinger-Dyson equations for the complex SYK model Eq.~\eqref{eq:SchDysEqnsYSYK_Imag}. Left: Asymmetry at $\tau=0$ in the case of a non-zero chemical potential, which measures the total charge. Right: Power law solution for $G(\omega_n)$ at low temperatures and low frequencies with the same scaling dimension as the Majorana SYK case, even with a finite chemical potential.}
+    \label{fig:CSYKsolns}
+\end{figure}
+
 
 
 \subsection{Yukawa-SYK model}
@@ -206,6 +243,7 @@ In the absence of time reversal symmetry, for the Hamiltonian to be hermitian, t
 \end{equation}
 and are drawn from the Gaussian unitary ensemble (GUE). At zero temperature, the low energy theory in this case is completely akin to the conventional SYK non-Fermi liquid, and develops an emergent conformal symmetry, with a scaling dimension set by $\kappa$. 
 The Schwinger-Dyson equations in this case read
+\begin{subequations}
 \begin{align}
     \Sigma(\tau) &= \kappa \, g^2 \, G(\tau) D(\tau) \\
     \Pi(\tau) = &= -2g^2 \, G(\tau)G(-\tau) \\
@@ -213,6 +251,7 @@ The Schwinger-Dyson equations in this case read
     D(i\nu_n) &= \frac{1}{\nu_n^2 + \omega_0^2 - \Pi(i\nu_n)} .
     \label{eq:SchDysEqnsYSYK_Imag}
 \end{align}
+\end{subequations}
 The model is self-tuning to criticality~\cite{esterlis2019cooper}, i.e the bosons modes soften in the infrared. This is the condition that at zero temperature, $\Pi(\omega = 0) = \omega_0^2$.
 In the infrared, they can be solved with the zero-temperature conformal ansatz 
 \begin{align}
@@ -272,7 +311,7 @@ In Chapter~\ref{chap:JosephsonWormhole} of this thesis, we will explore what hap
 Given the importance of the SYK model, attempts have been made in order to realise it in an experimental situation. A comprehensive list of these attempts is provided in the recent review~\cite{chowdhury_sachdev-ye-kitaev_2021}. 
 
 \par 
-We will here first specifically mention Ref.~\cite{Chen2018} using graphene flakes (more will be said about graphene in Sec.~\ref{sec:graphene} below). It is well known in graphene that the presence of a strong magnetic field induces the formation of landau levels, the lowest of which is pinned to zero energy. This completely flat band quenches the kinetic energy in Eq.~\ref{eq:schemHam}. The wavefunctions have non-trivial quantum geometry still and instead of being localized, are extended throughout the surface of the graphene. There is a zero mode generated for every quantum of flux that penetrates the sample, as is well known from the theory of the quantum hall effect. 
+We will here first specifically mention Ref.~\cite{Chen2018} using graphene flakes (more will be said about graphene in Sec.~\ref{sec:graphene} below). It is well known in graphene that the presence of a strong magnetic field induces the formation of Landau levels, the lowest of which is pinned to zero energy. This completely flat band quenches the kinetic energy in Eq.~\ref{eq:schemHam}. The wavefunctions have non-trivial quantum geometry still and instead of being localized, are extended throughout the surface of the graphene. There is a zero mode generated for every quantum of flux that penetrates the sample, as is well known from the theory of the quantum hall effect. 
 
 \par
 The effects of the coulomb interaction projected onto the degenerate states of the flat band, next nearest neighbor hoppings and random onsite disorder all contribute to make the effective interactions seem almost completely random. 
@@ -306,11 +345,15 @@ Although the new model in eq.~\ref{eq:Hbsyk} contains only $\nicefrac{3}{8}$ of 
 
 
 \section{Holographic dual of the SYK model and $N-AdS_2$ spacetime}
-This emergent conformal symmetry in the deep infrared is weakly broken by the free propagator $i\omega$ term in the Dyson equation Eq.~\eqref{eq:sykeq1}. The sub-leading to conformal corrections can be computed by an expansion of the action about the conformal saddle point, and can be shown in zero temperature to be of the form~\cite{maldacena_comments_2016}
-\begin{equation}
-    G(\tau) = G_c(\tau)\left(1-\frac{1}{\sqrt{2}J}\frac{1}{\abs{\tau}} + \cdots \right).
-\end{equation}
-The correct path integral representation of the SYK effective action is given in terms of a two-time formalism, and the time-translation invariant solution Eq.\eqref{eq:Gc} only represents the classical saddle. Without imposing time-translation symmetry, the saddle point equations would be Eq.~\eqref{eq:confsykdyson} and the self energy equation Eq.~\eqref{eq:sykeq2} rewritten to be
+% This emergent conformal symmetry in the deep infrared is weakly broken by the free propagator $i\omega$ term in the Dyson equation Eq.~\eqref{eq:sykeq1}. The sub-leading to conformal corrections can be computed by an expansion of the action about the conformal saddle point, and can be shown in zero temperature to be of the form~\cite{maldacena_comments_2016}
+% \begin{equation}
+%     G(\tau) = G_c(\tau)\left(1-\frac{1}{\sqrt{2}J}\frac{1}{\abs{\tau}} + \cdots \right).
+% \end{equation}
+The correct path integral representation of the SYK effective action is given in terms of a two-time formalism, and the time-translation invariant solution Eq.\eqref{eq:Gc} only represents the classical saddle. The disorder averaged path integral can be written as
+\begin{align}
+    S = -\log\det\left(\partial_\tau + \Sigma(\tau,\tau^\prime)\right) - \int d\tau d\tau^\prime G(\tau,\tau^\prime)\Sigma(\tau,\tau^\prime) + \frac{J^2}{4} G(\tau,\tau^\prime)^4.
+\end{align}
+Without imposing time-translation symmetry, the saddle point equations would be Eq.~\eqref{eq:confsykdyson} and the self energy equation Eq.~\eqref{eq:sykeq2} rewritten to be
 \begin{equation}
     \Sigma(\tau,\tau^\prime) = J^2\,\left[G(\tau,\tau^\prime)\right]^3. 
     \label{eq:twotimesykeq2}
@@ -324,7 +367,9 @@ This means that for every solution $G(\tau,\tau^\prime), \Sigma(\tau,\tau^\prime
     \Sigma(\tau,\tau^\prime) &= \frac{1}{\abs{f^\prime(\sigma)f^\prime(\sigma^\prime)}^{1-\Delta}}\Tilde{\Sigma}(\sigma,\sigma^\prime)
     \label{eq:repatsymm}
 \end{align}
-that also satisfies the same equations Eqs.~\eqref{eq:confsykdyson} and \eqref{eq:twotimesykeq2}. It turns out that starting from the conformal solution Eq.~\eqref{eq:Gc} 
+that also satisfies the same equations Eqs.~\eqref{eq:confsykdyson} and \eqref{eq:twotimesykeq2}. 
+\par
+It turns out that starting from the conformal solution Eq.~\eqref{eq:Gc} 
 \begin{equation}
     G_c(\tau,\tau^\prime) = b \frac{\sgn(\tau-\tau^\prime)}{\abs{\tau-\tau^\prime}}^{2\Delta},
 \end{equation}
@@ -338,15 +383,17 @@ For any other choice of the function $f$, we get new solutions to the saddle poi
 \end{equation}
 and is the correct low energy theory of the breaking of conformal symmetry in the SYK model. The constant $\alpha_s$ in front is non-universal and can be fixed from either thermodynamics or the numerical evaluation of the four point function in the full UV-complete theory. 
 
-For the time reparametrization choice $\tau = f(\sigma) = \tan{\frac{\pi\sigma}{\beta}}$ in Eq.~\eqref{eq:repatsymm} to obtain
+We will consider one special choice of time reparametrization: $\tau = f(\sigma) = \tan{\frac{\pi\sigma}{\beta}}$. Written in this way, it is clear that the coordinate $\sigma$ represents a circle from $0$ to $\beta$ in imaginary time. Hence the propagator that we must obtain on using this in Eq.~\eqref{eq:repatsymm} should represent the Green's function of the IR limit of the SYK model when it is put at a finite temperature $\beta$. Doing the algebra, we see that 
 \begin{align}
     \Tilde{G}(\sigma,\sigma^\prime) &= \left(\frac{\pi}{\beta}\right)^2 \left(\sec(\frac{\pi\sigma}{\beta})\sec(\frac{\pi\sigma^\prime}{\beta})\right)^{2\Delta} b \frac{\sgn(\sigma-\sigma^\prime)}{\abs{\tan(\frac{\pi\sigma}{\beta})-\tan(\frac{\pi\sigma^\prime}{\beta})}^{2\Delta}}  \nonumber \\
     &= b \frac{\sgn(\sigma-\sigma^\prime)}{\abs{\frac{\pi}{\beta}\sin(\frac{\pi}{\beta}(\sigma-\sigma^\prime))}^{2\Delta}}, 
 \end{align}
-which corresponds to putting the conformal field theory at a finite temperature $\beta$. This particular choice of the function $f$ is not in the $\mathrm{SL}(2,\mathrm{R})$ group, and will contribute non-trivially to the action in eq.~\eqref{eq:SchwActionDefn}. The Schwarzian derivative itself for this case can be calculated to be $\frac{2\pi^2}{\beta^2}$, and that is equal to the finite temperature correction to the free energy. This directly implies that the low temperature entropy will be of the linear Sommerfeld form. 
-
+where we used in the last step that $\cos x \cos y (\tan x - \tan y ) = \sin x\cos y - \cos x \sin y  = \sin (x - y)$. 
+This particular choice of the function $f$ is not in the $\mathrm{SL}(2,\mathrm{R})$ group, and will contribute non-trivially to the action in eq.~\eqref{eq:SchwActionDefn}. The Schwarzian derivative itself for this case can be calculated to be $\frac{2\pi^2}{\beta^2}$, and that is equal to the finite temperature correction to the free energy. This directly implies that the low temperature entropy will be of the linear Sommerfeld form. 
 \par
-The Schwarzian action is also the minimal action that describes the propagation of a boundary graviton in a 2 dimensional nearly Anti de Sitter spacetime ($N-AdS_2)$~\cite{maldacena2016conformal,chowdhury_sachdev-ye-kitaev_2021}. The reasoning is the following. In Euclidean signature, this is just a hyperbolic space with the metric 
+There is a remarkable connection between SYK systems and black holes in general relativity though a holographic duality. In some aspects, the behavior of the two parallel each other. The rest of this section is dedicated to explaining how this can be.
+\par
+The Schwarzian action is also the minimal action that describes the propagation of a boundary graviton in a 2 dimensional nearly Anti de Sitter spacetime ($N$-$AdS_2)$~\cite{maldacena2016conformal,chowdhury_sachdev-ye-kitaev_2021}. The reasoning is the following. In Euclidean signature, this is just a hyperbolic space with the metric 
 \begin{equation}
     ds^2 = \frac{dt^2 + dz^2}{z^2}. 
     \label{eq:ads2metric}
@@ -367,10 +414,62 @@ with a dynamical dilaton field $\phi$ that acts as an effective Newton's constan
 
 \par
 From similar arguments made for the SYK case, with the reparametrization symmetry acting in this case as eq.~\eqref{eq:SL2Rgravity}, the low energy effective action describing the propagation of the boundary graviton of this nearly $AdS_2$ space will once again be exactly the Schwarzian action. 
-
 \par
-Nearly $AdS_2$ spacetimes also show up as limits of some higher dimensional spaces. It was shown by Sachdev~\cite{sachdev2015bekenstein} that the near-horizon geometry of charged black holes in 4 dimensions described by the Reissner-Nordstrom metric is also a nearly $AdS-2$ geometry. Furthermore, the partition function of both the SYK theory and the gravity theory match exactly upon identifying certain parameters on both sides to be dual to each other, and this is zen of the of the holographic duality. We have elucidated here the first instance of an unveiled hyperbolic space in the description of a strongly interacting non-Fermi liquid. 
-
+We will take a moment to show how an $N$-$AdS_2$ space can come from a reduction from a higher dimensional space. In the process, we will uncover intuition for the role played by black holes in $AdS_2$ in regards to their dual field theories being at finite temperature.
+\par
+According to the holographic duality~\cite{maldacena1999large,gubser1998gauge,witten1998anti,zaanen2015holographic}, there is a dictionary that maps conformal field theories to spacetime geometries. The precise statement of this duality is that the partition functions of the boundary CFT and the bulk geometry are equal to each other. When we want to describe the  boundary theory at a finite temperature, it has to it an associated entropy, simply from the fundamental laws of thermodynamics. The empty AdS metric described in Eq.~\eqref{eq:ads2metric} does not have any entropy at all. Its is known from the work of Bekenstein~\cite{bekenstein1973black}, that the only what that spacetime geometry can have either an entropy or a temperature is if it had a black hole in it. The entropy then is proportional to the area of the black hole's event horizon, and the temperature is given by the Hawking temperature. 
+\par 
+Let us see an example~\cite{sachdev2015bekenstein,faulkner2011emergent,faulkner2011holographic}. Let us consider the Reissner-Nordstrom(RN) metric for planar black holes in asymptotic $AdS_{d+2}$. 
+The metric from the solutions of Einstein's equations is given by
+\begin{align}
+    ds^2 = \frac{r^2}{R^2}\left(-f dt^2 + d\vec{x}^2\right) + \frac{R^2}{r^2}\frac{dr^2}{f}, 
+    \label{eq:RNmetric}
+\end{align}
+where $R$ is the radius of $AdS_{d+2}$, and with the emblackening factor 
+\begin{align}
+    f = 1+\frac{\Theta^2}{r^{2d}} - \left(r_0^{d+1} + \frac{\Theta^2}{r_0^{d-1}}\right)\frac{1}{r^{d+1}}\,.
+    \label{eq:RNemblackening}
+\end{align}
+The quantity $\Theta$ is proportional to the charge in the boundary theory, but we will not write it explicitly here for simplicity, for our current purposes we can just treat it as a constant. The black hole horizon is where the metric component $g_{tt}$ vanishes, and hence $f = 0$ implies that the horizon is at $r = r_0$ in these coordinates. 
+\par
+The Hawking temperature is determined by the surface gravity, which is the amount of acceleration a body needs to be at rest just near the horizon. For this Reissner Nordstrom metric in Eq.~\ref{eq:RNmetric}, it is given by~\cite{sachdev2015bekenstein,faulkner2011emergent}
+\begin{align}
+    T = \frac{(d+1)r_0}{4\pi R^2}\left(1 - \frac{(d-1)\Theta^2}{(d+1)r_0^{2d}}\right) \, .
+\end{align}
+We can observe that the Hawking temperature is zero when the horizon is at a position $r_0 = r_\ast$, such that 
+\begin{align}
+    \Theta^2 = \frac{d+1}{d-1} r_\star^{2d} \, .
+\end{align}
+At exactly this location of the horizon, we can look at the near horizon limit of Eq.~\eqref{eq:RNemblackening}, buy expanding 
+\begin{align}
+    r = r_* + \frac{1}{\zeta}
+\end{align}
+for leading order in $\zeta$. The metric that we arrive at then is 
+\begin{align}
+    ds^2 = \underbrace{R_2^2\frac{-dt^2 + d\zeta^2}{\zeta^2}}_{AdS_2} + \underbrace{\frac{r_\ast^2 d\vec{x^2}}{R^2}}_{\mathbb{R}^d} \, ,
+    \label{eq:zerotempAds2}
+\end{align}
+and we see that the metric has factorized into $AdS_2 \times R^d$. We have also expressed an effective $AdS_2$ radius in terms of the radius of the full $AdS_{d+2}$ space as $R_2^2 = \frac{R^2}{d(d+1)}$. This can be compared with Eq.~\ref{eq:ads2metric}, only here we have the Minkowski signature.
+\par
+When the position of the horizon moves slightly away from $r_0 = r_\ast, $, the boundary field theory would be at a finite temperature. We can repeat the procedure sketched above to see what would happen to the near horizon geometry in that case. 
+\par
+We parameterize the small shifts in the following way, First we move the Reissner Nordstrom horizon (which is always at $r=r_0$) a small distance away from where it was :
+\begin{align}
+    r_0 - r_\ast = \frac{1}{\zeta_0}\, ,
+    \label{eq:zeta0param}
+\end{align}
+and then we restrict $r$ to be near the horizon 
+\begin{align}
+    r - r_\ast = \frac{1}{\zeta}\, .
+    \label{eq:zetaparam}
+\end{align}
+In practical terms, this is convenient to do by starting with Eq.~\eqref{eq:RNmetric}, expanding $r$ and $r_0$ about $r_\ast$ using the parameterizations in Eqs.\eqref{eq:zetaparam} and \eqref{eq:zeta0param} up to second order each, and then taking the limit $r_\ast \rightarrow \infty$. We arrive then with the following elegant result 
+\begin{align}
+    ds^2 = \frac{R_2^2}{\zeta^2}\left[-\left(1-\frac{\zeta^2}{\zeta_0^2}\right)dt^2 + \frac{d\zeta^2}{\left(1 - \frac{\zeta^2}{\zeta_0^2}\right)}\right] + \frac{r_\ast^2}{R^2} d\vec{x}^2 \,.
+\end{align}
+This represents a black hole in $AdS_2$ with an emblackening factor such that the horizon is at $\zeta = \zeta_0$. Furthermore, this metric has a Hawking temperature of $T = \frac{1}{2\pi\zeta_0}$. We can see that in order to have finite temperature in the boundary, we need to have a black hole in the bulk $AdS_2$. 
+% \par
+% We have elucidated here the first instance of an unveiled hyperbolic space in the description of a strongly interacting non-Fermi liquid. 
 
 \par
 Having understood the components of the SYK model in sufficient detail, we will now move to yet another scenario where we have an instance of strongly interacting quantum matter, but with its physics instead being engendered by a completely different kind of hidden hyperbolic geometry.
@@ -629,7 +728,7 @@ If we restrict our attention only to the low energy bands, we can look simply at
 \par
 This simple effective continuum model was first described by Bistritzer and Macdonald in their seminal work in Ref.~\cite{Bistritzer2011}. Their key finding was that at some "magic" angle, the bonding orbital thus formed experiences such a degree of energy lowering that the lowest band becomes almost completely flat. For twisted bilayer graphene, this angle is roughly $1.05^\circ$. In other words, this is the angle at which the effective Dirac velocity of the cone corresponding to hexagonal lattice of the bilayer system vanishes. 
 \par
-Furthermore, the flat band thus formed for small twist angles is not completely flat, but has features at the scale of meV, including van Hove singularities. Unlike the case of the square lattice or mono layer graphene, which have vHS at high energies in the eV scale, these low energy vHs in TBG are very close to the Fermi level, and will play an important role in the low energy physics of the material. At exactly the magic angle, we even observe a higher order vHS, and how its effect in the ability of the system to screen the spin of magnetic impurities will be the subject of Chapter~\ref{ch:KondoTBG}.
+Furthermore, the flat band thus formed for small twist angles is not completely flat, but has features at the scale of meV, including van Hove singularities. Unlike the case of the square lattice or mono layer graphene, which have vHS at high energies in the eV scale, these low energy vHs in TBG are very close to the Fermi level, and will play an important role in the low energy physics of the material. At exactly the magic angle, we even observe a higher order vHS, and the role it plays in the ability of the system to screen the spin of magnetic impurities will be the subject of Chapter~\ref{ch:KondoTBG}.
 
 
 
