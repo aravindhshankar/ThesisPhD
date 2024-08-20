@@ -198,7 +198,7 @@ At $\mu = 0$, the model is at half filling, and $Q = \frac{1}{2}$ in this notati
 \par
 Similar to the Majorana SYK, this model also permits a conformally invariant IR, with exactly the same scaling dimension $\delta = \frac{1}{4}$. The infrared for the $\mu = 0$ case of the complex SYK model is indistinguishable from the Majorana SYK model in terms of the effective $G-\Sigma$ theory, in that the Green's functions are identical in the two cases. 
 \par
-At finite $\mu$, the effect of having a finite amount of charge is also indirectly felt by the infrared Green's functions, in the form of $G(\tau = 0^-) = Q$.  
+At finite $\mu$, the effect of having a finite amount of charge is also indirectly felt by the infrared Green's functions, in the form of $G(\tau = 0^-) = Q$. This is shown in Fig.~\ref{fig:CSYKsolns} by the asymmetry between $\abs{G(\tau = 0^-)}$ and $\abs{G(\tau = 0^+)}$.
 The Schwinger-Dyson equations in this case become~\cite{sachdev2015bekenstein}
 \begin{subequations}
 \begin{align}
@@ -207,7 +207,7 @@ The Schwinger-Dyson equations in this case become~\cite{sachdev2015bekenstein}
     \label{eq:cSYKSDeqns}
 \end{align}
 \end{subequations}
-For a solution of these equations to exist, one needs that $\Sigma(\omega_n \rightarrow 0) = \mu$, and at low energy and low temperatures it is solved by the same power law form. Then in that case, indeed one finds that there is a scaling solution to Eqs.~\eqref{eq:cSYKSDeqns} with the exponent $\Delta = \frac{1}{4}$. 
+For a solution of these equations to exist, one needs that $\Sigma(\omega_n \rightarrow 0) = \mu$, and at low energy and low temperatures it is solved by the same power law form. Then in that case, indeed one finds that there is a scaling solution to Eqs.~\eqref{eq:cSYKSDeqns} with the exponent $2\Delta - 1$, with $\Delta = \frac{1}{4}$ as before. 
 
 \begin{figure}
     \centering
@@ -308,6 +308,7 @@ In this case, the non-Fermi liquid metallic phase becomes difficult to observe a
 In Chapter~\ref{chap:JosephsonWormhole} of this thesis, we will explore what happens when we couple two quantum critical superconductors through a weak link as is done conventionally~\cite{ambegaokar1963tunneling} and see that the SYK character of this model (at least theoretically) introduces subtleties in the dc Josephson current that passes through the junction.
  
 \subsection{b-SYK}
+\label{subsec:bSYK}
 Given the importance of the SYK model, attempts have been made in order to realise it in an experimental situation. A comprehensive list of these attempts is provided in the recent review~\cite{chowdhury_sachdev-ye-kitaev_2021}. 
 
 \par 
@@ -419,7 +420,7 @@ We will take a moment to show how an $N$-$AdS_2$ space can come from a reduction
 \par
 According to the holographic duality~\cite{maldacena1999large,gubser1998gauge,witten1998anti,zaanen2015holographic}, there is a dictionary that maps conformal field theories to spacetime geometries. The precise statement of this duality is that the partition functions of the boundary CFT and the bulk geometry are equal to each other. When we want to describe the  boundary theory at a finite temperature, it has to it an associated entropy, simply from the fundamental laws of thermodynamics. The empty AdS metric described in Eq.~\eqref{eq:ads2metric} does not have any entropy at all. Its is known from the work of Bekenstein~\cite{bekenstein1973black}, that the only what that spacetime geometry can have either an entropy or a temperature is if it had a black hole in it. The entropy then is proportional to the area of the black hole's event horizon, and the temperature is given by the Hawking temperature. 
 \par 
-Let us see an example~\cite{sachdev2015bekenstein,faulkner2011emergent,faulkner2011holographic}. Let us consider the Reissner-Nordstrom(RN) metric for planar black holes in asymptotic $AdS_{d+2}$. 
+We shall briefly sketch how this works in practice by considering an explicit  example~\cite{sachdev2015bekenstein,faulkner2011emergent,faulkner2011holographic}. Let us consider the Reissner-Nordstrom(RN) metric for planar black holes in asymptotic $AdS_{d+2}$. 
 The metric from the solutions of Einstein's equations is given by
 \begin{align}
     ds^2 = \frac{r^2}{R^2}\left(-f dt^2 + d\vec{x}^2\right) + \frac{R^2}{r^2}\frac{dr^2}{f}, 
@@ -470,6 +471,45 @@ In practical terms, this is convenient to do by starting with Eq.~\eqref{eq:RNme
 This represents a black hole in $AdS_2$ with an emblackening factor such that the horizon is at $\zeta = \zeta_0$. Furthermore, this metric has a Hawking temperature of $T = \frac{1}{2\pi\zeta_0}$. We can see that in order to have finite temperature in the boundary, we need to have a black hole in the bulk $AdS_2$. 
 % \par
 % We have elucidated here the first instance of an unveiled hyperbolic space in the description of a strongly interacting non-Fermi liquid. 
+
+Black holes have yet another property. They are the fastest scramblers of quantum information.~\cite{maldacena_bound_2016,shenker2014black,shenker2015stringy,stanford_many-body_2016,grozdanov2018black,bagrets2016sachdev}.
+The notion of quantum chaos is connected to the growth of a out of time ordered correlators. This is a measure of the failure of two operators to commute with each other. 
+\par
+In classical mechanics, the amount of chaos in a system is quantified by the Lyapunov exponent. It is a measure of how quickly two trajectories that are close together at the start can diverge as the system evolves under its chaotic dynamics. 
+\begin{align}
+    \poissonbracket{x(t)}{p(0)} &= \fdv{x(t)}{x(0)} \, , \nonumber \\
+    &= e^{\lambda_L t}.
+\end{align}
+In quantum mechanics, we have a quantity that grows as the squared commutator. Given a system, we can define it using two general operators $\hat{W}$ and $\hat{V}$ that are constructed using its degrees of freedom. 
+It can be written as~\cite{stanford_many-body_2016}
+\begin{align}
+    C(t) = \expval{\comm{\hat{W}(t)}{\hat{V}(0)}\comm{W(t)}{V(0)}^\dagger}_
+    \beta \,.
+\end{align}
+Initially at time $t=0$, the operators are far away, in the sense that they have no overlap. They only have support on different states in the Hilbert space. The squared commutator measures the failure of these to commute at a later time $t$. 
+
+\par
+Expanding the squared commutator results in four terms, two of which are normal time ordered, and two of which are out of time ordered. The part of the squared commutator that grows over time are really the out of time ordered ones, appropriately regularized~\cite{romero2019regularization} is called the OTOC, and is the quantity that grows exponentially in a chaotic system. For the SYK model, this property can be used to define the quantum Lyapunov exponent as~\cite{maldacena_comments_2016}.
+\begin{align}
+    \mathrm{OTOC}(t) &= \frac{1}{N^2}\expval{\psi_i(t)\psi_j(0)\psi_i(t)\psi_j(0)} \nonumber \\
+    &\sim \frac{1}{N} e^{\lambda_L t}. 
+    \label{eq:SYKotoc}
+\end{align}
+
+\par
+It was found that the OTOC defined in this way placed a bound on the Lyapunov exponent~\cite{maldacena_bound_2016}. The bound can be stated as follows - at a finite temperature $T$,
+\begin{align}
+    \lambda_L \leq 2\pi T \,.
+    \label{eq:chaosbound}
+\end{align}
+
+\par
+Black holes are known to saturate this bound, and this property is known as fast scrambling. They do so in the following way~\cite{shenker2014black,shenker2015stringy}. In a spacetime with two boundaries~\cite{maldacena2003eternal} where general relativity applies, dropping particles into the space from one boundary causes a shockwave to propagate in the bulk, the proper energy of which grows exponentially with time, at a rate given by the maximal Lyapunov exponent.  
+\par
+The Lyapunov exponent can be calculated for the SYK model by evaluating the four point function in Eq.~\eqref{eq:SYKotoc}, and in the deep infrared, it can also be shown to saturate the chaos bound Eq.~\ref{eq:chaosbound}. This can be traced back to both systems having a Schwarzian mode~\cite{maldacena_comments_2016}.
+The fact that the chaos bound is saturated by both the SYK model and the black hole geometry adds to the evidence that the two models possess a duality of some kind. We will study what happens to the Lyapunov exponent in the b-SYK model of Sec.~\ref{subsec:bSYK} in chapter~\ref{ch:LyapbSYK}. 
+
+We complete the circle by returning to the cuprates. The superconducting transition temperature in these materials by a semi-empirical law to inverse the relaxation time of their normal state just above $T_c$. Ref.~\cite{zaanen2004temperature} argues that the propensity of these materials to dissipate energy at a rate which exactly turns out to be $\lambda_L^{-1}$ in appropriate units after adding in the missing $\hbar$ and $k_B$ is what renders them with their high $T_c$.
 
 \par
 Having understood the components of the SYK model in sufficient detail, we will now move to yet another scenario where we have an instance of strongly interacting quantum matter, but with its physics instead being engendered by a completely different kind of hidden hyperbolic geometry.
@@ -708,7 +748,7 @@ The Moire pattern forms a larger superlattice as is easily visible in Fig.~\ref{
     &\approx \frac{\sqrt{3}a}{\theta} \quad\quad, \text{for small twist angles.}
 \end{align}
 Consequently, the gigantic real space superlattice implies a tiny reciprocal lattice, dubbed the Moire (or mini) Brillouin zone (MBZ).  
-This fact has a far reaching consequence for the low energy band structure of TBG, shown in pictorially in Fig[\textbf{?}]. 
+This fact has a far reaching consequence for the low energy band structure of TBG, shown in pictorially in Fig.~\ref{fig:bandflattening}. 
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.5\linewidth]{figures/introduction/TBGmoire.pdf}  
@@ -757,5 +797,5 @@ This chapter studies the scrambling dynamics of the b-SYK model by calculation o
 
 
 \subsection{Chapter 3 - Wormholes in the Yukawa-Sachdev-Ye-Kitaev model}
-
+~\cite{maldacena2003eternal}
 TBD
