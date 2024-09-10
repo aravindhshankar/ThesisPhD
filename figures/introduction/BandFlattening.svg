@@ -2,13 +2,16 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="20cm"
-   height="20cm"
-   viewBox="0 0 20 20"
+   width="15.111189cm"
+   height="8.5636749cm"
+   viewBox="0 0 15.111189 8.5636749"
    version="1.1"
    id="svg1"
    inkscape:version="1.3.2 (091e20e, 2023-11-25)"
    sodipodi:docname="BandFlattening.svg"
+   inkscape:export-filename="BandFlattening.pdf"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -25,8 +28,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.83872917"
-     inkscape:cx="304.0314"
-     inkscape:cy="398.22152"
+     inkscape:cx="222.95636"
+     inkscape:cy="159.76552"
      inkscape:window-width="1440"
      inkscape:window-height="847"
      inkscape:window-x="0"
@@ -95,10 +98,10 @@
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
        id="filter22"
-       x="-0.023324495"
-       y="-0.029040807"
-       width="1.0440944"
-       height="1.0580885">
+       x="-0.0011655716"
+       y="-0.0014334031"
+       width="1.0023311"
+       height="1.0028668">
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="0.0016239125"
@@ -108,7 +111,8 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-2.1447193,-6.3200091)">
     <g
        id="g13"
        style="fill:#0000ff">
@@ -123,7 +127,7 @@
          id="path4"
          sodipodi:nodetypes="cc" />
       <ellipse
-         style="fill:#0000ff;stroke:url(#linearGradient12);stroke-width:0.0646465;opacity:0.32989691;filter:url(#filter6)"
+         style="opacity:0.329897;fill:#0000ff;stroke:url(#linearGradient12);stroke-width:0.0646465;filter:url(#filter6)"
          id="path5"
          cx="9.128397"
          cy="6.5066118"
@@ -186,7 +190,7 @@
          transform="scale(0.02645833)" />
     </g>
     <path
-       style="opacity:0.84;fill:#bc3276;stroke:#008000;stroke-width:0.1419;stroke-dasharray:none;fill-opacity:0.81568629"
+       style="opacity:0.84;fill:#bc3276;fill-opacity:0.815686;stroke:#008000;stroke-width:0.1419;stroke-dasharray:none"
        d="m 8.239843,14.45081 c 0.2826093,-0.55271 1.2714621,-2.294177 1.3244359,-2.332461 0.085267,-0.06163 0.2190444,-0.06602 0.2864439,-0.0094 0.047137,0.03959 1.3150142,2.348179 1.3150142,2.394418 0,0.01221 -0.666925,0.0222 -1.4820548,0.0222 H 8.2016271 Z"
        id="path20" />
     <g
@@ -203,16 +207,16 @@
          sodipodi:nodetypes="sccscsssssssccscssssssscscssccssssccccsccssscccccssssscccsc" />
     </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.0356543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.21392579, 0.0713086;stroke-dashoffset:0.23531837;stroke-opacity:1;opacity:0.41494845"
+       style="opacity:0.414948;fill:none;stroke:#000000;stroke-width:0.0356543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:0.213926, 0.0713086;stroke-dashoffset:0.235318;stroke-opacity:1"
        d="m 2.1447193,10.536443 15.1111887,0.03122"
        id="path22" />
     <path
-       style="fill:none;stroke:#008000;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#008000;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
        d="m 9.0536267,10.630914 c 0,0 0.3492885,-0.623233 0.6466876,-0.615142 0.2528195,0.0069 0.6466877,0.646687 0.6466877,0.646687"
        id="path23"
        sodipodi:nodetypes="csc" />
     <path
-       style="fill:none;stroke:#008000;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:none;stroke:#008000;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
        d="m 10.346727,10.545676 c 0,0 -0.349288,0.623233 -0.646687,0.615142 -0.25282,-0.0069 -0.646688,-0.646687 -0.646688,-0.646687"
        id="path24"
        sodipodi:nodetypes="csc" />
