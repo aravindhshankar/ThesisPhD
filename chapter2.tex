@@ -300,19 +300,21 @@ In the following, we study the zero temperature, $T=0$, impurity spectral functi
 The physics of the Kondo model strongly depends on the host DoS. For the problem of a magnetic impurity in a TBG host, as modelled using the BM model, there are a number of relevant limits. We assume that the impurity couples to all the orbitals in the same way meaning the local TBG DoS $\rho(\omega)$ is the only relevant quantity characterizing the host. Furthermore, we consider here the particle-hole symmetric case $V=0$ for simplicity.
 
 The main insights of the ensuing discussion are summarized in Table~\ref{tab:ScalingTk}.
+
+\begin{small}
 \begin{table*}
 	\centering
-	\begin{tabular}{|c||c|c|c|} \hline
-		& Density of States, $\rho(\omega)$   &  ~~Kondo Temperature, $T_K$~~ & ~~Impurity entropy, $S_{\rm{imp}}(T=0)$~~ \\ \hline
-		Metal   & $\rho_0$ ~:~constant & $  D e^{-{\nicefrac{1}{\rho_0 J}}}$ & $0$ \\ \hline 
-		Standard van-Hove  & $ \rho_0 \left[1+a\ln \left(D/|\omega| \right) \right]$ ~:~log diverging & $ D e^{\frac{1}{a} - \frac{1}{a}\sqrt{1 + \frac{2a}{\rho_0J}}}$ & $0 $ \\\hline
-		Higher Order van-Hove & $ \rho_0\abs{\omega}^{-\alpha}$ ~:~power-law diverging & $D\left(1+\frac{\alpha D^\alpha}{\rho_0 J}\right)^{-\nicefrac{1}{\alpha}} $ & $-2\alpha \ln 2$\\ \hline 
-		Dirac cone & $\rho_0 |\omega|$ ~:~linear pseudogap & $T_K=0$ & $\ln 2$\\ \hline
+	\begin{tabular}{lccc} \hline\hline
+		& Density of States, $\rho(\omega)$   &  ~~Kondo Temperature, $T_K$~~ &  $S_{\rm{imp}}(T=0)$~~ \\ \hline 
+		Metal   & $\rho_0$  & $  D e^{-{\nicefrac{1}{\rho_0 J}}}$ & $0$ \\ 
+		vHS  & $ \rho_0 \left[1+a\ln \left(D/|\omega| \right) \right]$  & $ D e^{\frac{1}{a} - \frac{1}{a}\sqrt{1 + \frac{2a}{\rho_0J}}}$ & $0 $ \\
+		HOvHS & $ \rho_0\abs{\omega}^{-\alpha}$  & $D\left(1+\frac{\alpha D^\alpha}{\rho_0 J}\right)^{-\nicefrac{1}{\alpha}} $ & $-2\alpha \ln 2$\\ 
+		Dirac & $\rho_0 |\omega|$  & $T_K=0$ & $\ln 2$\\ \hline\hline
 	\end{tabular}
 	\caption{Summary of properties for the Kondo model with the different host DoS encountered in this work.}
 	\label{tab:ScalingTk}
 \end{table*}
-
+\end{small}
 %##########
 
 \subsubsection{The metallic limit}\label{subsec:SKondo}
