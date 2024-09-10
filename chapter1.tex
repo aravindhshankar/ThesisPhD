@@ -1,4 +1,4 @@
-\chapter{Lyapunov Exponents in the bipartite SYK model]}
+\chapter{Lyapunov Exponents in the bipartite SYK model}
 \label{ch:LyapbSYK}
 
 \section*{Attribution}
@@ -138,10 +138,10 @@ there is one order $O(1)$ diagram per species of fermions, the so-called 'melon'
 These are shown in Fig.~\ref{fig:GreensFunction}.
 The diagrams contain the coupling $J^2$ to all orders and exhibit an emergent conformal symmetry in the infrared, as explained below.
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\columnwidth]{figures/chapter1/GA.pdf}
-	\includegraphics[width=0.8\columnwidth]{figures/chapter1/GB.pdf}
+	\includegraphics[width=0.5\columnwidth]{figures/chapter1/GA.pdf}
+	\includegraphics[width=0.5\columnwidth]{figures/chapter1/GB.pdf}
 	\caption{The diagrams that contribute to the self energies of A (top) and B (bottom) Majoranas in the large-$N$ limit. Wiggly (solid) lines denote A (B) Majorana propagators,
 		and the dotted line indicates a quenched disorder average $\sim J^2$.}
 	\label{fig:GreensFunction}
@@ -313,18 +313,18 @@ this can be cast as a self-consistent Bethe-Salpeter equation according to
 \end{equation}
 	where $\gamma$ is summed over, and the Kernel matrix is given as (in imaginary time and a regularized version in real time respectively)
 	\begin{align}
-		K_{\alpha\gamma}(\tau_1\cdots \tau_4) = -J^2
-		\begin{pmatrix}
+		K_{\alpha\gamma}(\tau_1\cdots \tau_4) &= -J^2
+		\resizebox{0.8\linewidth}{!}{$\begin{pmatrix}
 			\frac{1}{2} (1+\frac{1}{\kappa})\,G^A(\tau_{13})G^A(\tau_{24})\left(G^B(\tau_{34})\right)^2   & (1+\frac{1}{\kappa})\,G^A(\tau_{13})G^A(\tau_{24})\left(G^A(\tau_{34})G^B(\tau_{34})\right) \\ 
 			(1+\kappa) \,G^B(\tau_{13})G^B(\tau_{24})\left(G^A(\tau_{34})G^B(\tau_{34})\right) & \frac{1}{2} (1+\kappa)\, G^B(\tau_{13})G^B(\tau_{24})\left(G^A(\tau_{34})\right)^2
-		\end{pmatrix} 
+		\end{pmatrix}$}
 		\label{eq:kernel_tau} \\
-		K^R_{\alpha\gamma}(t_1\cdots t_4) = J^2
-		\begin{pmatrix}
+		K^R_{\alpha\gamma}(t_1\cdots t_4) &= J^2
+		\resizebox{0.8\linewidth}{!}{$\begin{pmatrix}
 			\frac{1}{2} (1+\frac{1}{\kappa})\,G^A_R(t_{13})G^A_R(t_{24})\left(G^B_W(t_{34})\right)^2   & (1+\frac{1}{\kappa})\,G^A_R(t_{13})G^A_R(t_{24})\left(G^A_W(t_{34})G^B_W(t_{34})\right) \\ 
 			(1+\kappa) \,G^B_R(t_{13})G^B_R(t_{24})\left(G^A_W(\tau_{34})G^B_W(t_{34})\right) & \frac{1}{2} (1+\kappa)\, G^B_R(t_{13})G^B_R(t_{24})\left(G^A_W(t_{34})\right)^2
 			\label{Kernelt}
-		\end{pmatrix}
+		\end{pmatrix}$}
 	\end{align}
 The indices $\alpha,\beta,\gamma$ refer to the flavors of the Majorana propagators on the external legs. For example,
 $F_{00}$ refers to the AA-AA scattering and $F_{10}$ refers to BB-AA scattering. 
@@ -493,6 +493,7 @@ Finally, note that Eq.~\eqref{eq:conv_form} can be thought of as an eigenvalue p
 %
 
 	\begin{equation}
+        \resizebox{1.1\linewidth}{!}{$
 		\begin{bmatrix}
 			f_{00}(\omega)\\
 			f_{10}(\omega)\\
@@ -509,7 +510,7 @@ Finally, note that Eq.~\eqref{eq:conv_form} can be thought of as an eigenvalue p
 			f_{10}(\omega^{\prime})\\
 			f_{01}(\omega^{\prime})\\
 			f_{11}(\omega^{\prime})
-		\end{bmatrix}\;.
+		\end{bmatrix}\;.$}
 	\end{equation}
 %
 On the finite frequency grid, the convolution operations naturally translate to matrix multiplications.
@@ -590,7 +591,7 @@ or general flavor symmetries of the underlying fermions carry over to the intera
 The methods used here readily carry over to those models and can be applied to the calculation of Lyapunov exponents and, in general, to the analysis of Bethe-Salpeter equations.
 
 
-\section*{acknowledgments}
+\section*{Acknowledgments}
 	We acknowledge discussions with Y. Cheipesh, A. Kamenev, K. Schalm, M. Haque, and S. Sachdev. Extensive discussions with D. Stanford about the conformal limit of the OTOC are also acknowledged.
 	SP thanks E. Lantagne-Hurtubise, O. Can, S. Sahoo, and M. Franz for many useful discussions related to SYK models and holography.  This work is part of the D-ITP consortium,
 	a program of the Netherlands Organisation for Scientific Research (NWO) that is funded by the Dutch Ministry of Education, Culture and Science (OCW).

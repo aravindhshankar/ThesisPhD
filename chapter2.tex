@@ -19,26 +19,26 @@ Detailed information on the electronic structure of new materials can also be ob
 By contrast, in the case of TBG, one might expect Kondo correlations to be strongly enhanced by the flat bands and diverging DoS close to the magic angle. The study of Kondo physics in TBG, and how it evolves with twist angle, is the topic of this article. We find that magnetic impurities are sensitive probes of the nontrivial band structure of the material, and we uncover rich thermodynamic and spectroscopic signatures that rapidly change on approaching the magic angle.
 
 \begin{figure*}[t!]
-	\begin{subfigure}[b]{0.275\linewidth}
+	\begin{subfigure}[b]{0.47\linewidth}
 		\centering
-		\includegraphics[width=1.1\linewidth]{figures/chapter2/Kondo_impurity_on_twisted_bilayer_3.pdf}
-		\caption{\label{fig:schematic}}
+		\includegraphics[width=1\linewidth]{figures/chapter2/Kondo_impurity_on_twisted_bilayer_3.pdf}
+		\caption{\centering\label{fig:schematic}}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.400\linewidth}
-		\centering
-		\includegraphics[width=\linewidth]{figures/chapter2/BiggerFontHistogramDOS.pdf}
-		\caption{{\label{fig:HistogramDOS}}}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.300\linewidth}
+	\begin{subfigure}[b]{0.47\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{figures/chapter2/ShowHigherOrder.pdf}
-		\caption{{\label{fig:ShowHigherOrder}}}
+		\caption{\centering{\label{fig:ShowHigherOrder}}}
+	\end{subfigure}\\
+	\begin{subfigure}[b]{\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/chapter2/BiggerFontHistogramDOS.pdf}
+		\caption{\centering{\label{fig:HistogramDOS}}}
 	\end{subfigure}
 	\caption{ %\justifying
-		  (a) Schematic representation of a magnetic impurity on the surface of the twisted bilayer graphene host material, with inter-layer twist angle $\theta$.   (b) Evolution of the clean TBG density of states for different twist angles near the magic angle at $\theta = 1.05^{\circ}$. Vertical dashed lines indicate the energy of the dispersion saddle points $E_v$, which determine the van Hove singularity locations. (c) Vanishing vHs saddle point scale $E_v$ (top) and determinant of the saddle point Hessian (bottom) as the magic angle is approached, showing how two vHs's coalesce into a single HO-vHs. }
+		  (a) Schematic representation of a magnetic impurity on the surface of the twisted bilayer graphene host material, with inter-layer twist angle $\theta$.   (b) Vanishing vHs saddle point scale $E_v$ (top) and determinant of the saddle point Hessian (bottom) as the magic angle is approached, showing how two vHs's coalesce into a single HO-vHs. 
+     (c) Evolution of the clean TBG density of states for different twist angles near the magic angle at $\theta = 1.05^{\circ}$. Vertical dashed lines indicate the energy of the dispersion saddle points $E_v$, which determine the van Hove singularity locations.}
 	\label{fig:joinedfig}
 \end{figure*}
-
 
 Specifically, we consider a single, interacting Anderson impurity embedded in the TBG host -- see Fig.~\ref{fig:schematic}. The clean TBG material is modelled using the Bistritzer-MacDonald (BM) model~\cite{Bistritzer2011}, which we discuss in Sec.~\ref{sec:BM-model}. We focus on the role of the vHs's and their evolution with twist angle. The model shows an intricate interplay between different DoS elements: metallic, Dirac pseudogap, vHs log-divergence, and HO-vHs power-law divergence. In Sec.~\ref{sec:Kondo} we review the physics of the Kondo model, emphasizing the different limiting behaviors arising in the metallic, pseudogap, and log-diverging or power-law diverging DoS needed to understand the compound DoS structure in TBG. Finally, in Sec.~\ref{sec:Kondo-BM} we present full numerical renormalization group (NRG) results for an Anderson impurity in TBG in the vicinity of, and at, the magic angle. We focus on thermodynamic quantities such as the impurity entropy as a clear means of identifying the different fixed points and emergent energy scales. We furthermore study the energy-dependence of the local impurity spectral function, which is relevant to STS experiments. We conclude in Sec.~\ref{sec:conclusions}, commenting on the suitability of magnetic impurities as \textit{in-situ} probes for the physics of TBG near the magic angle, and an outlook for experiments. Technical material is given for reference in the Appendices. 
 
@@ -383,11 +383,9 @@ For the linear pseudogap case $\rho(\omega)\sim |\omega|$ the impurity spectral 
 
 \section{Results and discussion}\label{sec:Kondo-BM}
 We now turn to our full NRG results for a magnetic impurity embedded in the TBG host. The impurity is taken to be of Anderson type (Eq.~\ref{eq:AM}), and the BM model is used for the host (Eq.~\ref{eq:H-TBG-symmetric}). The observables of primary interest are the temperature-dependence of the entropy $S_{\rm imp}(T)$, and the energy-resolved impurity spectral function $A(\omega)$ at $T=0$, for TBG systems with different twist angles  -- see Fig.~\ref{fig:angles}. The most dramatic changes are observed in the vicinity of the magic angle at $\theta=1.05^{\circ}$, and this is where we focus our discussion. The physical quantities we calculate reveal a complex RG flow in the system, illustrated in Fig.~\ref{fig:flow}. The physics precisely at the magic angle is also investigated in detail, and the dependence of the Kondo temperature on microscopic parameters is extracted -- see Fig.~\ref{fig:kondomagic}.
-
-
 \begin{figure}[H]
         \centering
-	\includegraphics[width=0.7\linewidth]{figures/chapter2/S_A_vs_th.pdf}
+	\includegraphics[width=0.6\linewidth]{figures/chapter2/S_A_vs_th.pdf}
 	\caption{
 		%\justifying
 		   NRG results for an Anderson impurity in the TBG host material described by the BM model, at various twist angles $\theta$ approaching the magic angle at $\theta=1.05^{\circ}$. 
