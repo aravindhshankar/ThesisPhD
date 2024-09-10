@@ -50,7 +50,7 @@ For times longer than $t_H$, the dynamics is described by random matrix theory.
 In this paper we study a related model, introduced in Ref.~\cite{Fremling_2022,fremling_bipartite_2021}, which emerges as a Majorana variant of the SYK model. 
 It is called the bipartite SYK (or b-SYK) model and, as explained in Sec.~\ref{sec_model},
 can be seen as a restricted version of the standard SYK model. Incidentally,
-Majorana or complex fermion versions of similar models also appear as a natural way to incorporate internal symmetries in SYK models~\cite{lantagne2020diagnosing,Kim2019,sahoo_traversable_2020},
+Majorana or complex fermion versions of similar models also appear as a natural way to incorporate internal symmetries in SYK models~\cite{lantagne2020diagnosing,Kim2019,sahooTraversableWormholeHawkingPage2020},
 or to couple two or more SYK models~\cite{chowdhury_translationally_2018}.
 We are interested in times shorter than the Ehrenfest time $t_E$, and mostly focus on the chaotic behavior. Furthermore, we are interested in studying the growth of the four-point function not just in the full conformal limit at strong coupling, but also at intermediate and weak couplings, as these might be relevant for experimentally achievable values of coupling and temperature, as the b-SYK model has been shown to be realizable in a laboratory by straining a real material in Ref.\cite{fremling_bipartite_2021}.
 %
@@ -223,7 +223,7 @@ we find excellent agreement in the region $0\ll\tau\ll\beta$.
 
 The main goal of this paper is to numerically study the out-of-time-ordered correlator (OTOC) in the b-SYK model.
 To compute it, we need the real time retarded Green function as input.
-We first note the Dyson equation for the retarded propagator ~\cite{parcollet_non-fermi-liquid_1999,lantagne2020diagnosing,sahoo_traversable_2020,gu_notes_2020}
+We first note the Dyson equation for the retarded propagator ~\cite{parcollet_non-fermi-liquid_1999,lantagne2020diagnosing,sahooTraversableWormholeHawkingPage2020,gu_notes_2020}
 %
 \begin{equation}
 	\left(G^R (\omega+\i\delta)\right)^{-1} = \omega+\i\delta - \Sigma^R(\omega+\i\delta).
@@ -269,14 +269,14 @@ The expression for $\Sigma_A$ is obtained by changing $A\leftrightarrow B$, and 
 In principle,
 the Schwinger-Dyson equations can be solved iteratively for $G^R_{A/B}(\omega)$ and $\rho^{A/B}(\omega)$.
 However, nested numerical integration is both highly inefficient in its usage of resources and numerically unstable.
-Instead, it is beneficial to rewrite it using the following decomposition which allows an implementation using only the discrete Fourier transform, cf. Refs.~\cite{Plugge2020,sahoo_traversable_2020}.
+Instead, it is beneficial to rewrite it using the following decomposition which allows an implementation using only the discrete Fourier transform, cf. Refs.~\cite{pluggeRevivalDynamicsTraversable2020a,sahooTraversableWormholeHawkingPage2020}.
 We can express the self energies as
 %
 \begin{align}
-		\Sigma^R_A(\omega+\i\delta) &=  \begin{multlined}[t][] -\imath \frac{J^2}2(1+\frac1\kappa)\int_0^\infty dt\,
+		\Sigma^R_A(\omega+\i\delta) &=  \begin{multlined}[t][] -i \frac{J^2}2(1+\frac1\kappa)\int_0^\infty dt\,
 			e^{\i(\omega+\i\delta)t}
 			\left[n^+_A(t)n^+_B(t)n^+_B(t) + n^-_A(t)n^-_B(t)n^-_B(t)\right] \end{multlined}\\
-		\Sigma^R_B(\omega+\i\delta) &= \begin{multlined}[t][] -\imath \frac{J^2}2(1+\kappa)\int_0^\infty dt\,
+		\Sigma^R_B(\omega+\i\delta) &= \begin{multlined}[t][] -i \frac{J^2}2(1+\kappa)\int_0^\infty dt\,
 			e^{\i(\omega+\i\delta)t}
 			\left[n^+_B(t)n^+_A(t)n^+_A(t) + n^-_B(t)n^-_A(t)n^-_A(t)\right]\end{multlined}\;,
 \end{align}
@@ -587,7 +587,7 @@ An interesting future direction of study would be to consider what deformations 
 
 The present work on the calculation of the Lyapunov exponent in the b-SYK model shows that the features of emergent conformal symmetry and maximal quantum chaos of the SYK model are quite robust to the couplings obeying additional internal symmetries.
 Besides the particular model considered here, there are many setups where parity, charge, spin,
-or general flavor symmetries of the underlying fermions carry over to the interaction matrix elements~\cite{Chowdhury-RMP2022,Franz2018-review,Kim2019,sahoo_traversable_2020,xu_sparse_2020}.
+or general flavor symmetries of the underlying fermions carry over to the interaction matrix elements~\cite{Chowdhury-RMP2022,Franz2018-review,Kim2019,sahooTraversableWormholeHawkingPage2020,xu_sparse_2020}.
 The methods used here readily carry over to those models and can be applied to the calculation of Lyapunov exponents and, in general, to the analysis of Bethe-Salpeter equations.
 
 
