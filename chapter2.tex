@@ -35,7 +35,7 @@ By contrast, in the case of TBG, one might expect Kondo correlations to be stron
 		\caption{{\label{fig:ShowHigherOrder}}}
 	\end{subfigure}
 	\caption{ %\justifying
-		\small (a) Schematic representation of a magnetic impurity on the surface of the twisted bilayer graphene host material, with inter-layer twist angle $\theta$.   (b) Evolution of the clean TBG density of states for different twist angles near the magic angle at $\theta = 1.05^{\circ}$. Vertical dashed lines indicate the energy of the dispersion saddle points $E_v$, which determine the van Hove singularity locations. (c) Vanishing vHs saddle point scale $E_v$ (top) and determinant of the saddle point Hessian (bottom) as the magic angle is approached, showing how two vHs's coalesce into a single HO-vHs. }
+		  (a) Schematic representation of a magnetic impurity on the surface of the twisted bilayer graphene host material, with inter-layer twist angle $\theta$.   (b) Evolution of the clean TBG density of states for different twist angles near the magic angle at $\theta = 1.05^{\circ}$. Vertical dashed lines indicate the energy of the dispersion saddle points $E_v$, which determine the van Hove singularity locations. (c) Vanishing vHs saddle point scale $E_v$ (top) and determinant of the saddle point Hessian (bottom) as the magic angle is approached, showing how two vHs's coalesce into a single HO-vHs. }
 	\label{fig:joinedfig}
 \end{figure*}
 
@@ -60,8 +60,7 @@ Before considering a Kondo impurity in TBG, we first analyze the clean host mate
 To describe TBG with a small twist angle  $\theta$, it is necessary to take into account both the intralayer hopping parameter $t$ for each of the individual graphene layers, as well as the interlayer tunneling $w$. In the following we take these to be $t\approx 2.87 \,\text{eV}$ and $w\approx 0.11 \,\text{eV}$, as used in Ref.~\cite{Bistritzer2011}. The twist angle between the layers generates a Moir\'{e} pattern with an emergent superlattice structure. For small twist angles $\theta$, the characteristic Moir\'{e} length scale $L_{\theta}$ is given by $L_{\theta}=\sqrt{3} a /[2 \sin (\theta / 2)]$ with $a=1.42\text{\AA}$ being the interatomic distance in monolayer graphene. The corresponding effective low-energy Hamiltonian near the $K$ point of the Moir\'{e} Brillouin zone (MBZ) has the form \cite{Bistritzer2011,Bernevig2019PRL-TBG},
 \begin{align}
 	\label{eq:H-TBG-full}
-	&H(\vec{k})=\nn
-	&\hspace{-0.3cm}\left(\begin{array}{cccc}
+	H(\vec{k}) = \left(\begin{array}{cccc}
 		h_{\frac{\theta}{2}}^{K}(\vec{k}) & w T_1 & w T_2 & w T_3 \\
 		w T_1^{\dagger} & h_{-\frac{\theta}{2}}^{K}(\vec{k}-\mathbf{q}_1) & 0 & 0 \\
 		w T_2^{\dagger} & 0 & h_{-\frac{\theta}{2}}^{K}(\vec{k}-\mathbf{q}_2) & 0 \\
@@ -120,7 +119,7 @@ The low-energy TBG DoS $\rho(\omega)$, obtained by diagonalizing this Hamiltonia
 
 \subsection{Characterization of van Hove singularities in the particle-hole symmetric BM model}
 
-We start our analysis of vHs properties in TBG by recalling the classification recently introduced in Refs.~\cite{Yuan2019,Chamon2020PRR,Yuan2020PRB-classification}, which expands the definition from the usual vHs with logarithmically diverging DoS  \cite{vanHove1953} to include HO-vHs with power-law diverging DoS. For a band dispersion $\epsilon(\vec{k})$, which is a function of the 2D momentum vector $\vec{k}$, we calculate the first derivatives $\nabla_{\vec{k}}\epsilon(\vec{k})$, and the Hessian matrix of second derivatives $\mathcal{D}_{i j}(\vec{k}) \equiv \frac{1}{2} \partial_{k_i} \partial_{k_j} \varepsilon(\vec{k})$. The Hellman-Feynman theorem allows to carry this out with high numerical accuracy (see Appendix A). 
+We start our analysis of vHs properties in TBG by recalling the classification recently introduced in Refs.~\cite{Yuan2019,Chamon2020PRR,Yuan2020PRB-classification}, which expands the definition from the usual vHs with logarithmically diverging DoS  \cite{vanHove1953} to include HO-vHs with power-law diverging DoS. For a band dispersion $\epsilon(\vec{k})$, which is a function of the 2D momentum vector $\vec{k}$, we calculate the first derivatives $\nabla_{\vec{k}}\epsilon(\vec{k})$, and the Hessian matrix of second derivatives $\mathcal{D}_{i j}(\vec{k}) \equiv \frac{1}{2} \partial_{k_i} \partial_{k_j} \varepsilon(\vec{k})$. The Hellman-Feynman theorem allows to carry this out with high numerical accuracy (see Appendix~\ref{app:KondoA}). 
 A logarithmic vHs arises at a point $\vec{k}_0$ in the dispersion corresponding to a saddle point when:
 \begin{align}\label{eq:logvhs}
 	\text{log vHs:}\quad \nabla_{\vec{k}}  \varepsilon(\vec{k}_0)=\mathbf{0} \text {~~~and~~} \operatorname{det} \mathcal{D}(\vec{k}_0)<0 \;.
@@ -138,23 +137,23 @@ In addition, higher-order saddle points can be classified according to the leadi
 		\centering
 		\includegraphics[width=\linewidth]{figures/chapter2/ContoursLog.pdf}
 		\caption[ContoursLog]%
-		{{\small Conventional  vHs}\label{fig:contourslog}}  
+		{{  Conventional  vHs}\label{fig:contourslog}}  
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.475\linewidth}   
 		\centering 
 		\includegraphics[width=\linewidth]{figures/chapter2/ContoursMagic.pdf}
 		\caption[]%
-		{{\small Higher Order vHs at the magic angle}\label{fig:Magic_Heatmap}}    
+		{{  Higher Order vHs at the magic angle}\label{fig:Magic_Heatmap}}    
 	\end{subfigure}
 	\caption[ FermiSurfacePlots ]
 	{%\justifying
-		\small  Low-energy features of the particle-hole symmetric BM model of pristine TBG, showing energy contours of the dispersion $\varepsilon(\boldsymbol{k})$ as a function of momentum $\boldsymbol{k}$ in the extended MBZ. Red points show the saddle points of the dispersion, corresponding to the van Hove singularities. Dashed lines show the contours at energy $E_v$, on which the van Hove points sit.} 
+		   Low-energy features of the particle-hole symmetric BM model of pristine TBG, showing energy contours of the dispersion $\varepsilon(\boldsymbol{k})$ as a function of momentum $\boldsymbol{k}$ in the extended MBZ. Red points show the saddle points of the dispersion, corresponding to the van Hove singularities. Dashed lines show the contours at energy $E_v$, on which the van Hove points sit.} 
 	\label{fig:Spinners}
 \end{figure*}
 
 
-With the help of this classification, we proceed to investigate the structure of the lowest band in the BM model Hamiltonian given by Eq.~\eqref{eq:H-TBG-symmetric}. Using particle-hole symmetry in conjunction with the transformation $k_x\to -k_x$ allows us to concentrate only on the lowest positive energy band for our analysis. Technical details of our numerical implementation are presented in  Appendix A. In Fig.~\ref{fig:ShowHigherOrder} we show the numerically-computed $E_v$ scale (top panel) and the determinant of the saddle-point Hessian $\operatorname{det} \mathcal{D}(\vec{k}_0)$ (bottom panel) as a function of twist angle. Both are seen to vanish at the magic angle, heralding the emergence of the HO-vHs at this point. This behavior is further analyzed below.
+With the help of this classification, we proceed to investigate the structure of the lowest band in the BM model Hamiltonian given by Eq.~\eqref{eq:H-TBG-symmetric}. Using particle-hole symmetry in conjunction with the transformation $k_x\to -k_x$ allows us to concentrate only on the lowest positive energy band for our analysis. Technical details of our numerical implementation are presented in  Appendix~\ref{app:KondoA}. In Fig.~\ref{fig:ShowHigherOrder} we show the numerically-computed $E_v$ scale (top panel) and the determinant of the saddle-point Hessian $\operatorname{det} \mathcal{D}(\vec{k}_0)$ (bottom panel) as a function of twist angle. Both are seen to vanish at the magic angle, heralding the emergence of the HO-vHs at this point. This behavior is further analyzed below.
 
 In Fig.~\ref{fig:Spinners} we plot the momentum-resolved spectrum of the BM model for twist angles $\theta=1.2^{\circ}$ (panel a) and $\theta=1.05^{\circ}$ (panel b). We compute $\nabla_{\vec{k}} \varepsilon(\vec{k})$ throughout the MBZ and search for the vHs points for which $\nabla_{\vec{k}} \varepsilon(\vec{k})=\vec{0}$. These are indicated in both panels as the red circle points. 
 
@@ -260,7 +259,7 @@ such that the full (discretized) model is obtained as $H^{\rm disc}=\lim_{N\to \
 (vi) The partition function $Z_N$ can be calculated from the diagonalized Hamiltonian $H_N$ at each step $N$. Wilson used RG arguments to show \cite{wilson1975renormalization} that thermodynamic properties obtained from $Z_N$ at an effective temperature $T_N \sim \Lambda^{-N/2}$ accurately approximate those of the original undiscretized model at the same temperature. The sequence of $H_N$ can therefore be viewed as coarse-grained versions of the full model, which faithfully capture the physics at progressively lower and lower temperatures.\\
 (vii) The discarded states at each step form a complete set (the Anders-Schiller basis \cite{anders2006spin}), from which the NRG full density matrix can be constructed. This provides a rigorous way of calculating real-frequency dynamical quantities via the Lehmann representation \cite{weichselbaum2007sum}.
 
-In this work, we take the DoS $\rho(\omega)$ of the TBG system for a given twist angle $\theta$ (as calculated from the BM model in Sec.~\ref{sec:BM-model}), discretize it logarithmically, and map to Wilson chains. The DoS used and the resulting Wilson chains are shown in Appendix B. NRG is then used to solve the Anderson and Kondo models describing an impurity embedded in the TBG host. Thermodynamic and dynamical quantities are calculated and discussed in Sec.~\ref{sec:Kondo-BM}. Throughout, we use an NRG discretization parameter $\Lambda=2$ and retain $N_s=4000$ states at each step of the calculation.
+In this work, we take the DoS $\rho(\omega)$ of the TBG system for a given twist angle $\theta$ (as calculated from the BM model in Sec.~\ref{sec:BM-model}), discretize it logarithmically, and map to Wilson chains. The DoS used and the resulting Wilson chains are shown in Appendix~\ref{app:KondoB}. NRG is then used to solve the Anderson and Kondo models describing an impurity embedded in the TBG host. Thermodynamic and dynamical quantities are calculated and discussed in Sec.~\ref{sec:Kondo-BM}. Throughout, we use an NRG discretization parameter $\Lambda=2$ and retain $N_s=4000$ states at each step of the calculation.
 
 %##################
 
@@ -358,11 +357,12 @@ As for the impurity spectral function, the quasiparticle Kondo resonance is supp
 
 The RG flow in the particle-hole symmetric case considered here is again one-dimensional, running from LM to $\rm{SSC}_{\rm{HO}}$ as the energy scale or temperature is reduced (see middle panel of Fig.~\ref{fig:RGFlow}). We note that strong particle-hole asymmetry can play a role in the power-law Kondo model, unlike the pure metallic case, and leads to the intricate phase diagram discussed in Ref.~\cite{Mitchell2013}.
 
-\begin{figure}[t]
-	\includegraphics[width=0.8\linewidth]{figures/chapter2/FigureFixPointv4.pdf}
+\begin{figure}[h]
+        \centering
+	\includegraphics[width=0.5\linewidth]{figures/chapter2/FigureFixPointv4.pdf}
 	\caption{
 		%\justifying
-		\small  One-dimensional RG diagram showing the flow into different stable fixed points as the temperature is lowered, for different host density of states profiles.}
+		   One-dimensional RG diagram showing the flow into different stable fixed points as the temperature is lowered, for different host density of states profiles.}
 	\label{fig:RGFlow}
 \end{figure}
 %##########
@@ -383,11 +383,12 @@ For the linear pseudogap case $\rho(\omega)\sim |\omega|$ the impurity spectral 
 We now turn to our full NRG results for a magnetic impurity embedded in the TBG host. The impurity is taken to be of Anderson type (Eq.~\ref{eq:AM}), and the BM model is used for the host (Eq.~\ref{eq:H-TBG-symmetric}). The observables of primary interest are the temperature-dependence of the entropy $S_{\rm imp}(T)$, and the energy-resolved impurity spectral function $A(\omega)$ at $T=0$, for TBG systems with different twist angles  -- see Fig.~\ref{fig:angles}. The most dramatic changes are observed in the vicinity of the magic angle at $\theta=1.05^{\circ}$, and this is where we focus our discussion. The physical quantities we calculate reveal a complex RG flow in the system, illustrated in Fig.~\ref{fig:flow}. The physics precisely at the magic angle is also investigated in detail, and the dependence of the Kondo temperature on microscopic parameters is extracted -- see Fig.~\ref{fig:kondomagic}.
 
 
-\begin{figure}[t]
-	\includegraphics[width=\linewidth]{figures/chapter2/S_A_vs_th.pdf}
+\begin{figure}[H]
+        \centering
+	\includegraphics[width=0.7\linewidth]{figures/chapter2/S_A_vs_th.pdf}
 	\caption{
 		%\justifying
-		\small  NRG results for an Anderson impurity in the TBG host material described by the BM model, at various twist angles $\theta$ approaching the magic angle at $\theta=1.05^{\circ}$. 
+		   NRG results for an Anderson impurity in the TBG host material described by the BM model, at various twist angles $\theta$ approaching the magic angle at $\theta=1.05^{\circ}$. 
 		(a) Impurity entropy $S_{\rm imp}(T)$ vs temperature $T$; and (b) Impurity spectral function $A(\omega)$ vs energy $\omega$ at $T=0$. Inset shows low-energy spectral details on a linear scale for representative cases approaching the magic angle. All plots shown for $U_d=0.4D$, $\epsilon_d=-U_d/2$ and $g=0.2D$, with $D$ the TBG bandwidth. }
 	\label{fig:angles}
 \end{figure}
@@ -399,10 +400,11 @@ However, the situation is much more complex for twist angles close to (but not a
 Near the magic angle, the TBG host DoS has a compound structure featuring multiple elements, each of which corresponding to a different limiting Kondo problem. At high energies, the system shows behavior that is characteristic of the HO-vHs, denoted in blue in Fig.~\ref{fig:flow}. This behavior crosses over to that of a standard logarithmic vHs on the scale of $E_v$, denoted in green. Far below this scale, the linear vanishing pseudogap DoS of the Dirac cone emerges, denoted in red. Depending on the energy window, the RG flow will therefore be controlled by the different regimes depicted in  Fig.~\ref{fig:RGFlow}.
 
 \begin{figure}[t]
-	\includegraphics[width=0.8\linewidth]{figures/chapter2/RGFlowColors.pdf}
+        \centering
+	\includegraphics[width=0.4\linewidth]{figures/chapter2/RGFlowColors.pdf}
 	\caption{
 		%\justifying
-		\small Near the magic angle, the TBG host DoS has a compound structure. At high energies $\Lambda$, the power-law diverging DoS associated with the HO-vHs generates a rapid RG flow towards strong coupling -- blue arrow. On the scale of $E_v$ the DoS crosses over to logarithmic vHs -- green arrow. Below $E_v$ the Dirac cone pseudogap dominates the DoS and $J(\Lambda)$ begins to decrease again as the system flows back towards the free local moment regime on an emergent scale $E^*$. The color-coding is the same as that in Fig.~\ref{fig:RGFlow}.}
+		  Near the magic angle, the TBG host DoS has a compound structure. At high energies $\Lambda$, the power-law diverging DoS associated with the HO-vHs generates a rapid RG flow towards strong coupling -- blue arrow. On the scale of $E_v$ the DoS crosses over to logarithmic vHs -- green arrow. Below $E_v$ the Dirac cone pseudogap dominates the DoS and $J(\Lambda)$ begins to decrease again as the system flows back towards the free local moment regime on an emergent scale $E^*$. The color-coding is the same as that in Fig.~\ref{fig:RGFlow}.}
 	\label{fig:flow}
 \end{figure}
 
@@ -418,12 +420,12 @@ The same RG flow is demonstrated by the $T=0$ spectral function for the impurity
 
 
 
-\begin{figure}[t]
+\begin{figure}[h!]
 	\centering
-	\includegraphics[width = \linewidth]{figures/chapter2/kondo2.pdf}
+	\includegraphics[width = 0.8\linewidth]{figures/chapter2/kondo2.pdf}
 	\caption{
 		% \justifying
-		\small NRG results for an impurity embedded in magic angle TBG. Main panel: Entropy $S_{\rm imp}$ vs $T$ for Anderson and Kondo impurities (points and lines respectively)  for different impurity-host couplings. For a given Kondo $J$, the low temperature physics of an Anderson model with fixed $U=0.4D$ is fit by tuning $g$. The relationship between $J$ and $g$ is shown in the lower-left inset (points), comparing with the SW result (red dashed line). The evolution of $T_K$ with $J$ is shown in the lower-right inset (points), comparing with Eq.~\ref{eq:tkHO} (red dashed line) and its small-$J$ asymptote (blue dotted line). \rev{$T_K$ is extracted numerically from NRG results for the entropy, defined in practice via $S_{\rm imp}(T=T_K)=0$.}}
+		  NRG results for an impurity embedded in magic angle TBG. Main panel: Entropy $S_{\rm imp}$ vs $T$ for Anderson and Kondo impurities (points and lines respectively)  for different impurity-host couplings. For a given Kondo $J$, the low temperature physics of an Anderson model with fixed $U=0.4D$ is fit by tuning $g$. The relationship between $J$ and $g$ is shown in the lower-left inset (points), comparing with the SW result (red dashed line). The evolution of $T_K$ with $J$ is shown in the lower-right inset (points), comparing with Eq.~\ref{eq:tkHO} (red dashed line) and its small-$J$ asymptote (blue dotted line). \rev{$T_K$ is extracted numerically from NRG results for the entropy, defined in practice via $S_{\rm imp}(T=T_K)=0$.}}
 	\label{fig:kondomagic}
 \end{figure}
 
@@ -437,7 +439,7 @@ The Anderson-Kondo mapping can be performed perturbatively via the approximate S
 The exact relationship between $J$ and $g$ as extracted from our NRG results is shown in the lower left panel of Fig.~\ref{fig:kondomagic} as the circle points. The SW result (red dashed line) is seen to work well when the bare coupling of the underlying Anderson model is small, $g\ll U$  (small $T_K$ regime). Away from this limit, NRG results show that the Kondo model is still the correct low-energy effective model, but that non-perturbative techniques must be used to obtain the correct effective model parameters~\cite{rigo2020machine}. The evolution of the numerically-extracted Kondo temperature as a function of the effective $J$ is shown in the lower right panel of Fig.~\ref{fig:kondomagic} (points), and is compared with the analytic result for the Kondo model Eq.~\ref{eq:tkHO}
 (red dashed line). The blue dotted line is the asymptotic small-$J$ limit of this expression, $T_K \sim (4\rho_0 J)^{1/\alpha}$.
 
-Our full NRG results for an impurity in magic angle TBG therefore confirm the analytic predictions of the previous sections. For a comparison with results for an impurity coupled to a standard logarithmic vHs, see Appendix~C.
+Our full NRG results for an impurity in magic angle TBG therefore confirm the analytic predictions of the previous sections. For a comparison with results for an impurity coupled to a standard logarithmic vHs, see Appendix~\ref{app:KondoC}.
 
 \rev{Finally, we comment on the role of potential scattering and particle-hole symmetry breaking. In the above analysis we have for simplicity neglected particle-hole asymmetry in the TBG host DoS by employing the symmetric BM model. However, we believe this approximation is well-justified and does not affect the presented results. Although in principle particle-hole asymmetry can lead to Kondo screening in the linear pseudogap case \cite{Fritz2013} relevant to the low-energy Dirac cone in TBG away from the magic angle, the singlet-doublet quantum phase transition arises only at very strong asymmetry. In practice, the relatively small particle-hole symmetry breaking in TBG means that the impurity problem is far away from the asymmetric strong coupling Kondo phase. Within the doublet local moment phase, particle-hole asymmetry is RG irrelevant and can be safely ignored. We have also assumed that the impurity itself is particle-hole symmetric ($\epsilon_d=-U_d/2$ in the Anderson model, or $V=0$ in the Kondo model). Relaxing this condition induces potential scattering in the TBG host. Very strong deviations away from the half-filled Anderson impurity are required to destroy the local moment ground state (the resulting asymmetric Kondo strong coupling state is continuously connected to the trivial empty orbital state of the impurity). In this regime, the mapping to the Kondo model breaks down (the large value of $V$ in the Kondo model required for Kondo screening is unphysical). Therefore, we argue that the results presented above are generic for a local moment impurity embedded in a TBG host material.}
 
@@ -456,16 +458,17 @@ An interesting direction of future research is the role of the RKKY interaction 
 
 %%%%%%%%%%%%%%%
 
-\section*{acknowledgments}
+\section*{Acknowledgments}
 	We thank S.~Polla, V.~Cheianov, L.~Classen, A.~Chubukov, and L.~Fu for helpful discussions. this work is part of the D-ITP consortium,
 	a program of the Netherlands Organisation for Scientific Research (NWO) that is funded by the Dutch Ministry of Education, Culture and Science (OCW). DOO acknowledges the support from the Netherlands Organization for Scientific Research (NWO/OCW) and from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme. AKM acknowledges funding from the Irish Research Council through the Laureate Award 2017/2018 grant IRCLA/2017/169.
 
 %##################
 
-\appendix
-
-\section{Locating saddle point positions in the particle-hole symmetric BM model}
-
+% \appendix
+\newpage
+\section{Appendix}
+\subsection{Locating saddle point positions in the particle-hole symmetric BM model}
+\label{app:KondoA}
 To locate the saddle points in the Brillouin  zone, we require gradients of the energy. The flat bands make it imperative that the first derivative is computed very accurately, and this means that we must avoid crude finite difference methods for numerical derivatives of the energy. This problem can be addressed by utilizing our analytical access to the Hamiltonian itself, and implementing the Hellman-Feynman theorem,
 \begin{equation}
 	\pdv{E}{k^i} = \expval{\pdv{H}{k^i}}{\psi_k}, 
@@ -479,37 +482,37 @@ One subtlety is that for angles very close to the magic angle, there are seconda
 
 %!!!!!!!!!!!!
 
-\begin{figure}[t!]
-	\centering
-	\includegraphics[width = \linewidth]{figures/chapter2/DoS_wc_labels.pdf}
-	\caption{
-		%\justifying
-		\small Left panels: DoS used in our NRG calculations, obtained from analysis of the effective BM model, for different twist angles $\theta$ as used in the main text. Vertical dotted lines show the $E_v$ scale at which the vHs divergence occurs. This scale moves to lower energies as the magic angle is approached. Right panels: corresponding Wilson chain coefficients.}
-	\label{fig:wc}
-\end{figure}
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width = \linewidth]{figures/chapter2/Slog_labels.pdf}
-	\caption{
-		% \justifying
-		\small Main panel: NRG results for the impurity entropy $S_{\rm imp}$ vs temperature $T$ for different bare coupling strengths $J$, in a system with a pure log-diverging DoS (standard vHs). Right inset shows the extracted $T_K$ scale (points), compared with Eq.~\ref{eq:TKLog} (black line) and the asymptotic result $T_K \sim D e^{-1/\sqrt{A J/D}}$ (red dashed line), with $A=a\rho_0 D/2$.}
-	\label{fig:Slog}
-\end{figure}
 
 %###############
-
-\section{Mapping from TBG density of states to the NRG Wilson chain}
-
+\newpage
+\subsection{Mapping from TBG density of states to the NRG Wilson chain}
+\label{app:KondoB}
 The TBG DoS away from the magic angle has two qualitative features: the linear-pseudogap Dirac cone at low energies and the divergence due to the vHs on the scale of $E_v$. We extract an effective model DoS from analysis of the BM model for different twist angles -- see left panels of Fig.~\ref{fig:wc} for the cases explicitly considered in the main text (we have rescaled the energy range in terms of the bandwidth cutoff and normalized the spectrum to unity). This DoS is then discretized logarithmically and mapped to a Wilson chain \cite{bulla2008numerical} as described in Sec.~\ref{subsec:nrg}. The corresponding Wilson chain hopping parameters are plotted in the right panels of Fig.~\ref{fig:wc}. The results show that the different DoS elements can be captured in NRG through the crossover behavior in the functional form of the Wilson chain.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 0.8\linewidth]{figures/chapter2/DoS_wc_labels.pdf}
+	\caption{
+		%\justifying
+		  Left panels: DoS used in our NRG calculations, obtained from analysis of the effective BM model, for different twist angles $\theta$ as used in the main text. Vertical dotted lines show the $E_v$ scale at which the vHs divergence occurs. This scale moves to lower energies as the magic angle is approached. Right panels: corresponding Wilson chain coefficients.}
+	\label{fig:wc}
+\end{figure}
 
 
 
 %##################
-
-\section{NRG calculations for an impurity coupled to a conventional log-vHs host}
-
+\newpage
+\subsection{NRG calculations for an impurity coupled to a conventional log-vHs host}
+\label{app:KondoC}
 In Fig.~\ref{fig:Slog} we provide reference NRG calculations for a Kondo impurity coupled to a pure log-diverging DoS. This gives a useful comparison to our result for an impurity embedded in the magic-angle TBG system, which has a HO-vHs point and hence a stronger power-law diverging DoS. As predicted from our perturbative scaling (poor man's scaling) results, the system flows towards strong coupling in all cases, in which the impurity is Kondo-screened. The residual entropy at $T=0$ is seen to be $S_{\rm imp}=0$, although this limit is approached logarithmically slowly from below. This is characteristic of the logarithmic DoS. From the scaling with bare coupling strength $J$ in the left panel, the Kondo temperature $T_K$ is seen to be enhanced relative to the metallic case, but substantially suppressed relative to the power-law diverging DoS case. In the right panel, we analyze the behavior of $T_K$ in more detail, comparing NRG results at different $J$ (circle points) with our analytic formula Eq.~\ref{eq:TKLog} (black line). The results agree almost perfectly. The red dashed line is the asymptotic result at small $J$, which also does remarkably well compared with exact NRG results.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = \linewidth]{figures/chapter2/Slog_labels.pdf}
+	\caption{
+		% \justifying
+		  Main panel: NRG results for the impurity entropy $S_{\rm imp}$ vs temperature $T$ for different bare coupling strengths $J$, in a system with a pure log-diverging DoS (standard vHs). Right inset shows the extracted $T_K$ scale (points), compared with Eq.~\ref{eq:TKLog} (black line) and the asymptotic result $T_K \sim D e^{-1/\sqrt{A J/D}}$ (red dashed line), with $A=a\rho_0 D/2$.}
+	\label{fig:Slog}
+\end{figure}
 
 
 

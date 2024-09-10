@@ -10,9 +10,23 @@
 \usepackage{ragged2e}
 
 \renewcommand{\vec}[1]{{\boldsymbol #1}}
+\renewcommand{\i}{i}
 %\newcommand{\rev}[1]{{\color{red}{#1}}} 
 \newcommand{\rev}[1]{{{#1}}} 
 \def\nn{\nonumber\\}
+% \newcommand{\nn}{\nonumber\\}
+\newcommand{\non}{\nonumber\\}
+
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\cind}[3]{c^{(#1)}_{#2}(#3)}
+\newcommand{\cdag}[3]{{c^\dagger}^{(#1)}_{#2}(#3)}
+\newcommand{\phind}[3]{\phi^{(#1)}_{#2}(#3)}
+\newcommand{\sigmap}{\sigma^\prime}
+\newcommand{\taup}{\tau^\prime}
+
+\newcommand{\oemga}{\omega}
+\newcommand{\tp}{t^\prime}
+
 
 \usepackage{url}
 \usepackage{pgfplots}
@@ -33,7 +47,7 @@
 \usepackage{array}
 \usepackage{feynmp-auto}
 \usepackage{comment}
-
+\usepackage{float}
 
 
 \definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
@@ -93,46 +107,9 @@
 	\def\O{\pazocal{O}}
 	\def\U{\Upsilon}
 	\def\dhg{\delta \hat g}
-	
-	\newcommand{\FIXME}[1]{\textbf{FIXME: #1}}
-	\newcommand{\sgn}{\rm{sgn}}
-	
-	\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
-	
-	\def\lcdm{$\Lambda$CDM}
-	\def\omegao{$\Omega_0$}
-	\def\gammatwo{$\gamma_2^0$}
-	
-	\def\edu{{\color{white}{]}}_{\large{|} \omega^{2},\, \omega^{1}}}
-	\def\ed{{\color{white}{]}}_{\large{|} \omega^{2}}}
-	\def\eu{{\color{white}{]}}_{\large{|} \omega^{1}}}
-	
-	\newcommand{\ag}[1]{\textcolor{blue}{#1}}
-	\newcommand{\red}[1]{\textcolor{red}{#1}}
-	
-	\newcommand{\s}{\sigma}
-	\newcommand{\g}{\gamma}
-	\newcommand{\oo}{\mathcal{O}}
-	\newcommand{\tabitem}{~~\llap{\textbullet}~~}
-	\newcommand{\vbtheta}{\boldsymbol{\theta}}
-	\newcommand{\vbomega}{\boldsymbol{\omega}}
-	\newcommand{\vbx}{\boldsymbol{x}}
-	\newcommand{\loss}{\mathcal{L}}
-	\newcommand{\one}{1\!\!1}
-	\newcommand{\non}{\nonumber\\}
-	%\newcommand{\rm}[1]{\text{#1}}
-	\newcommand{\rmd} {{\rm d}}
-	\newcommand{\rme} {{\rm e}}
-	\newcommand{\rmi} {{\rm i}}
-	\newcommand{\mathperiod}{\  .}
-	\newcommand{\mathcomma}{\  ,}
-	\renewcommand{\i}{{\imath}}
-	
-	
-	\definecolor{z1}{HTML}{11b9a5}
-	\definecolor{z2}{HTML}{d4a816}
-	\definecolor{z3}{HTML}{20a1c5}
-	\definecolor{z4}{HTML}{b1111e}
+
+            
+
 	
 	\definecolor{myred}{RGB}{180, 38, 38}
 	\definecolor{myblue}{RGB}{25, 145, 198}
@@ -191,9 +168,9 @@
 		\thumbtrue
 		
 		
-		\include{introduction.tex}
+		% \include{introduction.tex}
+		\include{chapter2.tex}
 		% \include{chapter1.tex}
-		% \include{chapter2.tex}
 		% \include{chapter3.tex}
 		%\include{chapter4.tex}
 		

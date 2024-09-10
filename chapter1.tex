@@ -600,11 +600,11 @@ The methods used here readily carry over to those models and can be applied to t
 \section*{Author Contributions}
 A.S.S and M.F contributed equally to this work.
 
-\appendix
+% \appendix
+\newpage
+\section{Appendix}
 
-
-
-\section{Mathematical consistency of the Lyapunov ansatz}
+\subsection{Mathematical consistency of the Lyapunov ansatz}
 \label{sec:technical_explanation}
 
 The following short consideration for the diagram piece $\mathcal{F}_{00}$ shows why we expect only one `global' Lyapunov exponent for all scattering channels.
@@ -651,7 +651,7 @@ By repeating the argument for the other components of $\mathcal{F}$,
 it can be shown that all Lyapunov components should be the same, $\lambda_{ij} = \lambda$,
 and that there is only one Lyapunov exponent governing the behavior of the model.
 
-\section{Recovery of the maximal Lyapunov exponent of the regular SYK}
+\subsection{Recovery of the maximal Lyapunov exponent of the regular SYK}
 At $\kappa=1$, the numerics reflect that the Lyapunov exponent of the model is the same as the maximal value of regular SYK. This can be understood by looking at the kernel Eq.~\eqref{eq:kernel_tau}. At $\kappa=1$, the scaling dimensions of both the $A$ and $B$ majoranas become $\frac{1}{4}$, and hence $G^A(\tau) = G^B(\tau) \equiv G(\tau)$, the 2 point function of regular SYK. The kernel then factorizes into the product of a function of the four imaginary times, and a constant matrix. 
 \begin{equation}
 	K(\tau_1\cdots\tau_4) = -J^2 G(\tau_{13})G(\tau_{24})G(\tau_{34})^2 \begin{pmatrix}
@@ -676,7 +676,7 @@ The constant matrix in question has eigenvalues $-1$ and $+3$. The latter eigenv
 
 
 
-\section{Finite-size dependence of two-point functions and Lyapunov exponents}\label{app:FiniteSize}
+\subsection{Finite-size dependence of two-point functions and Lyapunov exponents}\label{app:FiniteSize}
 In this section, we briefly comment on the sensitivity of the two-point function to the finite-size cut-offs introduced when numerically solving the Schwinger-Dyson equations for the b-SYK model.
 To solve the coupled b-SYK equations (Eq.~\eqref{eq:retarded_dyson_equation} and below), we discretize the semi-infinite positive timeline by introducing a long time cut-off $T$ and a finite number of time steps $N$ inbetween. 
 This introduces a discretized time-step $\Delta t=T/N$ and frequency step $\Delta \omega = 2 \pi / T$.
