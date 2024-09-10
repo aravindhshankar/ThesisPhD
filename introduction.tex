@@ -6,7 +6,7 @@ The thesis will concern two topics of higher interest in current research. The f
 The second part of the thesis will tackle the classic problem of the Kondo effect in a modern setting of strongly interacting electrons: Twisted bilayer graphene (TBG). 
 
 \par 
-It will be argued that the exotic phenomenon belie a hyperbolic geometry in each of these two specific cases. In TBG, this will be identified in the hyperbolic Fermi surface contours, whereas in the SYK model, it will be an emergent Anti de-Sitter spacetime, which is the Lorentzian version of the conventional Euclidean hyperbolic space.  
+As an artistic concept to which perhaps too much meaning should not be attached, we will see that underneath the description of both of these phenomena lies a hyperbolic geometry. In TBG, this will be identified in the hyperbolic Fermi surface contours. In the SYK model, the exotic physics will be described by the breaking of an emergent conformal symmetry, which can equivalently be described through the holographic duality by fluctuations of an Anti de-Sitter spacetime, which is the Lorentzian version of the Euclidean hyperbolic space.  
 
 \newpage
 
@@ -66,7 +66,7 @@ However, this seems to not be the case in the normal state corresponding to a fa
 \par
 In order to break quasiparticles down, we need at least one of two things to happen: either their lifetime must be much shorter than their mean energy (so they would decay quite quickly by scattering), or the quasiparticle residue corresponding to the pole must vanish. 
 \par
-At this point, one can mention a proposal from the past~\cite{varma1989phenomenology,ruckenstein1991theory,varma1993towards,varma2002singular}. The marginal or singular Fermi liquid, as the name suggests, is the most marginal way to create non-Fermi liquid behavior. Based on purely phenomenological terms, the linear term in the self energy is adjusted to include logarithmic corrections, which are weaker that the next leading (quadratic) term in the Taylor expansion. 
+At this point, one can mention a proposal from the past~\cite{varma1989phenomenology,ruckenstein1991theory,varma1993towards,varma2002singular}. The marginal or singular Fermi liquid, as the name suggests, is the most marginal way to create non-Fermi liquid behavior. Based on purely phenomenological terms, the linear term in the self energy is adjusted to include logarithmic corrections, which are weaker than the next leading (quadratic) term in the Taylor expansion. 
 \par
 
 The reason for doing this is as follows. If one supposes naively that the quasiparticle lifetime is the same as the scattering time that appears in the Drude model for electrical conductivity $\sigma = \frac{n e^2\tau}{m}$, with $\frac{1}{\tau} = \Tilde{\Gamma}$ according to Eq.~\eqref{eq:FLGreensfunction}, and that if one attributes the temperature dependence of the dc resistivity of the normal states of the cuprate high Tc superconductors  to a $T$-linear inverse quasiparticle lifetime $\Tilde{\Gamma}$ at zero frequency, then based on dimensional analysis, one can expect the imaginary part of the electron self energy to be linear in frequency at low temperature, i.e. $\Im\Sigma = \pi \omega $. Correspondingly from the Kramers-Kronig relations which are needed for reasons of causality, the real part of the self energy can be calculated to be~\cite{littlewood1991phenomenology}
@@ -93,7 +93,7 @@ This simple (albeit naive) consideration  helps us understand why the linear in 
 The Green's function would now not have poles, but rather branch cuts on the $\omega$ axis. 
 \par
 The marginal Fermi liquid was constructed simply on phenomenological grounds, but it is of interest to construct some microscopic model which helps us understand the origin such a singular self energy.
-Such an example is the SYK model, whose self energy, as we shall see goes as $\left|\omega\right|^{\nicefrac{1}{2}}$. It can be noted at this point that other examples of such power law self energies exist, such as in the Hertz-Millis theory of the ferromagnetic transition of itinerant electrons in a metal with $\Sigma \sim \omega^{2/3}$~\cite{Sachdev_2011}. 
+Such an example is the SYK model, whose self energy, as we shall see goes as $\left|\omega\right|^{\nicefrac{1}{2}}$. It can be noted at this point that other examples of such power law self energies exist, such as near a quantum critical point in the Hertz-Millis theory of the ferromagnetic transition of itinerant electrons in a metal with $\Sigma \sim \omega^{2/3}$~\cite{Sachdev_2011}. 
 \begin{figure}
     \centering
     \begin{subfigure}[b]{0.4\textwidth}
@@ -109,7 +109,7 @@ Such an example is the SYK model, whose self energy, as we shall see goes as $\l
 \end{figure}
 
 \section{The SYK model}
-The SYK model describes the physics of interacting fermions living on a strongly disordered quantum dot. Its simplest version can be constructed using a Hamiltonian of $N$ flavors of majorana fermions interacting all-to-all with Gaussian random couplings. 
+The SYK model describes the physics of interacting fermions living on a strongly disordered quantum dot. Its simplest version can be constructed using a Hamiltonian of $N$ flavors of Majorana fermions interacting all-to-all with Gaussian random couplings. 
 \begin{equation}
     H = \displaystyle \sum_{1\leq i<j<k<l\leq N} J_{ijkl}\,\psi_i\psi_j\psi_k\psi_l
 \end{equation}
@@ -131,7 +131,7 @@ In Fourier space,
 \end{align}
 
 \subsection{The SYK self consistent equations}
-We can now turn to look at the diagrams that dress the fermion Green's functions upon turning on interactions.  The disorder average enforces that the flavors of the four majoranas at both the connecting vertices are identical, and simultaneously brings out a contribution $\sim \frac{J^2}{N^3}$ for each vertex pair. This means that in order for this diagram to not be suppressed in the large N limit, only diagrams which have three free intermediate lines summed over for each pair of vertices can survive. All these constraints 
+We can now turn to look at the diagrams that dress the fermion Green's functions upon turning on interactions.  The disorder average enforces that the flavors of the four Majoranas at both the connecting vertices are identical, and simultaneously brings out a contribution $\sim \frac{J^2}{N^3}$ for each vertex pair. This means that in order for this diagram to not be suppressed in the large N limit, only diagrams which have three free intermediate lines summed over for each pair of vertices can survive. All these constraints 
  restrict the set of diagrams that survive at leading order in large $N$ to be just the melon diagrams shown in Fig.~\ref{fig:melons}, and the Green's function takes the form $G_{ij}(\tau) = G(\tau)\delta_{ij}$.
 
 \par
@@ -180,7 +180,7 @@ We can see again from simple dimensional analysis how the Green's function Eq.~\
 yields the branch-cut propagator result of $\Sigma(\omega)\sim \abs{\omega}^{\nicefrac{1}{2}} $, as promised, and we have with us a microscopic model for the breakdown of quasiparticles.  
 
 \section{Other versions of the SYK used in this thesis}
-It would be quite a fallacy to limit one's understanding of the physics of the SYK model to simply an artificial description of majorana fermions in quantum dots - in fact, the original UV-completion of the SYK model was described by a random heisenberg coupled spin system~\cite{sachdev1993gapless}.
+It would be quite a fallacy to limit one's understanding of the physics of the SYK model to simply an artificial description of Majorana fermions in quantum dots - in fact, the original UV-completion of the SYK model was described by a random heisenberg coupled spin system~\cite{sachdev1993gapless}.
 \par
 Rather, its physical content  describes the emergence and the weak breaking of a new conformal symmetry in the infrared. In this section, we will describe some generalizations of the SYK model to include different kinds of degrees of freedom, which will be an emphasis of the fact that this class of models should be thought of as a description of a new IR fixed point. 
 
@@ -226,7 +226,7 @@ For a solution of these equations to exist, one needs that $\Sigma(\omega_n \rig
 
 
 \subsection{Yukawa-SYK model}
-The SYK model can also be generalized to include bosonic degrees of freedom. The Yukawa SYK (y-SYK) model can be thought of as a zero dimensional analogue of the electron-phonon coupling Hamiltonian. This has been the subject of intense theoretical study in recent years~\cite{esterlis2019cooper,wang2020quantum,wang2020solvable,classen2021superconductivity,inkof2022quantum,pan2021yukawa,davis2023quantum,grunwald2024dynamical,choi2022pairing}. The model also allows for a generalization into higher dimension for a recently proposed universal theory of strange metals~\cite{patel2023universal,valentinis2023correlation,esterlis2021large,guo2022large,guo2023large,li2024strange} by being able to have a controlled large-N limit overcoming previous challenges~\cite{lee2009low}.
+The SYK model can also be generalized to include bosonic degrees of freedom. The Yukawa SYK (YSYK) model can be thought of as a zero dimensional analogue of the electron-phonon coupling Hamiltonian. This has been the subject of intense theoretical study in recent years~\cite{esterlis2019cooper,wang2020quantum,wang2020solvable,classen2021superconductivity,inkof2022quantum,pan2021yukawa,davis2023quantum,grunwald2024dynamical,choi2022pairing}. The model also allows for a generalization into higher dimension for a recently proposed universal theory of strange metals~\cite{patel2023universal,valentinis2023correlation,esterlis2021large,guo2022large,guo2023large,li2024strange} by being able to have a controlled large-N limit overcoming previous challenges~\cite{lee2009low}.
 
 \par
 The Hamiltonian for the Yukawa SYK is very reminiscent of the Fr\"ohlich or the Bardeen-Pines Hamiltonian for the electron-phonon interaction and can be written as 
@@ -253,40 +253,39 @@ The Schwinger-Dyson equations in this case read
 \end{align}
 \end{subequations}
 The model is self-tuning to criticality~\cite{esterlis2019cooper}, i.e the bosons modes soften in the infrared. This is the condition that at zero temperature, $\Pi(\omega = 0) = \omega_0^2$.
-In the infrared, they can be solved with the zero-temperature conformal ansatz 
+In the infrared, we can obtain a non-Fermi liquid solution by making use of the zero-temperature conformal ansatz 
 \begin{align}
     G(\tau) &= b\frac{\sgn(\tau)}{\abs{\tau}^{2\Delta_f}} ,\\
     D(\tau) &= d\frac{1}{\abs{\tau}^{2\Delta_b}} .
 \end{align}
-These can be Fourier transformed using the identities
-\begin{align}
-        \int_{-\infty}^{\infty} d\tau\,\frac{\sgn(\tau)}{\abs{\tau}^\alpha} e^{i\omega\tau} &= i2^{1-\alpha}\sqrt{\pi}\frac{\Gamma(1-\frac{\alpha}{2})}{\Gamma(\frac{1}{2}+\frac{\alpha}{2})}\abs{\omega}^{\alpha-1}\sgn(\omega) , \\
-        \int_{-\infty}^{\infty} d\tau\,\frac{1}{\abs{\tau}^\alpha} e^{i\omega\tau}  &= 2^{1-\alpha}\sqrt{\pi}\frac{\Gamma(\frac{1}{2}-\frac{\alpha}{2})}{\Gamma(\frac{\alpha}{2})}\abs{\omega}^{\alpha-1}. 
-\end{align}
-We then get 
-\begin{align}
-    \Sigma(\omega) &= \kappa \, g^2 bd \, i2^{1-2(\Delta_f + \Delta_b)}\sqrt{\pi}\frac{\Gamma(1-(\Delta_f+\Delta_b))}{\Gamma(\frac{1}{2} + \Delta_f + \Delta_b)} \abs{\omega}^{2(\Delta_f+\Delta_b)-1}\sgn(\omega) \\
-    \Pi(\omega) &= 2g^2b^2 \, 2^{1-4\Delta_f}\sqrt{\pi} \frac{\Gamma(\frac{1}{2} - 2\Delta_f)}{\Gamma(2\Delta_f)}\abs{\omega}^{4\Delta_f-1}\\
-    G(\omega) &= b\,i2^{1-2\Delta_f}\sqrt{\pi}\frac{\Gamma(1-\Delta_f)}{\Gamma(\frac{1}{2}+\Delta_f)}\abs{\omega}^{2\Delta_f-1}\sgn(\omega) \\
-    D(\omega) &= d\,2^{1-2\Delta_b}\sqrt{\pi}\frac{\Gamma(\frac{1}{2}-\Delta_b)}{\Gamma(\Delta_b)} \abs{\omega}^{2\Delta_b-1}
-    \label{eq:scalingsolns}
-\end{align}
-The Dyson equation in the fully conformal limit, where the self energy wins over the free propagators are: (for now we work with $\mu = 0$ )
-\begin{align}
-     -1 &= G(\omega)\Sigma(\omega) \,, \\
-     -1 &= D(\omega)\Pi(\omega).
-    \label{eq:DysonFreq}
-\end{align}
-We see that in this case, only the product $b^2d$ is fixed in this fully conformal limit, and not separately the constants $b$ and $d$ themselves, as happens for regular SYK. However, this is an artifact of neglecting the short time, high frequency terms in the Dyson equation, and including the full UV corrections enables one to fix these constants, similar to the b-SYK model. The easy way to see this is that at short time, the free part of the Dyson equation should win over, and $G(\tau = 0^+)$ should be $-\frac{1}{2}\sgn(\tau)$, which is the fourier transform of $\frac{1}{i\omega}$.   
+% These can be Fourier transformed using the identities
+% \begin{align}
+%         \int_{-\infty}^{\infty} d\tau\,\frac{\sgn(\tau)}{\abs{\tau}^\alpha} e^{i\omega\tau} &= i2^{1-\alpha}\sqrt{\pi}\frac{\Gamma(1-\frac{\alpha}{2})}{\Gamma(\frac{1}{2}+\frac{\alpha}{2})}\abs{\omega}^{\alpha-1}\sgn(\omega) , \\
+%         \int_{-\infty}^{\infty} d\tau\,\frac{1}{\abs{\tau}^\alpha} e^{i\omega\tau}  &= 2^{1-\alpha}\sqrt{\pi}\frac{\Gamma(\frac{1}{2}-\frac{\alpha}{2})}{\Gamma(\frac{\alpha}{2})}\abs{\omega}^{\alpha-1}. 
+% \end{align}
+% We then get 
+% \begin{align}
+%     \Sigma(\omega) &= \kappa \, g^2 bd \, i2^{1-2(\Delta_f + \Delta_b)}\sqrt{\pi}\frac{\Gamma(1-(\Delta_f+\Delta_b))}{\Gamma(\frac{1}{2} + \Delta_f + \Delta_b)} \abs{\omega}^{2(\Delta_f+\Delta_b)-1}\sgn(\omega) \\
+%     \Pi(\omega) &= 2g^2b^2 \, 2^{1-4\Delta_f}\sqrt{\pi} \frac{\Gamma(\frac{1}{2} - 2\Delta_f)}{\Gamma(2\Delta_f)}\abs{\omega}^{4\Delta_f-1}\\
+%     G(\omega) &= b\,i2^{1-2\Delta_f}\sqrt{\pi}\frac{\Gamma(1-\Delta_f)}{\Gamma(\frac{1}{2}+\Delta_f)}\abs{\omega}^{2\Delta_f-1}\sgn(\omega) \\
+%     D(\omega) &= d\,2^{1-2\Delta_b}\sqrt{\pi}\frac{\Gamma(\frac{1}{2}-\Delta_b)}{\Gamma(\Delta_b)} \abs{\omega}^{2\Delta_b-1}
+%     \label{eq:scalingsolns}
+% \end{align}
+% The Dyson equation in the fully conformal limit, where the self energy wins over the free propagators are: (for now we work with $\mu = 0$ )
+% \begin{align}
+%      -1 &= G(\omega)\Sigma(\omega) \,, \\
+%      -1 &= D(\omega)\Pi(\omega).
+%     \label{eq:DysonFreq}
+% \end{align}
+% We see that in this case, only the product $b^2d$ is fixed in this fully conformal limit, and not separately the constants $b$ and $d$ themselves, as happens for regular SYK. However, this is an artifact of neglecting the short time, high frequency terms in the Dyson equation, and including the full UV corrections enables one to fix these constants, similar to the b-SYK model. The easy way to see this is that at short time, the free part of the Dyson equation should win over, and $G(\tau = 0^+)$ should be $-\frac{1}{2}\sgn(\tau)$, which is the fourier transform of $\frac{1}{i\omega}$.   
 
 \par
-Eq.\eqref{eq:scalingsolns} and Eq.~\eqref{eq:DysonFreq} together imply that
-\begin{align}
-    2\Delta_f + \Delta_b &= 1 ,\\
-    \kappa \, \frac{\Gamma(1-\Delta_f)\Gamma(1-(\Delta_f+\Delta_b))}{\Gamma(\frac{1}{2}+\Delta_f)\Gamma(\frac{1}{2}+\Delta_f+\Delta_b)} &= -2 \frac{\Gamma(\frac{1}{2}-\Delta_b)\Gamma(\frac{1}{2}-2\Delta_f)}{\Gamma(\Delta_b)\Gamma(2\Delta_f)}.
-\end{align}
-For $\kappa = 1$, these equations are solved by $\Delta_f = 0.420374$, and $\Delta_b = 0.159252$.
-
+% Eq.\eqref{eq:scalingsolns} and Eq.~\eqref{eq:DysonFreq} together imply that
+% \begin{align}
+%     2\Delta_f + \Delta_b &= 1 ,\\
+%     \kappa \, \frac{\Gamma(1-\Delta_f)\Gamma(1-(\Delta_f+\Delta_b))}{\Gamma(\frac{1}{2}+\Delta_f)\Gamma(\frac{1}{2}+\Delta_f+\Delta_b)} &= -2 \frac{\Gamma(\frac{1}{2}-\Delta_b)\Gamma(\frac{1}{2}-2\Delta_f)}{\Gamma(\Delta_b)\Gamma(2\Delta_f)}.
+% \end{align}
+For $\kappa = 1$, we obtain the scaling dimensions $\Delta_f = 0.420374$, and $\Delta_b = 0.159252$.
 \par 
 At finite temperature, the model exhibits a rich phase diagram first outlined in Ref.~\cite{esterlis2019cooper}. For $g<1$, the highest temperatures are characterized by a limit of free fermions, where $G(\omega_n) \rightarrow \frac{1}{i\omega_n}$, and the low temperature phase is the finite temperature version of the non-Fermi liquid described above. The $g>1$ regime is characterized by a novel impurity like phase at intermediate and high temperature. This is shown pictorially in Fig.~\ref{fig:ESPhaseDiagram}.
 \begin{figure}
@@ -305,7 +304,7 @@ As an aside, another loose argument for this is that the broken time reversal sy
 Coming back to the Yukawa SYK model, the restoration of TRS introduces a form of strong coupling superconductivity at low temperatures, and the equations of motion become the quantum critical Eliashberg equations~\cite{metlitski2015cooper,chubukov2020interplay,abanov2020interplay,she2009bcs}. This is a model of superconductivity betrothed to a quantum critical point, and is expected to be of importance in the study of the cuprate superconductors.
 In this case, the non-Fermi liquid metallic phase becomes difficult to observe as it competes with the superconducting phase. The reason for this is that the temperature scale in which non-fermi liquid effects set in is parametrically the same as that at which superconductivity sets in, but however there might be a numerical prefactor which separates the two. However, one may interpolate between the TRS preserving and TRS breaking situations by linearly interpolating between the GOE and GUE ensembles, which has the effect of lowering $T_c$ from its maximum value. 
 \par
-In Chapter~\ref{chap:JosephsonWormhole} of this thesis, we will explore what happens when we couple two quantum critical superconductors through a weak link as is done conventionally~\cite{ambegaokar1963tunneling} and see that the SYK character of this model (at least theoretically) introduces subtleties in the dc Josephson current that passes through the junction.
+In Chapter~\ref{chap:JosephsonWormhole} of this thesis, we will explore what happens when we couple two quantum critical superconductors through a weak link as is done conventionally~\cite{ambegaokar1963tunneling} and calculate the resulting Josephson current. We will see that this very coupling will be responsible for a wormhole-like state on the dual gravitational side.
  
 \subsection{b-SYK}
 \label{subsec:bSYK}
@@ -321,9 +320,9 @@ The effects of the coulomb interaction projected onto the degenerate states of t
 To provide evidence that the Hamiltonian thus generated is SYK like, the authors of  Ref.~\cite{Chen2018} took recourse to random matrix theory. They first calculated the coupling constants of the projected graphene Hamiltonian by explicit numerical diagonalization as a function of flux. They observed with increasing flux that as a new zero mode was added, the distribution of couplings changed random matrix universality class, in close analogy to the Altland-Zirnbauer classification for non-interacting Hamiltonians~\cite{altland1997nonstandard,fidkowski2010effects,fidkowski2011topological}, and this matches perfectly with the random matrix classes as a function of the number of fermions in the SYK model~\cite{garcia2016spectral,behrends2019tenfold,you2017sachdev}. 
 
 \par 
-A similar idea was used by Fremling and Fritz~\cite{fremling_bipartite_2021} to propose an experimental realization of a majorana version of the SYK model. They consider the Kitaev honeycomb model of spins~\cite{kitaev2006anyons}, which is believed to be realized in many spin liquid candidates including the iridates like $\mathrm{Na}_2\mathrm{IrO}_3$, $\mathrm{H}_3\mathrm{Li}\mathrm{Ir}_2\mathrm{O}_6$ and more prominently in $\alpha-\mathrm{RuCl}_3$~\cite{trebst2022kitaev,banerjee2017neutron}. The low energy theory of the Kitaev honey comb model exhibits deconfinement of the spins into majorana fermions. Fremling and Fritz noted that an analogue of a strong magnetic field creating flat Landau levels could be simulated by application of triaxial strain, and the remnant interactions in these materials, for instance the heisenberg interaction, projected onto these majorana zero modes resulted in an SYK-like interaction.
+A similar idea was used by Fremling and Fritz~\cite{fremling_bipartite_2021} to propose an experimental realization of a Majorana version of the SYK model. They consider the Kitaev honeycomb model of spins~\cite{kitaev2006anyons}, which is believed to be realized in many spin liquid candidates including the iridates like $\mathrm{Na}_2\mathrm{IrO}_3$, $\mathrm{H}_3\mathrm{Li}\mathrm{Ir}_2\mathrm{O}_6$ and more prominently in $\alpha-\mathrm{RuCl}_3$~\cite{trebst2022kitaev,banerjee2017neutron}. The low energy theory of the Kitaev honey comb model exhibits deconfinement of the spins into Majorana fermions. Fremling and Fritz noted that an analogue of a strong magnetic field creating flat Landau levels could be simulated by application of triaxial strain, and the remnant interactions in these materials, for instance the heisenberg interaction, projected onto these Majorana zero modes resulted in an SYK-like interaction.
 \par
-The catch, however, is that unlike the complex fermion case in the graphene flakes, these residual interactions are only non-vanishing for pairs of majoranas on opposite sublattices of the bipartite honeycomb lattice(see Fig.\ref{fig:bsyk}). This leads to the emergence of the so-called bipartite SYK model (b-SYK), whose Hamiltonian is given by 
+The catch, however, is that unlike the complex fermion case in the graphene flakes, these residual interactions are only non-vanishing for pairs of Majoranas on opposite sublattices of the bipartite honeycomb lattice(see Fig.\ref{fig:bsyk}). This leads to the emergence of the so-called bipartite SYK model (b-SYK), whose Hamiltonian is given by 
 \begin{equation}
     H_{b-SYK} = \frac{1}{4}\sum_{i,j=1}^{N_A}\sum_{\alpha,\beta = 1}^{N_B} J_{ij\alpha\beta}\psi^A_i\psi^A_j\psi^B_\alpha\psi^B_{\beta}. 
     \label{eq:Hbsyk}
@@ -334,12 +333,12 @@ Again, the couplings have some sense of Gaussianity:
 \end{equation}
 Here, $N_A$ and $N_B$ are the number of sites in the $A-$ and $B-$ sublattice respectively, and need not be the same in a disordered system.
 \par
-Although the new model in eq.~\ref{eq:Hbsyk} contains only $\nicefrac{3}{8}$ of the non-zero couplings as the full all-to-all SYK model, it still shows an emergent conformal symmetry at low energy, with a different tunable conformal dimension for the majoranas in each set~\cite{Fremling_2022}. Such generalizations of the SYK model created by repeated pruning of the fully connected graph of couplings falls into the family of the so called "sparse SYK" models~\cite{xu_sparse_2020,garcia-garcia_sparse_2021,caceres2021sparse,caceres2023out}.
+Although the new model in eq.~\ref{eq:Hbsyk} contains only $\nicefrac{3}{8}$ of the non-zero couplings as the full all-to-all SYK model, it still shows an emergent conformal symmetry at low energy, with a different tunable conformal dimension for the Majoranas in each set~\cite{Fremling_2022}. Such generalizations of the SYK model created by repeated pruning of the fully connected graph of couplings falls into the family of the so called "sparse SYK" models~\cite{xu_sparse_2020,garcia-garcia_sparse_2021,caceres2021sparse,caceres2023out}.
 
 \begin{figure}
     \centering
     \includegraphics[scale = 0.5]{figures/introduction/bSYK.png}
-    \caption{Schematic of the b-SYK model. There are 2 sets of majorana fermions living on each of the two bipartite lattices of the honeycomb lattice. The interactions of the model are such that the majoranas do not interact within a set, but every pair of majorana degrees of freedom in each set interacts with a Gaussian random coupling with every pair of majoranas on the other set. Figure from Ref.~\cite{Fremling_2022}.}
+    \caption{Schematic of the b-SYK model. There are 2 sets of Majorana fermions living on each of the two bipartite lattices of the honeycomb lattice. The interactions of the model are such that the Majoranas do not interact within a set, but every pair of Majorana degrees of freedom in each set interacts with a Gaussian random coupling with every pair of Majoranas on the other set. Figure from Ref.~\cite{Fremling_2022}.}
     \label{fig:bsyk}
 \end{figure}
 
@@ -793,9 +792,8 @@ In the introduction, we have explored two very different electronic systems, and
 This chapter concerns the fate of dilute magnetic impurities embedded in twisted bilayer graphene. The density of states profile of twisted bilayer graphene has both a dirac cone and a van Hove singularity in it, the location of which moves closer towards the Fermi energy upon changing the twist angle between the layers closer and closer to $1.05^\circ$. In a metal with a constant density of states and a large carrier density, the magnetic moment of the impurity gets strongly screened by the conduction electrons in a phenomenon called the Kondo effect for temperatures below a characteristic scale called the Kondo temperature. This is not seen in monolayer graphene owing to the low density of states of the Dirac cone in similar spirit to Eq.~\ref{eq:BCSTc}. The chapter first addresses the modeling of the low energy band structure of twisted graphene using the continuum Bistritzer-MacDonald model~\cite{Bistritzer2011}, presents a method to accurately determine the positions and nature of the van Hove singularities close to the Fermi level, and then presents numerical renormalization group results for the impurity entropy and spectral function at finite temperature for this version of the Kondo problem. The key prediction is a revival of the Kondo effect at the lowest energy scales at exactly the magic angle of twisted bilayer graphene. The results of this chapter have been published in Ref.~\cite{shankar2023kondo} and further studies confirming the prediction using more sophisticated models have appeared from other groups since in Ref.~\cite{chang2023vacancy}. 
 
 \subsection{Chapter 2 - Chaos in the bipartite Sachdev-Ye-Kitaev model}
-This chapter studies the scrambling dynamics of the b-SYK model by calculation of its Lyapunov exponent, both in the fully conformal limit and at intermediate and weak coupling as the population ratios of the A and B majoranas are changed. The population imbalance endows the A and B majoranas with separate conformal dimensions, but the analysis presented determines the model as a whole to have one unique exponent. This is understood in terms of scattering pathways of the A and the B majoranas mixing with each other and the model always picking the scattering pathway with the fastest rate. Furthermore, although the model saturates the chaos bound presented in the seminal work of Ref.~\cite{maldacena_bound_2016} in the conformal limit, it was observed that even the corrections to the Lyapunov exponent at intermediate coupling in the b-SYK model is uninfluenced by perturbations to the conformal dimension of the A and B fermions, which is a surprising result. This chapter has been published in Ref.~\cite{shankar2023lyapunov}.
+This chapter studies the scrambling dynamics of the b-SYK model by calculation of its Lyapunov exponent, both in the fully conformal limit and at intermediate and weak coupling as the population ratios of the A and B Majoranas are changed. The population imbalance endows the A and B Majoranas with separate conformal dimensions, but the analysis presented determines the model as a whole to have one unique exponent. This is understood in terms of scattering pathways of the A and the B Majoranas mixing with each other and the model always picking the scattering pathway with the fastest rate. Furthermore, although the model saturates the chaos bound presented in the seminal work of Ref.~\cite{maldacena_bound_2016} in the conformal limit, it was observed that even the corrections to the Lyapunov exponent at intermediate coupling in the b-SYK model is uninfluenced by perturbations to the conformal dimension of the A and B fermions, which is a surprising result. This chapter has been published in Ref.~\cite{shankar2023lyapunov}.
 
 
 \subsection{Chapter 3 - Wormholes in the Yukawa-Sachdev-Ye-Kitaev model}
-~\cite{maldacena2003eternal}
-TBD
+In this chapter, we study a model of two YSYK dots coupled with a tunneling interaction $\lambda$. In the weak tunneling limit, the quantum state of the system is well approximated by the thermo-field double (TFD) state. This makes the system dual to an eternal traversable wormhole, along the lines of Ref.~\cite{maldacena2018eternal,maldacena2003eternal}. In the TRS broken non-superconducting state, we indeed find a first order transition of the system from the two black holes phase to a wormhole phase, with a clear signature in the scaling of the boson and fermion Green's functions. Furthermore, we find that the wormhole phase survives the competition from superconducting order, which arises upon the restoration of TRS. On the gravitational side, superconductivity is described by scalar hair. Our key finding is that the system in the superconducting state remains a traversable wormhole for the fermionic excitations, but not for the scalar hair. Additionally, since the system on the field theory side represents two coupled superconductors, we investigate the Josephson effect that arises from twisting the phase of the two sides relative to one another. This chapter is still a manuscript under preparation. 
