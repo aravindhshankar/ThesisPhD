@@ -13,7 +13,7 @@ class Hyperbolae(Scene):
 		def impfun(x,y,a):
 			return x**2 - y**2 - a**2 
 		
-		titletext = Text('Strongly Correlated electrons in Sachdev-Ye-Kitaev models and \n Twisted Bilayer Graphene', color = BLUE).scale(1).align_on_border(np.array([0,1,0]),buff=0.5)
+		titletext = Text('Strongly Correlated electrons in \n Sachdev-Ye-Kitaev models \n and \n Twisted Bilayer Graphene', color = BLUE).scale(1).align_on_border(np.array([0,1,0]),buff=0.5)
 		self.add(NumberPlane(), titletext)	
 		for aval in  np.array([1,2,3,4]):
 			graph = ImplicitFunction(partial(impfun, a = aval), color=YELLOW)
