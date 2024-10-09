@@ -1,10 +1,9 @@
 import numpy as np
 from functools import partial 
-from scipy.optimize import newton
 from manim import *
 
-config.frame_width = 17.30 # units cm 
-config.frame_height = 24.60 # units cm
+config.frame_width = 17.30 # units mm 
+config.frame_height = 24.60 # units mm
 config.pixel_width = int(config.frame_width * 100)
 config.pixel_height = int(config.frame_height * 100)
 
@@ -26,34 +25,18 @@ class Hyperbolae(Scene):
 		title4 = Text('Twisted bilayer graphene', color = titlecol).scale(titlefontscale).next_to(title3,DOWN)
 		name1 = Text('Aravindh Swaminathan', color = namecol).scale(namefontscale).align_on_border(np.array([0,-1,0]), buff = 2)	
 		name2 = Text('Shankar', color = namecol).scale(namefontscale).next_to(name1, DOWN)
+		self.add(NumberPlane())	
 		self.add(title1,title2,title3,title4)
 		self.add(name1,name2)
-		
-		alist = np.array([1,2,3,4])				
-		for aval in alist :
+		for aval in  np.array([1,2,3,4]):
 			graph = ImplicitFunction(partial(impfun, a = aval), color=YELLOW)
 			self.add(graph)
 		
 
 		######## adding the random color electrons ##########
 		Erad = 0.3
-		xlist = np.array([1,2.3,3,4.7])	
-		ylist = [newton(lambda yval: impfun(x=xlist[i], y=yval, a=alist[i]), x0 = 1) for i in np.arange(len(xlist))]
-		print(xlist)
-		print(ylist)
-		e1 = Dot([xlist[0],ylist[0],0], radius=Erad, color=RED)
-		e2 = Dot([xlist[1],ylist[1],0], radius=Erad, color=RED)
-		e3 = Dot([xlist[2],ylist[2],0], radius=Erad, color=RED)
+		e1 = Dot([0,1,0], radius=Erad, color=RED)
 		self.add(e1)
-		self.add(e2)
-		self.add(e3)
-		
-		######## adding the grid ############
-		wratio = 0.4
-		xrangetup = (-config.frame_width * wratio, config.frame_width * wratio, 1)
-		yrangetup = (-config.frame_height * wratio, config.frame_height * wratio, 1)
-		numberplane = NumberPlane(x_range=xrangetup, y_range=yrangetup, faded_line_ratio = 3)
-		self.add(numberplane)	
 
 class BraceAnnotation(Scene):
     def construct(self):
