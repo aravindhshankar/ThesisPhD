@@ -12,7 +12,7 @@ config.pixel_height = int(config.frame_height * 100)
 class Hyperbolae(Scene):
 	def construct(self):
 		def impfun(x,y,a):
-			return x**2 - y**2 - a**2 
+			return x**2 - 2 * y**2 - a**2 
 		
 		# titletext = Text('Strongly Correlated electrons in \n Sachdev-Ye-Kitaev models \n and \n Twisted Bilayer Graphene', color = BLUE, should_center=True).scale(1).align_on_border(np.array([0,1,0]),buff=0.5)
 		
@@ -37,21 +37,23 @@ class Hyperbolae(Scene):
 
 		######## adding the random color electrons ##########
 		Erad = 0.3
-		xlist = np.array([1,2.3,3,4.7])	
-		ylist = [newton(lambda yval: impfun(x=xlist[i], y=yval, a=alist[i]), x0 = 1) for i in np.arange(len(xlist))]
+		colorlist = [RED_A, TEAL_A, MAROON_D, GOLD_D, ORANGE, GREEN_B]
+		xlist = np.array([1,2.3,3.6,4.7,6.1,3.5])	
+		plotalist = np.array([0,1,2,3,0,1]) #alist[i] will be chosen
+		xsignlist = np.array([-1,1,1,-1,1,-1])
+		ysignlist = np.array([-1,1,-1,-1,1,1])
+		ylist = [newton(lambda yval: impfun(x=xlist[i], y=yval, a=alist[plotalist[i]]), x0 = 1) for i in np.arange(len(xlist))]
 		print(xlist)
 		print(ylist)
-		e1 = Dot([xlist[0],ylist[0],0], radius=Erad, color=RED)
-		e2 = Dot([xlist[1],ylist[1],0], radius=Erad, color=RED)
-		e3 = Dot([xlist[2],ylist[2],0], radius=Erad, color=RED)
-		self.add(e1)
-		self.add(e2)
-		self.add(e3)
-		
+		elist = [Dot([xsignlist[i]*xlist[i],ysignlist[i]*ylist[i],0], radius=Erad, color=colorlist[i]) for i in range(len(xlist))]
+		for electron in elist: 
+			self.add(electron)	
 		######## adding the grid ############
-		wratio = 0.4
+		wratio = 0.5
+		hratiotop = 0.3
+		hratiobottom = 0.3
 		xrangetup = (-config.frame_width * wratio, config.frame_width * wratio, 1)
-		yrangetup = (-config.frame_height * wratio, config.frame_height * wratio, 1)
+		yrangetup = (-config.frame_height * hratiobottom, config.frame_height * hratiotop, 1)
 		numberplane = NumberPlane(x_range=xrangetup, y_range=yrangetup, faded_line_ratio = 3)
 		self.add(numberplane)	
 
