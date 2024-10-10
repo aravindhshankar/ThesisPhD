@@ -14,8 +14,15 @@ class Hyperbolae(Scene):
 		def impfun(x,y,a):
 			return x**2 - 2 * y**2 - a**2 
 		
-		# titletext = Text('Strongly Correlated electrons in \n Sachdev-Ye-Kitaev models \n and \n Twisted Bilayer Graphene', color = BLUE, should_center=True).scale(1).align_on_border(np.array([0,1,0]),buff=0.5)
-		
+		######## adding the grid ############
+		wratio = 0.5
+		hratiotop = 0.3
+		hratiobottom = 0.3
+		xrangetup = (-config.frame_width * wratio, config.frame_width * wratio, 1)
+		yrangetup = (-config.frame_height * hratiobottom, config.frame_height * hratiotop, 1)
+		numberplane = NumberPlane(x_range=xrangetup, y_range=yrangetup, faded_line_ratio = 3)
+		self.add(numberplane)	
+		########### Adding the text and the hyperbolae ###############	
 		titlecol = BLUE
 		titlefontscale = 1.5
 		namecol = BLUE
@@ -48,14 +55,30 @@ class Hyperbolae(Scene):
 		elist = [Dot([xsignlist[i]*xlist[i],ysignlist[i]*ylist[i],0], radius=Erad, color=colorlist[i]) for i in range(len(xlist))]
 		for electron in elist: 
 			self.add(electron)	
-		######## adding the grid ############
-		wratio = 0.5
-		hratiotop = 0.3
-		hratiobottom = 0.3
-		xrangetup = (-config.frame_width * wratio, config.frame_width * wratio, 1)
-		yrangetup = (-config.frame_height * hratiobottom, config.frame_height * hratiotop, 1)
-		numberplane = NumberPlane(x_range=xrangetup, y_range=yrangetup, faded_line_ratio = 3)
-		self.add(numberplane)	
+
+
+
+
+class BackPage(Scene):
+	def construct(self):
+		##### added some indentation reference #########
+		print('Empty page')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class BraceAnnotation(Scene):
     def construct(self):
