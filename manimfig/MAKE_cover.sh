@@ -1,6 +1,6 @@
 #!/bin/bash
 
-QFLAG="-pqh -s" #options pql/pqh for low/high quality
+QFLAG="-pqk -s" #options pql/pqh/pqk for low/high/k quality
 
 echo "######### MAKE Hyperbolae shell script ##########"
 manim $QFLAG cover_try.py Hyperbolae

@@ -32,7 +32,7 @@ config.pixel_height = int(config.frame_height * 100)
 class MiddleStrip(Scene):
 	def construct(self):
 		textcol = YELLOW
-		lefttext = Text('Strongly correlated electrons in Sachdev-Ye-Kitaev models and in Twisted bilayer graphene', color = textcol, disable_ligatures = True, font_size=30).scale(1).align_on_border([-1,0,0], buff = 0.5)
+		lefttext = Text('Strongly correlated electrons in Sachdev-Ye-Kitaev models and Twisted bilayer graphene', color = textcol, disable_ligatures = True, font_size=30).scale(1).align_on_border([-1,0,0], buff = 0.5)
 		righttext = Text('A. S. Shankar', color = textcol, disable_ligatures = True, font_size=30).scale(1).align_on_border([1,0,0], buff = 0.5)
 		self.add(lefttext, righttext)
 
