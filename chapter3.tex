@@ -122,7 +122,7 @@ The Yukawa-SYK model describes a quantum dots with $N$ flavors of spin-$\frac{1}
 In a single instance of the model the complex couplings $g_{ijk}=g^{'}_{ijk}+ig^{''}_{ij,k}$ are randomly drawn from an ensemble with zero mean and variance
 \begin{align}
     \langle g'_{ijk}g'_{lmn}\rangle &= (1-\frac{\alpha}{2})g^2\delta_{kn}(\delta_{il}\delta_{jm}+\delta_{im}\delta_{jl})~,\nonumber\\
-    \langle g'_{ijk}g'_{lmn}\rangle &= \frac{\alpha}{2}g^2\delta_{kn}(\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl})~,\nonumber\\
+    \langle g''_{ijk}g''_{lmn}\rangle &= \frac{\alpha}{2}g^2\delta_{kn}(\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl})~,\nonumber\\
     \langle g'_{ijk}g''_{lmn}\rangle &=0~.
 \end{align}
 For $\alpha=1$ the hermitian matrix $g_{ijk}=(g_k)_{ij}$ is in the Gaussian Unitary ensemble; for $\alpha=0$ the matrix is real and in the Gaussian orthogonal ensemble. The model is solvable after averaging over the ensemble and taking the double limit $N\rightarrow \infty$, $M\rightarrow\infty$ with $\kappa=M/N$ fixed.
@@ -282,7 +282,7 @@ See Fig.~\ref{fig:LargeLambdaGapScaling}.
 This represents a situation when the fermions just occupy the ground state of the cross coupling part of the hamiltonian, but are otherwise free. When analytically continued to the real axis, the spectral function would simply represent a quasiparticle pole at $\pm\lambda$.
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/chapter3/LARGElambdalinearscaling.pdf}
+    \includegraphics[width=0.8\linewidth]{figures/chapter3/LARGElambdalinearscaling.pdf}
     \caption{For large $\lambda \gtrsim g^{2}/\omega_0^2$, 
     %\comment{THIS FOLLOWS FROM THE FACT THAT THE PHASE TRANSITION IS AT $T\sim\lambda$ AND $T_{SYK}=g^{2/3}$. IS THE LATTER CORRECT? COULD ALSO BE $\lambda \gtrsim g/\omega_0^{1/3}$ CHECK. I THINK EITHER IS MORE CORRECT THAN $\lambda \sim \omega_0$} \as{agreed, $g^{2/3}$ is better. Esterlis and Schmalian in Ref.~\cite{esterlis2019cooper} use $T_{SYK} = \frac{g^2}{\omega_0^2}$, but I think $g^{2/3}$ is also good. NOTE: what they call $\bar{g}$ is $g$ for us.}\comment{OK, WE SHOULD CORRECT THIS TO ESTERLIS.},
     the diagonal fermion Green's function has a gap that scales linearly with $\lambda$, and is well approximated by Eq.~\ref{eq:Gd0taulambda}.}
@@ -393,14 +393,14 @@ From this we can extract $c=E_{gap}/\Delta$ and predict $E_1=c(\Delta+1)$. The p
 
 \begin{figure}[!t]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/chapter3/ExponentsGD.pdf}%figsize actually one column
+    \includegraphics[width=0.75\linewidth]{figures/chapter3/ExponentsGD.pdf}%figsize actually one column
     \caption{First subleading exponent in the imaginary time numerics. The vertical dotted lines of each color indicate the window at which the fit of the corresponding color was performed.}
     \label{fig:subleadingexponentGD}
 \end{figure}
 
 \begin{figure}[!t]
     \centering
-    \includegraphics[width=0.9\linewidth]{figures/chapter3/ButterFlyPlot.pdf}
+    \includegraphics[width=0.95\linewidth]{figures/chapter3/ButterFlyPlot.pdf}
     % \includegraphics[width=0.9\linewidth]{butterflyplotmetal.pdf}
     \caption{Free energy as a function of temperature for $\lambda = 0.05$. The dashed gray line represents an estimate of the wormhole transition temperature, when the Green's functions cross over from power law to exponential decay. For this value of $\lambda$, our numerical solution was unique at every chosen value of the temperature, save a couple of instances close to the transition, where it shows mild hysteresis. This is delineated in the right panel which shows the difference in free energy between the solutions obtained from annealing from high to low temperature ($F_{H-L}$), and low to high temperature ($F_{L-H}$), by using as an initial guess at each step the solution obtained at the previous step.
     % \comment{THERE IS SOMETHING WRONG IN THE FIGURE. THE UPPER CURVE SHOULD BE THE ANNEALING FROM HIGH T TO LOW. AND THE LOWER CURVE SHOULD BE THE CURVE FROM LOW TO HIGH. PLEASE CHECK}
@@ -487,7 +487,7 @@ The gap that is present is the ordinary BCS superconducting gap, however. This f
 shows that the dominant exponential scaling is the same. 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.75\linewidth]{figures/chapter3/diffG.pdf} %figsize is actually one column
+    \includegraphics[width=\linewidth]{figures/chapter3/diffG.pdf} %figsize is actually one column
     % ~\includegraphics[width=0.45\linewidth]{diffD.pdf}
     \caption{A remnant of the wormhole can be seen if one subtracts the one sided Green's functions from the diagonal Green's functions of the two sided tunneling coupled model.}
     \label{fig:subleading-Sc}
@@ -496,7 +496,7 @@ shows that the dominant exponential scaling is the same.
 \begin{figure}
     \centering
     % \includegraphics[width=0.5\linewidth]{ratioFs.pdf}
-    \includegraphics[width=0.75\linewidth]{figures/chapter3/ratioFsv2.pdf} %figsize is actually one column
+    \includegraphics[width=0.9\linewidth]{figures/chapter3/ratioFsv2.pdf} %figsize is actually one column
     \caption{The anomalous propagators mostly just follow the one sided anomalous propagators, except for a small shift in magnitude. In the green curve, one sees a dip because the difference changes sign, and the absolute value is plotted on a log scale. The shift in magnitude is to be expected because in one case $\lambda \neq 0$, and this changes the magnitude of the solutions, but does not change the qualitative form.}
     \label{fig:Fratio}
 \end{figure}
@@ -595,8 +595,8 @@ The Josephson configuration for the coupled YSYK system has for the kinetic part
 \begin{figure}[t!]
     \centering
     \raisebox{0.1 in}{\includegraphics[width=0.2\textwidth]{figures/chapter3/SC-YSYK-PhaseDiagram-v2.pdf}}
-    ~\includegraphics[width=0.3\textwidth]{figures/chapter3/SUP_free_energy.pdf}
-    ~\includegraphics[width=0.3\textwidth]{figures/chapter3/partialTFSUP.pdf}
+    ~\includegraphics[width=0.35\textwidth]{figures/chapter3/SUP_free_energy.pdf}
+    ~\includegraphics[width=0.35\textwidth]{figures/chapter3/partialTFSUP.pdf}
     \caption{The schematic phase diagram of the coupled superconducting Yukawa-SYK system for $g/\omega_0^{3/2}=0.5$ and $\alpha=0$. The system first transitions to from the strongly coupled finite temperature critical state (2BH) to a superconducting state (2BH-SC) in a second order transition. While superconducting the system 
     crosses over at an even lower $T$ to a superconducting TFD/wormhole state. It is no longer a first order transition.  The right shows that the free energy  has a continuous derivative at the putative transition temperature $T_{\text{WH}}$ - the inset is a zoom-in of the main panel near $T_{\text{WH}}$. 
     %The wormhole is a subleading effect; we can only establish it through the remnant exponential in the fermion green function after subtracting the one-sided part.
@@ -857,9 +857,9 @@ then this implies that $\Sigma^{ab}(\tau)$ will also be real on the saddle point
 \end{align}
 %
 The sum over spins can also be performed in the disorder averaged interaction term above, and we get
-\begin{align}
-    \overline{S}_g = \frac{M g^2}{2} \sum_{ab}\int d\tau d\taup D^{ab}(\tau,\taup)\left[G^{ab}(\tau,\taup)G^{ba}(\taup,\tau) + \tilde{G}^{ab}(\tau,\taup)\tilde{G}^{ba}(\taup,\tau) - 2(1-\alpha)\Bar{F}^{ba}(\taup,\tau)F^{ab}(\tau,\taup)\right] \,.
-\end{align}
+\begin{multline}
+    \overline{S}_g = \frac{M g^2}{2} \sum_{ab}\int d\tau d\taup   D^{ab}(\tau,\taup)\Bigg[G^{ab}(\tau,\taup)G^{ba}(\taup,\tau) + \tilde{G}^{ab}(\tau,\taup)\tilde{G}^{ba}(\taup,\tau)  \\ - 2(1-\alpha)\Bar{F}^{ba}(\taup,\tau)F^{ab}(\tau,\taup)\Bigg] \,.
+\end{multline}
 %
 We are then left with the 
 % \begin{widetext}
