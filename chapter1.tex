@@ -258,10 +258,12 @@ Since the self energies are well defined in imaginary time according to Eq.~\eqr
 The analytical continuation is then done by replacing $\i\omega_n \xrightarrow{} \omega+\i\delta$, resulting in
 %
 \begin{equation}
-		\Sigma^R_B(\omega+i\delta) = \frac{J^2}2(1+\kappa) \int\int\int
+	\begin{split}
+		\Sigma^R_B(\omega+i\delta) = \frac{J^2}2(1+\kappa) \int\int\int &
 		\frac{\dd \omega_1}{\pi} \frac{\dd \omega_2}{\pi}\frac{\dd \omega_3}{\pi}
-		\rho_A(\omega_1)\rho_A(\omega_2)\rho_B(\omega_3)
+		\rho_A(\omega_1)\rho_A(\omega_2)\rho_B(\omega_3) \\ &
 		\frac{\left[n(\omega_1)n(\omega_2)n(\omega_3) + n(-\omega_1)n(-\omega_2)n(-\omega_3)\right]}{\omega + \i\delta -\omega_1 -\omega_2-\omega_3},
+	\end{split}
 \end{equation}
 %
 where $n(\omega)$ is the Fermi-Dirac distribution function.
@@ -637,8 +639,10 @@ Now we Fourier transform according to
 \end{equation}
 	If we calculate a sample term $f_{00}$ to illustrate the point, 
 	\begin{multline}
-		f_{00}(\omega) = J^2\frac12 \left(1+ \frac1\kappa\right)\int \dd t_{12} e^{\i\omega t_{12}}\int \dd \tilde{t}\int \dd t_{34} \int \frac{\dd\omega_a}{2\pi} e^{-\i\omega_a(t - \tilde{t} + \frac{1}{2}(t_{12}-t_{34}))}\int \frac{\dd\omega_b}{2\pi} e^{-\i\omega_b(t - \tilde{t} - \frac{1}{2}(t_{12}-t_{34}))} \\
-		G^R_A(\omega_a)G^R_A(\omega_b)\int\frac{\dd\omega_c}{2\pi}\int\frac{\dd\omega^\prime}{2\pi} e^{-\i(\omega_c +\omega^\prime)t_{34}}
+		f_{00}(\omega) = J^2\frac12 \left(1+ \frac1\kappa\right)\int \dd t_{12} e^{\i\omega t_{12}}\int \dd \tilde{t}\int \dd t_{34} \int \frac{\dd\omega_a}{2\pi} e^{-\i\omega_a(t - \tilde{t} + \frac{1}{2}(t_{12}-t_{34}))}\\ 
+		\int \frac{\dd\omega_b}{2\pi} e^{-\i\omega_b(t - \tilde{t} - \frac{1}{2}(t_{12}-t_{34}))} 
+		G^R_A(\omega_a)G^R_A(\omega_b)\\
+		\int\frac{\dd\omega_c}{2\pi}\int\frac{\dd\omega^\prime}{2\pi} e^{-\i(\omega_c +\omega^\prime)t_{34}}
 		\left[\tilde{K}_{00}(\omega_c)f_{00}(\omega^\prime) e^{\lambda_{00}\tilde{t} - \lambda_{00}t} + \tilde{K}_{10}(\omega_c)f_{10}(\omega^\prime) e^{\lambda_{10}\tilde{t} - \lambda_{00}t}\right]
 	\end{multline}
 we notice that there are three time integrations that result in delta functions,
